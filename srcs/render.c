@@ -88,7 +88,7 @@ int animate(t_game *game)
 		if (game->is_running)
 		{
 			game->run_counter++;
-			if (game->run_counter >= 100) // After 100 frames of running
+			if (game->run_counter >= 20) // After 20 frames of running
 			{
 				game->is_running = 0;  // Set to idle
 				game->run_counter = 0; // Reset counter
