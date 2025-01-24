@@ -119,7 +119,7 @@ int render_frame(t_game *game)
 	int j = 0;
 
 	// Clear buffer by setting all pixels to 0
-	memset(game->buffer.addr, 0,
+	ft_memset(game->buffer.addr, 0,
 		   game->map_width * game->tile_size * game->map_height * game->tile_size *
 			   (game->buffer.bpp / 8));
 
