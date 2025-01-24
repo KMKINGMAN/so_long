@@ -18,6 +18,8 @@
 #include <fcntl.h>
 #include <string.h>
 #include "get_next_line_bonus.h"
+#include <stdarg.h>
+#include "libft.h"  // Add this include for va_list
 
 typedef struct s_win
 {
@@ -125,6 +127,8 @@ void flip_sprites(t_game *game);
 // map_validation.c
 int validate_map(t_game *game);
 void free_map(char **map, int height);
+
+int ft_snprintf(char *str, size_t size, const char *format, ...);
 
 #endif
 

@@ -3,7 +3,7 @@
  * @brief Rendering functions for the so_long game
  */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 /**
  * @brief Copies a sprite to the buffer image with transparency handling
@@ -176,7 +176,7 @@ int render_frame(t_game *game)
 
 	// Draw move counter
 	char moves_str[32];
-	snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
+	ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
 	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
 
 	return (0);

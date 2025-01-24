@@ -6,13 +6,13 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:35:26 by mkurkar           #+#    #+#             */
-/*   Updated: 2024/10/10 17:18:01 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/24 19:43:12 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int	ft_strlen(char *str)
+int	ft_gnl_strlen(char *str)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_strchr(char *str, char ch)
+int	ft_gnl_strchr(char *str, char ch)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int	ft_strchr(char *str, char ch)
 	return (-1);
 }
 
-char	*ft_strdup(char *str)
+char	*ft_gnl_strdup(char *str)
 {
 	char	*new_str;
 	int		i;
@@ -48,7 +48,7 @@ char	*ft_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	new_str = malloc((ft_strlen(str) + 1) * sizeof(char));
+	new_str = malloc((ft_gnl_strlen(str) + 1) * sizeof(char));
 	if (new_str == NULL)
 		return (NULL);
 	while (str[i] != '\0')
@@ -60,7 +60,7 @@ char	*ft_strdup(char *str)
 	return (new_str);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_gnl_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
@@ -70,7 +70,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	str = malloc((ft_gnl_strlen(s1) + ft_gnl_strlen(s2) + 1) * sizeof(char));
 	if (str != NULL)
 	{
 		while (s1[i])
@@ -89,7 +89,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ft_substr(char *str, int start, int size)
+char	*ft_gnl_substr(char *str, int start, int size)
 {
 	char	*new_str;
 	int		len;
@@ -97,9 +97,9 @@ char	*ft_substr(char *str, int start, int size)
 
 	if (str == NULL)
 		return (NULL);
-	if (start > ft_strlen(str))
-		return (ft_strdup(""));
-	len = ft_strlen(&str[start]);
+	if (start > ft_gnl_strlen(str))
+		return (ft_gnl_strdup(""));
+	len = ft_gnl_strlen(&str[start]);
 	if (len < size)
 		size = len;
 	new_str = malloc((size + 1) * sizeof(char));
