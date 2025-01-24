@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>So_Long Project Structure</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .description {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>So_Long Project Structure</h1>
+        
+        <div class="section">
+            <h2>Project Overview</h2>
+            <div class="description">
+                A 2D game where a player collects items and reaches an exit while navigating through a map.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Program Flow</h2>
+            <div class="mermaid">
+                graph TB
+                    A[main.c] --> B[init_game]
+                    B --> C[load_assets]
+                    B --> D[init_player_position]
+                    B --> E[init_collectibles]
+                    B --> F[init_buffer]
+                    C --> G[load_sprite_array]
+                    C --> H[scale_image]
+                    C --> I[flip_sprites]
+                    
+                    J[Game Loop] --> K[animate]
+                    K --> L[render_frame]
+                    L --> M[put_img_to_img]
+                    
+                    N[Player Input] --> O[key_hook]
+                    O --> P[move_player]
+                    P --> Q[Update Position]
+                    Q --> R[Check Collisions]
+                    R --> S[Update Game State]
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Asset Management</h2>
+            <div class="mermaid">
+                graph LR
+                    A[assets.c] --> B[load_assets]
+                    B --> C[Player Sprites]
+                    B --> D[Floor Tiles]
+                    B --> E[Collectibles]
+                    B --> F[Wall & Exit]
+                    C --> G[Idle Animation]
+                    C --> H[Run Animation]
+                    G --> I[Right Facing]
+                    G --> J[Left Facing]
+                    H --> K[Right Facing]
+                    H --> L[Left Facing]
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Rendering System</h2>
+            <div class="mermaid">
+                graph TB
+                    A[render_frame] --> B[Clear Buffer]
+                    B --> C[Draw Floor Layer]
+                    C --> D[Draw Walls]
+                    D --> E[Draw Entities]
+                    E --> F[Draw Player]
+                    F --> G[Choose Sprite]
+                    G --> H[Idle/Running]
+                    G --> I[Left/Right]
+                    E --> J[Draw Collectibles]
+                    J --> K[Display Buffer]
+                    K --> L[Draw UI]
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Functions Explained</h2>
+            <div class="mermaid">
+                classDiagram
+                    class Game {
+                        +init_game()
+                        +animate()
+                        +render_frame()
+                        +move_player()
+                    }
+                    class Assets {
+                        +load_assets()
+                        +flip_sprites()
+                        +scale_image()
+                    }
+                    class Buffer {
+                        +init_buffer()
+                        +put_img_to_img()
+                    }
+                    class Input {
+                        +key_hook()
+                        +expose_hook()
+                    }
+                    Game --> Assets
+                    Game --> Buffer
+                    Game --> Input
+            </div>
+        </div>
+
+        <script>
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    curve: 'basis'
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
