@@ -125,7 +125,7 @@ void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
 		orig_img = mlx_xpm_file_to_image(mlx, path, &width, &height);
 		if (!orig_img)
 		{
-			printf("Error: Failed to load %s\n", path);
+			ft_printf("Error: Failed to load %s\n", path);
 			exit(1);
 		}
 
@@ -134,7 +134,7 @@ void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
 
 		if (!scaled_img)
 		{
-			printf("Error: Failed to scale image %s\n", path);
+			ft_printf("Error: Failed to scale image %s\n", path);
 			exit(1);
 		}
 		arr[i] = scaled_img;
@@ -178,7 +178,7 @@ void load_assets(t_game *game)
 	game->img_width = game->tile_size;
 	game->img_height = game->tile_size;
 
-	printf("Loading assets...\n");
+	ft_printf("Loading assets...\n");
 
 	// Load all sprites with error handling
 	load_sprite_array(game->mlx, game->floor, "./final_assets/floor", 10);
@@ -191,7 +191,7 @@ void load_assets(t_game *game)
 										   &game->img_width, &game->img_height);
 	if (!orig_img)
 	{
-		printf("Error: Failed to load wall texture\n");
+		ft_printf("Error: Failed to load wall texture\n");
 		exit(1);
 	}
 	game->wall = scale_image(game->mlx, orig_img, game->img_width, game->img_height, game->tile_size);
@@ -202,7 +202,7 @@ void load_assets(t_game *game)
 									 &game->img_width, &game->img_height);
 	if (!orig_img)
 	{
-		printf("Error: Failed to load exit texture\n");
+		ft_printf("Error: Failed to load exit texture\n");
 		exit(1);
 	}
 	game->exit = scale_image(game->mlx, orig_img, game->img_width, game->img_height, game->tile_size);
@@ -210,10 +210,10 @@ void load_assets(t_game *game)
 
 	if (!game->wall || !game->exit)
 	{
-		printf("Error: Failed to scale textures\n");
+		ft_printf("Error: Failed to scale textures\n");
 		exit(1);
 	}
 
 	init_floor_types(game);
-	printf("All assets loaded successfully!\n");
+	ft_printf("All assets loaded successfully!\n");
 }

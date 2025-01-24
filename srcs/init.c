@@ -104,7 +104,7 @@ void init_collectibles(t_game *game)
  */
 void init_game(t_game *game, char *map_path)
 {
-	memset(game, 0, sizeof(t_game));
+	ft_memset(game, 0, sizeof(t_game));
 	game->frame = 0;
 	game->is_running = 0;
 	game->tile_size = 32;
@@ -112,19 +112,19 @@ void init_game(t_game *game, char *map_path)
 	game->moves_count = 0;
 	game->run_counter = 0; // Add this line after other initializations
 
-	printf("Initializing MLX...\n");
+	ft_printf("Initializing MLX...\n");
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
-		printf("Error: MLX initialization failed\n");
+		ft_printf("Error: MLX initialization failed\n");
 		exit(1);
 	}
 
-	printf("Reading map: %s\n", map_path);
+	ft_printf("Reading map: %s\n", map_path);
 	game->map = read_map(map_path, &game->map_width, &game->map_height);
 	if (!game->map || !validate_map(game))
 	{
-		printf("Error: Invalid map: %s\n", map_path);
+		ft_printf("Error: Invalid map: %s\n", map_path);
 		if (game->map)
 			free_map(game->map, game->map_height);
 		exit(1);

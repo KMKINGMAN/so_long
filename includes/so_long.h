@@ -19,7 +19,8 @@
 #include <string.h>
 #include "get_next_line_bonus.h"
 #include <stdarg.h>
-#include "libft.h"  // Add this include for va_list
+#include "libft.h"
+#include "ft_printf.h"
 
 typedef struct s_win
 {

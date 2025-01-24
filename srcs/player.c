@@ -38,7 +38,7 @@ void move_player(t_game *game, int dx, int dy)
 		if (game->collectibles_count == 0)
 		{
 			game->can_exit = 1;
-			printf("All collectibles gathered! Go to exit!\n");
+			ft_printf("All collectibles gathered! Go to exit!\n");
 		}
 	}
 
@@ -46,11 +46,11 @@ void move_player(t_game *game, int dx, int dy)
 	{
 		if (game->can_exit)
 		{
-			printf("You won in %d moves!\n", game->moves_count + 1);
+			ft_printf("You won in %d moves!\n", game->moves_count + 1);
 			mlx_destroy_window(game->mlx, game->win);
 			exit(0);
 		}
-		printf("Collect all items first!\n");
+		ft_printf("Collect all items first!\n");
 		return;
 	}
 

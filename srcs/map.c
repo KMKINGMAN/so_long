@@ -23,7 +23,7 @@ char **read_map(char *file, int *width, int *height)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error: Cannot open map file\n");
+		ft_printf("Error: Cannot open map file\n");
 		return (NULL);
 	}
 	*height = 0;
@@ -39,7 +39,7 @@ char **read_map(char *file, int *width, int *height)
 	while ((line = get_next_line(fd)))
 	{
 		// Remove newline character if present
-		int len = strlen(line);
+		int len = ft_strlen(line);
 		if (len > 0 && line[len - 1] == '\n')
 			line[len - 1] = '\0';
 			
@@ -48,7 +48,7 @@ char **read_map(char *file, int *width, int *height)
 			*width = strlen(line);
 		else if ((int)strlen(line) != *width)
 		{
-			printf("Error: Map line %d has different length\n", i + 1);
+			ft_printf("Error: Map line %d has different length\n", i + 1);
 			free_map(lines, i);
 			return NULL;
 		}
