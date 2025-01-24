@@ -121,7 +121,7 @@ void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
 
 	for (int i = 0; i < frames; i++)
 	{
-		snprintf(path, sizeof(path), "%s/f%d.xpm", base_path, i);
+		ft_snprintf(path, sizeof(path), "%s/f%d.xpm", base_path, i);
 		orig_img = mlx_xpm_file_to_image(mlx, path, &width, &height);
 		if (!orig_img)
 		{
