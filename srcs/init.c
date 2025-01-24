@@ -144,5 +144,3 @@ void init_game(t_game *game, char *map_path)
 	mlx_hook(game->win, 12, 0, expose_hook, game);
 	mlx_loop_hook(game->mlx, animate, game);
 }
-
-// ...rest of init functions...
