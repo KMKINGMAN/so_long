@@ -1,5 +1,6 @@
 from PIL import Image
 import sys
+import random
 
 def get_colors(pixels):
 	colors_list = []
@@ -27,17 +28,25 @@ def pixels_to_xpm(pixels, filename):
 	rows = len(pixels)
 	columns = len(pixels[0])
 	
-	# Create a mapping of colors to characters
+	# Create a mapping of colors to two-character combinations
 	unique_colors = list(set(pixels_list))
-	color_chars = [' ', '.', 'X', 'o', 'O', '+', '@', '#']  # Fixed character set
-	color_map = dict(zip(unique_colors, color_chars[:len(unique_colors)]))
+	# Generate two-character combinations using letters and numbers
+	chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+	color_chars = []
+	for _ in range(len(unique_colors)):
+		char_pair = random.choice(chars) + random.choice(chars)
+		while char_pair in color_chars:  # Ensure uniqueness
+			char_pair = random.choice(chars) + random.choice(chars)
+		color_chars.append(char_pair)
+	
+	color_map = dict(zip(unique_colors, color_chars))
 	
 	# Write XPM file
 	with open(filename, 'w') as f:
 		f.write("/* XPM */\n")
 		f.write("static char *result[] = {\n")
 		f.write("/* columns rows colors chars-per-pixel */\n")
-		f.write(f"\"{columns} {rows} {len(unique_colors)} 1 \",\n")
+		f.write(f"\"{columns} {rows} {len(unique_colors)} 2 \",\n")
 		
 		# Write color definitions
 		for color, char in color_map.items():
