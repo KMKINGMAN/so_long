@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['read_5fmap_0',['read_map',['../map_8c.html#a727a57ebf42f450212350523d48cc841',1,'read_map(char *file, int *width, int *height):&#160;map.c'],['../so__long_8h.html#a727a57ebf42f450212350523d48cc841',1,'read_map(char *file, int *width, int *height):&#160;map.c']]],
-  ['render_5fframe_1',['render_frame',['../render_8c.html#a1993af9d3ef98ee243dc29090916d5d0',1,'render_frame(t_game *game):&#160;render.c'],['../so__long_8h.html#a1993af9d3ef98ee243dc29090916d5d0',1,'render_frame(t_game *game):&#160;render.c']]]
+  ['load_5fassets_0',['load_assets',['../assets_8c.html#a3d86fc8628f8566faa7b64a654c72222',1,'load_assets(t_game *game):&#160;assets.c'],['../so__long_8h.html#a3d86fc8628f8566faa7b64a654c72222',1,'load_assets(t_game *game):&#160;assets.c']]],
+  ['load_5fsingle_5ftexture_1',['load_single_texture',['../assets_8c.html#a3fa9816506162fcc96a9de1904c6e1de',1,'assets.c']]],
+  ['load_5fsprite_5farray_2',['load_sprite_array',['../assets_8c.html#a58894d992cdd0000d43051e417a0fe3c',1,'load_sprite_array(void *mlx, void **arr, char *base_path, int frames):&#160;assets.c'],['../so__long_8h.html#a58894d992cdd0000d43051e417a0fe3c',1,'load_sprite_array(void *mlx, void **arr, char *base_path, int frames):&#160;assets.c']]]
 ];

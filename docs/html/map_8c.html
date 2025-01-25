@@ -108,17 +108,113 @@ $(function(){initNavTree('map_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">map.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="so__long_8h_source.html">../includes/so_long.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="so__long_8h_source.html">so_long.h</a>&quot;</code><br />
 </div>
 <p><a href="map_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:abf448dce0d9e0c0355ce13ff0d82ca23" id="r_abf448dce0d9e0c0355ce13ff0d82ca23"><td class="memItemLeft" align="right" valign="top">static char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a> (char *file, int *height)</td></tr>
+<tr class="separator:abf448dce0d9e0c0355ce13ff0d82ca23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d8891e7be1c35539089d9e8c942abf" id="r_a79d8891e7be1c35539089d9e8c942abf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79d8891e7be1c35539089d9e8c942abf">clean_newline</a> (char *line)</td></tr>
+<tr class="separator:a79d8891e7be1c35539089d9e8c942abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727a57ebf42f450212350523d48cc841" id="r_a727a57ebf42f450212350523d48cc841"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a727a57ebf42f450212350523d48cc841">read_map</a> (char *file, int *width, int *height)</td></tr>
 <tr class="memdesc:a727a57ebf42f450212350523d48cc841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and parses the game map from a file.  <br /></td></tr>
 <tr class="separator:a727a57ebf42f450212350523d48cc841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3ffa129c7b155e2ccdc77b7d2afcb8" id="r_aad3ffa129c7b155e2ccdc77b7d2afcb8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3ffa129c7b155e2ccdc77b7d2afcb8">validate_width</a> (char **lines, int i, int width)</td></tr>
+<tr class="separator:aad3ffa129c7b155e2ccdc77b7d2afcb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="abf448dce0d9e0c0355ce13ff0d82ca23" name="abf448dce0d9e0c0355ce13ff0d82ca23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf448dce0d9e0c0355ce13ff0d82ca23">&#9670;&#160;</a></span>allocate_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static char ** allocate_map </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00012">12</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">int</span>     fd;</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordtype">char</span>    *line;</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordtype">char</span>    **lines;</div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>    fd = open(file, O_RDONLY);</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (fd &lt; 0)</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   21</span>    *height = 0;</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">while</span> ((line = <a class="code hl_function" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a>(fd)))</div>
+<div class="line"><span class="lineno">   23</span>    {</div>
+<div class="line"><span class="lineno">   24</span>        (*height)++;</div>
+<div class="line"><span class="lineno">   25</span>        free(line);</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span>    close(fd);</div>
+<div class="line"><span class="lineno">   28</span>    lines = (<span class="keywordtype">char</span> **)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span> *) * (*height + 1));</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> (lines);</div>
+<div class="line"><span class="lineno">   30</span>}</div>
+<div class="ttc" id="aget__next__line__bonus_8h_html_a78d68a5f50a6eec0380ce25b4a1bd5b7"><div class="ttname"><a href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a></div><div class="ttdeci">char * get_next_line(int fd)</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map_8c_source.html#l00056">read_map()</a>.</p>
+
+</div>
+</div>
+<a id="a79d8891e7be1c35539089d9e8c942abf" name="a79d8891e7be1c35539089d9e8c942abf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d8891e7be1c35539089d9e8c942abf">&#9670;&#160;</a></span>clean_newline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void clean_newline </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>line</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00003">3</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
+<div class="line"><span class="lineno">    5</span>    <span class="keywordtype">int</span> len;</div>
+<div class="line"><span class="lineno">    6</span> </div>
+<div class="line"><span class="lineno">    7</span>    len = ft_strlen(line);</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">if</span> (len &gt; 0 &amp;&amp; line[len - 1] == <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">    9</span>        line[len - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   10</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="map_8c_source.html#l00056">read_map()</a>.</p>
+
+</div>
+</div>
 <a id="a727a57ebf42f450212350523d48cc841" name="a727a57ebf42f450212350523d48cc841"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a727a57ebf42f450212350523d48cc841">&#9670;&#160;</a></span>read_map()</h2>
 
@@ -160,58 +256,94 @@ Functions</h2></td></tr>
 <li>Returns NULL if any error occurs </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00016">16</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordtype">int</span> fd;</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordtype">char</span> *line;</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordtype">char</span> **lines;</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    fd = open(file, O_RDONLY);</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (fd &lt; 0)</div>
-<div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        ft_printf(<span class="stringliteral">&quot;Error: Cannot open map file\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="line"><span class="lineno">   29</span>    *height = 0;</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">while</span> ((line = <a class="code hl_function" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a>(fd)))</div>
-<div class="line"><span class="lineno">   31</span>    {</div>
-<div class="line"><span class="lineno">   32</span>        (*height)++;</div>
-<div class="line"><span class="lineno">   33</span>        free(line);</div>
-<div class="line"><span class="lineno">   34</span>    }</div>
-<div class="line"><span class="lineno">   35</span>    close(fd);</div>
-<div class="line"><span class="lineno">   36</span>    lines = (<span class="keywordtype">char</span> **)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span> *) * (*height + 1));</div>
-<div class="line"><span class="lineno">   37</span>    fd = open(file, O_RDONLY);</div>
-<div class="line"><span class="lineno">   38</span>    i = 0;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">while</span> ((line = <a class="code hl_function" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a>(fd)))</div>
-<div class="line"><span class="lineno">   40</span>    {</div>
-<div class="line"><span class="lineno">   41</span>        <span class="comment">// Remove newline character if present</span></div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordtype">int</span> len = ft_strlen(line);</div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">if</span> (len &gt; 0 &amp;&amp; line[len - 1] == <span class="charliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">   44</span>            line[len - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   45</span>            </div>
-<div class="line"><span class="lineno">   46</span>        lines[i] = line;</div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">if</span> (i == 0)</div>
-<div class="line"><span class="lineno">   48</span>            *width = strlen(line);</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)strlen(line) != *width)</div>
-<div class="line"><span class="lineno">   50</span>        {</div>
-<div class="line"><span class="lineno">   51</span>            ft_printf(<span class="stringliteral">&quot;Error: Map line %d has different length\n&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">   52</span>            <a class="code hl_function" href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(lines, i);</div>
-<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   54</span>        }</div>
-<div class="line"><span class="lineno">   55</span>        i++;</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
-<div class="line"><span class="lineno">   57</span>    lines[i] = NULL;</div>
-<div class="line"><span class="lineno">   58</span>    close(fd);</div>
-<div class="line"><span class="lineno">   59</span>    *width = ft_strlen(lines[0]);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">return</span> (lines);</div>
-<div class="line"><span class="lineno">   61</span>}</div>
-<div class="ttc" id="aget__next__line__bonus_8h_html_a78d68a5f50a6eec0380ce25b4a1bd5b7"><div class="ttname"><a href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a></div><div class="ttdeci">char * get_next_line(int fd)</div></div>
-<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00080">map_validation.c:80</a></div></div>
+<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00056">56</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">int</span>     fd;</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordtype">char</span>    *line;</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordtype">char</span>    **lines;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordtype">int</span>     i;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    lines = <a class="code hl_function" href="#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a>(file, height);</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (!lines)</div>
+<div class="line"><span class="lineno">   65</span>    {</div>
+<div class="line"><span class="lineno">   66</span>        ft_printf(<span class="stringliteral">&quot;Error: Cannot open map file\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>    fd = open(file, O_RDONLY);</div>
+<div class="line"><span class="lineno">   70</span>    i = 0;</div>
+<div class="line"><span class="lineno">   71</span>    *width = 0;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">while</span> ((line = <a class="code hl_function" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a>(fd)))</div>
+<div class="line"><span class="lineno">   73</span>    {</div>
+<div class="line"><span class="lineno">   74</span>        <a class="code hl_function" href="#a79d8891e7be1c35539089d9e8c942abf">clean_newline</a>(line);</div>
+<div class="line"><span class="lineno">   75</span>        lines[i] = line;</div>
+<div class="line"><span class="lineno">   76</span>        *width = <a class="code hl_function" href="#aad3ffa129c7b155e2ccdc77b7d2afcb8">validate_width</a>(lines, i, *width);</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (*width == 0)</div>
+<div class="line"><span class="lineno">   78</span>        {</div>
+<div class="line"><span class="lineno">   79</span>            <a class="code hl_function" href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(lines, i);</div>
+<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   81</span>        }</div>
+<div class="line"><span class="lineno">   82</span>        i++;</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>    lines[i] = NULL;</div>
+<div class="line"><span class="lineno">   85</span>    close(fd);</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> (lines);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+<div class="ttc" id="amap_8c_html_a79d8891e7be1c35539089d9e8c942abf"><div class="ttname"><a href="#a79d8891e7be1c35539089d9e8c942abf">clean_newline</a></div><div class="ttdeci">static void clean_newline(char *line)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00003">map.c:3</a></div></div>
+<div class="ttc" id="amap_8c_html_aad3ffa129c7b155e2ccdc77b7d2afcb8"><div class="ttname"><a href="#aad3ffa129c7b155e2ccdc77b7d2afcb8">validate_width</a></div><div class="ttdeci">static int validate_width(char **lines, int i, int width)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00032">map.c:32</a></div></div>
+<div class="ttc" id="amap_8c_html_abf448dce0d9e0c0355ce13ff0d82ca23"><div class="ttname"><a href="#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a></div><div class="ttdeci">static char ** allocate_map(char *file, int *height)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00012">map.c:12</a></div></div>
+<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00102">map_validation.c:102</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00080">free_map()</a>, and <a class="el" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line()</a>.</p>
+<p class="reference">References <a class="el" href="map_8c_source.html#l00012">allocate_map()</a>, <a class="el" href="map_8c_source.html#l00003">clean_newline()</a>, <a class="el" href="map__validation_8c_source.html#l00102">free_map()</a>, <a class="el" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line()</a>, and <a class="el" href="map_8c_source.html#l00032">validate_width()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00105">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00121">init_mlx_and_map()</a>.</p>
+
+</div>
+</div>
+<a id="aad3ffa129c7b155e2ccdc77b7d2afcb8" name="aad3ffa129c7b155e2ccdc77b7d2afcb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad3ffa129c7b155e2ccdc77b7d2afcb8">&#9670;&#160;</a></span>validate_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int validate_width </td>
+          <td>(</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>lines</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00032">32</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (i == 0)</div>
+<div class="line"><span class="lineno">   35</span>        width = ft_strlen(lines[i]);</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)ft_strlen(lines[i]) != width)</div>
+<div class="line"><span class="lineno">   37</span>    {</div>
+<div class="line"><span class="lineno">   38</span>        ft_printf(<span class="stringliteral">&quot;Error: Map line %d has different length\n&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   40</span>    }</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> (width);</div>
+<div class="line"><span class="lineno">   42</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="map_8c_source.html#l00056">read_map()</a>.</p>
 
 </div>
 </div>

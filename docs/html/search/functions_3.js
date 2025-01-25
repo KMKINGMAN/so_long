@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fnext_5fline_0',['get_next_line',['../get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7',1,'get_next_line_bonus.h']]]
+  ['expose_5fhook_0',['expose_hook',['../render_8c.html#aa493c139c258ad4352b0c57df45ceb92',1,'expose_hook(t_game *game):&#160;render.c'],['../so__long_8h.html#aa493c139c258ad4352b0c57df45ceb92',1,'expose_hook(t_game *game):&#160;render.c']]]
 ];

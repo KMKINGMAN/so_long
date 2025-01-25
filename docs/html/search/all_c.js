@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['read_5fmap_0',['read_map',['../map_8c.html#a727a57ebf42f450212350523d48cc841',1,'read_map(char *file, int *width, int *height):&#160;map.c'],['../so__long_8h.html#a727a57ebf42f450212350523d48cc841',1,'read_map(char *file, int *width, int *height):&#160;map.c']]],
-  ['render_2ec_1',['render.c',['../render_8c.html',1,'']]],
-  ['render_5fframe_2',['render_frame',['../render_8c.html#a1993af9d3ef98ee243dc29090916d5d0',1,'render_frame(t_game *game):&#160;render.c'],['../so__long_8h.html#a1993af9d3ef98ee243dc29090916d5d0',1,'render_frame(t_game *game):&#160;render.c']]],
-  ['run_5fcounter_3',['run_counter',['../structs__game.html#af0e893e3a1e646707def63979957ebb2',1,'s_game']]]
+  ['player_0',['player',['../structs__counts.html#a19da059e32416f33cffafd56a6086352',1,'s_counts']]],
+  ['player_2ec_1',['player.c',['../player_8c.html',1,'']]],
+  ['player_5fidle_2',['player_idle',['../structs__game.html#a3c1e311e01a5d6fc845e3beaecff2967',1,'s_game']]],
+  ['player_5fidle_5fleft_3',['player_idle_left',['../structs__game.html#aa2fc5e113afbf767c8c8871a275e5bf5',1,'s_game']]],
+  ['player_5frun_4',['player_run',['../structs__game.html#acc754af518889704ebb38661b99b2ea7',1,'s_game']]],
+  ['player_5frun_5fleft_5',['player_run_left',['../structs__game.html#a4432f74f98f550fc685fccbc91772fae',1,'s_game']]],
+  ['player_5fx_6',['player_x',['../structs__game.html#a917ed52d8e483dc262c813aa16d05342',1,'s_game']]],
+  ['player_5fy_7',['player_y',['../structs__game.html#aa240d873a5b8612491c0c63bd661527d',1,'s_game']]],
+  ['put_5fimg_5fto_5fimg_8',['put_img_to_img',['../render_8c.html#aad3ee8259cd6724ed31aa0c125c4121c',1,'put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y):&#160;render.c'],['../so__long_8h.html#aad3ee8259cd6724ed31aa0c125c4121c',1,'put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y):&#160;render.c']]]
 ];

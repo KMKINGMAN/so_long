@@ -123,6 +123,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a07af3347aa3856589df3f78056ef1cd1" id="r_a07af3347aa3856589df3f78056ef1cd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07af3347aa3856589df3f78056ef1cd1">init_game</a> (<a class="el" href="structt__game.html">t_game</a> *game, char *map_path)</td></tr>
 <tr class="memdesc:a07af3347aa3856589df3f78056ef1cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main game initialization function.  <br /></td></tr>
 <tr class="separator:a07af3347aa3856589df3f78056ef1cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1850989b7637f891d0fbc5f27ae9b22" id="r_af1850989b7637f891d0fbc5f27ae9b22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:af1850989b7637f891d0fbc5f27ae9b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e79af1da4495ae17ade030b1bd1ceb" id="r_ad9e79af1da4495ae17ade030b1bd1ceb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:ad9e79af1da4495ae17ade030b1bd1ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144dd69d560b7542ee30156c40f03bfa" id="r_a144dd69d560b7542ee30156c40f03bfa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a> (<a class="el" href="structt__game.html">t_game</a> *game, char *map_path)</td></tr>
+<tr class="separator:a144dd69d560b7542ee30156c40f03bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdb37c7089768a2590ff97818f5d41d" id="r_adfdb37c7089768a2590ff97818f5d41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:adfdb37c7089768a2590ff97818f5d41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates and sets the player's starting position.  <br /></td></tr>
 <tr class="separator:adfdb37c7089768a2590ff97818f5d41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,32 +162,33 @@ Functions</h2></td></tr>
 <li>Initializes completion tracking </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00066">66</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordtype">int</span> j = 0;</div>
-<div class="line"><span class="lineno">   70</span>    game-&gt;collectibles_count = 0;</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
-<div class="line"><span class="lineno">   73</span>    {</div>
-<div class="line"><span class="lineno">   74</span>        j = 0;</div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
-<div class="line"><span class="lineno">   76</span>        {</div>
-<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;C&#39;</span>)</div>
-<div class="line"><span class="lineno">   78</span>                game-&gt;collectibles_count++;</div>
-<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;E&#39;</span>)</div>
-<div class="line"><span class="lineno">   80</span>            {</div>
-<div class="line"><span class="lineno">   81</span>                game-&gt;exit_x = j;</div>
-<div class="line"><span class="lineno">   82</span>                game-&gt;exit_y = i;</div>
-<div class="line"><span class="lineno">   83</span>            }</div>
-<div class="line"><span class="lineno">   84</span>            j++;</div>
-<div class="line"><span class="lineno">   85</span>        }</div>
-<div class="line"><span class="lineno">   86</span>        i++;</div>
-<div class="line"><span class="lineno">   87</span>    }</div>
-<div class="line"><span class="lineno">   88</span>    game-&gt;can_exit = 0;</div>
-<div class="line"><span class="lineno">   89</span>}</div>
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00074">74</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>{</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>    i = 0;</div>
+<div class="line"><span class="lineno">   80</span>    game-&gt;collectibles_count = 0;</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
+<div class="line"><span class="lineno">   82</span>    {</div>
+<div class="line"><span class="lineno">   83</span>        j = 0;</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
+<div class="line"><span class="lineno">   85</span>        {</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;C&#39;</span>)</div>
+<div class="line"><span class="lineno">   87</span>                game-&gt;collectibles_count++;</div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;E&#39;</span>)</div>
+<div class="line"><span class="lineno">   89</span>            {</div>
+<div class="line"><span class="lineno">   90</span>                game-&gt;exit_x = j;</div>
+<div class="line"><span class="lineno">   91</span>                game-&gt;exit_y = i;</div>
+<div class="line"><span class="lineno">   92</span>            }</div>
+<div class="line"><span class="lineno">   93</span>            j++;</div>
+<div class="line"><span class="lineno">   94</span>        }</div>
+<div class="line"><span class="lineno">   95</span>        i++;</div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="line"><span class="lineno">   97</span>    game-&gt;can_exit = 0;</div>
+<div class="line"><span class="lineno">   98</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00105">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00154">init_game()</a>.</p>
 
 </div>
 </div>
@@ -211,20 +218,27 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00012">12</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">int</span> i, j;</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>    game-&gt;floor_types = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> **)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *) * game-&gt;map_height);</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">for</span> (i = 0; i &lt; game-&gt;map_height; i++)</div>
-<div class="line"><span class="lineno">   18</span>    {</div>
-<div class="line"><span class="lineno">   19</span>        game-&gt;floor_types[i] = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>) * game-&gt;map_width);</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">for</span> (j = 0; j &lt; game-&gt;map_width; j++)</div>
-<div class="line"><span class="lineno">   21</span>        {</div>
-<div class="line"><span class="lineno">   22</span>            game-&gt;floor_types[i][j] = (<span class="keywordtype">unsigned</span> char)(rand() % 10);</div>
-<div class="line"><span class="lineno">   23</span>        }</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    i = 0;</div>
+<div class="line"><span class="lineno">   18</span>    game-&gt;floor_types = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> **)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)</div>
+<div class="line"><span class="lineno">   19</span>            * game-&gt;map_height);</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">while</span> (i &lt; game-&gt;map_height)</div>
+<div class="line"><span class="lineno">   21</span>    {</div>
+<div class="line"><span class="lineno">   22</span>        j = 0;</div>
+<div class="line"><span class="lineno">   23</span>        game-&gt;floor_types[i] = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)</div>
+<div class="line"><span class="lineno">   24</span>                * game-&gt;map_width);</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">while</span> (j &lt; game-&gt;map_width)</div>
+<div class="line"><span class="lineno">   26</span>        {</div>
+<div class="line"><span class="lineno">   27</span>            game-&gt;floor_types[i][j] = (<span class="keywordtype">unsigned</span> char)(rand() % 10);</div>
+<div class="line"><span class="lineno">   28</span>            j++;</div>
+<div class="line"><span class="lineno">   29</span>        }</div>
+<div class="line"><span class="lineno">   30</span>        i++;</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00175">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00209">load_assets()</a>.</p>
 
 </div>
 </div>
@@ -265,64 +279,167 @@ Functions</h2></td></tr>
 <li>Set up event hooks </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00105">105</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    ft_memset(game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>));</div>
-<div class="line"><span class="lineno">  108</span>    game-&gt;frame = 0;</div>
-<div class="line"><span class="lineno">  109</span>    game-&gt;is_running = 0;</div>
-<div class="line"><span class="lineno">  110</span>    game-&gt;tile_size = 32;</div>
-<div class="line"><span class="lineno">  111</span>    game-&gt;facing_right = 1;</div>
-<div class="line"><span class="lineno">  112</span>    game-&gt;moves_count = 0;</div>
-<div class="line"><span class="lineno">  113</span>    game-&gt;run_counter = 0; <span class="comment">// Add this line after other initializations</span></div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    ft_printf(<span class="stringliteral">&quot;Initializing MLX...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  116</span>    game-&gt;mlx = mlx_init();</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (!game-&gt;mlx)</div>
-<div class="line"><span class="lineno">  118</span>    {</div>
-<div class="line"><span class="lineno">  119</span>        ft_printf(<span class="stringliteral">&quot;Error: MLX initialization failed\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  120</span>        exit(1);</div>
-<div class="line"><span class="lineno">  121</span>    }</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    ft_printf(<span class="stringliteral">&quot;Reading map: %s\n&quot;</span>, map_path);</div>
-<div class="line"><span class="lineno">  124</span>    game-&gt;map = <a class="code hl_function" href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a>(map_path, &amp;game-&gt;map_width, &amp;game-&gt;map_height);</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (!game-&gt;map || !<a class="code hl_function" href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a>(game))</div>
-<div class="line"><span class="lineno">  126</span>    {</div>
-<div class="line"><span class="lineno">  127</span>        ft_printf(<span class="stringliteral">&quot;Error: Invalid map: %s\n&quot;</span>, map_path);</div>
-<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">if</span> (game-&gt;map)</div>
-<div class="line"><span class="lineno">  129</span>            <a class="code hl_function" href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(game-&gt;map, game-&gt;map_height);</div>
-<div class="line"><span class="lineno">  130</span>        exit(1);</div>
-<div class="line"><span class="lineno">  131</span>    }</div>
-<div class="line"><span class="lineno">  132</span> </div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordtype">int</span> win_width = game-&gt;map_width * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordtype">int</span> win_height = game-&gt;map_height * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  135</span>    game-&gt;win = mlx_new_window(game-&gt;mlx, win_width, win_height, <span class="stringliteral">&quot;so_long&quot;</span>);</div>
-<div class="line"><span class="lineno">  136</span> </div>
-<div class="line"><span class="lineno">  137</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game); <span class="comment">// Add this line</span></div>
-<div class="line"><span class="lineno">  138</span>    <a class="code hl_function" href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
-<div class="line"><span class="lineno">  139</span>    <a class="code hl_function" href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game); <span class="comment">// Add this line after loading assets</span></div>
-<div class="line"><span class="lineno">  140</span>    <a class="code hl_function" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
-<div class="line"><span class="lineno">  141</span>    <a class="code hl_function" href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
-<div class="line"><span class="lineno">  144</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
-<div class="line"><span class="lineno">  145</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
-<div class="line"><span class="lineno">  146</span>}</div>
-<div class="ttc" id="aassets_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00175">assets.c:175</a></div></div>
-<div class="ttc" id="aassets_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00153">assets.c:153</a></div></div>
-<div class="ttc" id="ainit_8c_html_ad060f77fadab05b39ee1b4e4a3677ef9"><div class="ttname"><a href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a></div><div class="ttdeci">void init_collectibles(t_game *game)</div><div class="ttdoc">Initializes collectible items and exit.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00066">init.c:66</a></div></div>
-<div class="ttc" id="ainit_8c_html_adfdb37c7089768a2590ff97818f5d41d"><div class="ttname"><a href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a></div><div class="ttdeci">void init_player_position(t_game *game)</div><div class="ttdoc">Locates and sets the player&#39;s starting position.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00035">init.c:35</a></div></div>
-<div class="ttc" id="amap_8c_html_a727a57ebf42f450212350523d48cc841"><div class="ttname"><a href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a></div><div class="ttdeci">char ** read_map(char *file, int *width, int *height)</div><div class="ttdoc">Reads and parses the game map from a file.</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00016">map.c:16</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a560a42b860dc2abf0cb8dbb2ea25693a"><div class="ttname"><a href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a></div><div class="ttdeci">int validate_map(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00008">map_validation.c:8</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00080">map_validation.c:80</a></div></div>
-<div class="ttc" id="aplayer_8c_html_a57186e90338fdf78b81242e92e563823"><div class="ttname"><a href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a></div><div class="ttdeci">int key_hook(int keycode, t_game *game)</div><div class="ttdoc">Handles keyboard input events.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00079">player.c:79</a></div></div>
-<div class="ttc" id="arender_8c_html_a253c61fb2aec7f0382a023ae4a8e116b"><div class="ttname"><a href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a></div><div class="ttdeci">void init_buffer(t_game *game)</div><div class="ttdoc">Initializes the rendering buffer.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00057">render.c:57</a></div></div>
-<div class="ttc" id="arender_8c_html_a8b41ee619faf9a9da9790a60cfbb3ce0"><div class="ttname"><a href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a></div><div class="ttdeci">int animate(t_game *game)</div><div class="ttdoc">Handles game animation frames and state updates.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00078">render.c:78</a></div></div>
-<div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00194">render.c:194</a></div></div>
-<div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00154">154</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  155</span>{</div>
+<div class="line"><span class="lineno">  156</span>    <a class="code hl_function" href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a>(game);</div>
+<div class="line"><span class="lineno">  157</span>    <a class="code hl_function" href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a>(game, map_path);</div>
+<div class="line"><span class="lineno">  158</span>    <a class="code hl_function" href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a>(game);</div>
+<div class="line"><span class="lineno">  159</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
+<div class="line"><span class="lineno">  160</span>    <a class="code hl_function" href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
+<div class="line"><span class="lineno">  161</span>    <a class="code hl_function" href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_function" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
+<div class="line"><span class="lineno">  163</span>    <a class="code hl_function" href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
+<div class="line"><span class="lineno">  164</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
+<div class="line"><span class="lineno">  165</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
+<div class="line"><span class="lineno">  166</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
+<div class="line"><span class="lineno">  167</span>}</div>
+<div class="ttc" id="aassets_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00209">assets.c:209</a></div></div>
+<div class="ttc" id="aassets_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00160">assets.c:160</a></div></div>
+<div class="ttc" id="ainit_8c_html_a144dd69d560b7542ee30156c40f03bfa"><div class="ttname"><a href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a></div><div class="ttdeci">static void init_mlx_and_map(t_game *game, char *map_path)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00121">init.c:121</a></div></div>
+<div class="ttc" id="ainit_8c_html_ad060f77fadab05b39ee1b4e4a3677ef9"><div class="ttname"><a href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a></div><div class="ttdeci">void init_collectibles(t_game *game)</div><div class="ttdoc">Initializes collectible items and exit.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00074">init.c:74</a></div></div>
+<div class="ttc" id="ainit_8c_html_ad9e79af1da4495ae17ade030b1bd1ceb"><div class="ttname"><a href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a></div><div class="ttdeci">static void init_game_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00100">init.c:100</a></div></div>
+<div class="ttc" id="ainit_8c_html_adfdb37c7089768a2590ff97818f5d41d"><div class="ttname"><a href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a></div><div class="ttdeci">void init_player_position(t_game *game)</div><div class="ttdoc">Locates and sets the player&#39;s starting position.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00042">init.c:42</a></div></div>
+<div class="ttc" id="ainit_8c_html_af1850989b7637f891d0fbc5f27ae9b22"><div class="ttname"><a href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a></div><div class="ttdeci">static void init_game_vars(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00110">init.c:110</a></div></div>
+<div class="ttc" id="aplayer_8c_html_a57186e90338fdf78b81242e92e563823"><div class="ttname"><a href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a></div><div class="ttdeci">int key_hook(int keycode, t_game *game)</div><div class="ttdoc">Handles keyboard input events.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00089">player.c:89</a></div></div>
+<div class="ttc" id="arender_8c_html_a253c61fb2aec7f0382a023ae4a8e116b"><div class="ttname"><a href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a></div><div class="ttdeci">void init_buffer(t_game *game)</div><div class="ttdoc">Initializes the rendering buffer.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00071">render.c:71</a></div></div>
+<div class="ttc" id="arender_8c_html_a8b41ee619faf9a9da9790a60cfbb3ce0"><div class="ttname"><a href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a></div><div class="ttdeci">int animate(t_game *game)</div><div class="ttdoc">Handles game animation frames and state updates.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00094">render.c:94</a></div></div>
+<div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00235">render.c:235</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00078">animate()</a>, <a class="el" href="render_8c_source.html#l00194">expose_hook()</a>, <a class="el" href="assets_8c_source.html#l00153">flip_sprites()</a>, <a class="el" href="map__validation_8c_source.html#l00080">free_map()</a>, <a class="el" href="render_8c_source.html#l00057">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00066">init_collectibles()</a>, <a class="el" href="init_8c_source.html#l00035">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00079">key_hook()</a>, <a class="el" href="assets_8c_source.html#l00175">load_assets()</a>, <a class="el" href="map_8c_source.html#l00016">read_map()</a>, and <a class="el" href="map__validation_8c_source.html#l00008">validate_map()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00094">animate()</a>, <a class="el" href="render_8c_source.html#l00235">expose_hook()</a>, <a class="el" href="assets_8c_source.html#l00160">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00071">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00074">init_collectibles()</a>, <a class="el" href="init_8c_source.html#l00110">init_game_vars()</a>, <a class="el" href="init_8c_source.html#l00100">init_game_window()</a>, <a class="el" href="init_8c_source.html#l00121">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00042">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00089">key_hook()</a>, and <a class="el" href="assets_8c_source.html#l00209">load_assets()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00003">main()</a>.</p>
+
+</div>
+</div>
+<a id="af1850989b7637f891d0fbc5f27ae9b22" name="af1850989b7637f891d0fbc5f27ae9b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1850989b7637f891d0fbc5f27ae9b22">&#9670;&#160;</a></span>init_game_vars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_game_vars </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00110">110</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>{</div>
+<div class="line"><span class="lineno">  112</span>    ft_memset(game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>));</div>
+<div class="line"><span class="lineno">  113</span>    game-&gt;frame = 0;</div>
+<div class="line"><span class="lineno">  114</span>    game-&gt;is_running = 0;</div>
+<div class="line"><span class="lineno">  115</span>    game-&gt;tile_size = 32;</div>
+<div class="line"><span class="lineno">  116</span>    game-&gt;facing_right = 1;</div>
+<div class="line"><span class="lineno">  117</span>    game-&gt;moves_count = 0;</div>
+<div class="line"><span class="lineno">  118</span>    game-&gt;run_counter = 0;</div>
+<div class="line"><span class="lineno">  119</span>}</div>
+<div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00154">init_game()</a>.</p>
+
+</div>
+</div>
+<a id="ad9e79af1da4495ae17ade030b1bd1ceb" name="ad9e79af1da4495ae17ade030b1bd1ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e79af1da4495ae17ade030b1bd1ceb">&#9670;&#160;</a></span>init_game_window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_game_window </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00100">100</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordtype">int</span> win_width;</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordtype">int</span> win_height;</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>    win_width = game-&gt;map_width * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  106</span>    win_height = game-&gt;map_height * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  107</span>    game-&gt;win = mlx_new_window(game-&gt;mlx, win_width, win_height, <span class="stringliteral">&quot;so_long&quot;</span>);</div>
+<div class="line"><span class="lineno">  108</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00154">init_game()</a>.</p>
+
+</div>
+</div>
+<a id="a144dd69d560b7542ee30156c40f03bfa" name="a144dd69d560b7542ee30156c40f03bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144dd69d560b7542ee30156c40f03bfa">&#9670;&#160;</a></span>init_mlx_and_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_mlx_and_map </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>map_path</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00121">121</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  122</span>{</div>
+<div class="line"><span class="lineno">  123</span>    ft_printf(<span class="stringliteral">&quot;Initializing MLX...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span>    game-&gt;mlx = mlx_init();</div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (!game-&gt;mlx)</div>
+<div class="line"><span class="lineno">  126</span>    {</div>
+<div class="line"><span class="lineno">  127</span>        ft_printf(<span class="stringliteral">&quot;Error: MLX initialization failed\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  128</span>        exit(1);</div>
+<div class="line"><span class="lineno">  129</span>    }</div>
+<div class="line"><span class="lineno">  130</span>    ft_printf(<span class="stringliteral">&quot;Reading map: %s\n&quot;</span>, map_path);</div>
+<div class="line"><span class="lineno">  131</span>    game-&gt;map = <a class="code hl_function" href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a>(map_path, &amp;game-&gt;map_width, &amp;game-&gt;map_height);</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (!game-&gt;map || !<a class="code hl_function" href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a>(game))</div>
+<div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        ft_printf(<span class="stringliteral">&quot;Error: Invalid map: %s\n&quot;</span>, map_path);</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">if</span> (game-&gt;map)</div>
+<div class="line"><span class="lineno">  136</span>            <a class="code hl_function" href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(game-&gt;map, game-&gt;map_height);</div>
+<div class="line"><span class="lineno">  137</span>        exit(1);</div>
+<div class="line"><span class="lineno">  138</span>    }</div>
+<div class="line"><span class="lineno">  139</span>}</div>
+<div class="ttc" id="amap_8c_html_a727a57ebf42f450212350523d48cc841"><div class="ttname"><a href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a></div><div class="ttdeci">char ** read_map(char *file, int *width, int *height)</div><div class="ttdoc">Reads and parses the game map from a file.</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00056">map.c:56</a></div></div>
+<div class="ttc" id="amap__validation_8c_html_a560a42b860dc2abf0cb8dbb2ea25693a"><div class="ttname"><a href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a></div><div class="ttdeci">int validate_map(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00068">map_validation.c:68</a></div></div>
+<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00102">map_validation.c:102</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00102">free_map()</a>, <a class="el" href="map_8c_source.html#l00056">read_map()</a>, and <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00154">init_game()</a>.</p>
 
 </div>
 </div>
@@ -350,29 +467,30 @@ Functions</h2></td></tr>
 </dl>
 <p>Scans the map for 'P' character and sets player_x and player_y coordinates accordingly. </p>
 
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00035">35</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span> j = 0;</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
-<div class="line"><span class="lineno">   41</span>    {</div>
-<div class="line"><span class="lineno">   42</span>        j = 0;</div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
-<div class="line"><span class="lineno">   44</span>        {</div>
-<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;P&#39;</span>)</div>
-<div class="line"><span class="lineno">   46</span>            {</div>
-<div class="line"><span class="lineno">   47</span>                game-&gt;player_x = j;</div>
-<div class="line"><span class="lineno">   48</span>                game-&gt;player_y = i;</div>
-<div class="line"><span class="lineno">   49</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   50</span>            }</div>
-<div class="line"><span class="lineno">   51</span>            j++;</div>
-<div class="line"><span class="lineno">   52</span>        }</div>
-<div class="line"><span class="lineno">   53</span>        i++;</div>
-<div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00042">42</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    i = 0;</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
+<div class="line"><span class="lineno">   49</span>    {</div>
+<div class="line"><span class="lineno">   50</span>        j = 0;</div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
+<div class="line"><span class="lineno">   52</span>        {</div>
+<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;P&#39;</span>)</div>
+<div class="line"><span class="lineno">   54</span>            {</div>
+<div class="line"><span class="lineno">   55</span>                game-&gt;player_x = j;</div>
+<div class="line"><span class="lineno">   56</span>                game-&gt;player_y = i;</div>
+<div class="line"><span class="lineno">   57</span>                return ;</div>
+<div class="line"><span class="lineno">   58</span>            }</div>
+<div class="line"><span class="lineno">   59</span>            j++;</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="line"><span class="lineno">   61</span>        i++;</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
+<div class="line"><span class="lineno">   63</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00105">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00154">init_game()</a>.</p>
 
 </div>
 </div>

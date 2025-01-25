@@ -1,8 +1,10 @@
 var so__long_8h =
 [
+    [ "s_counts", "structs__counts.html", "structs__counts" ],
     [ "s_game", "structs__game.html", "structs__game" ],
     [ "s_img", "structs__img.html", "structs__img" ],
     [ "s_win", "structs__win.html", "structs__win" ],
+    [ "t_counts", "so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6", null ],
     [ "t_game", "so__long_8h.html#a581c914ca5b062bb811c5204f2bf58ff", null ],
     [ "t_img", "so__long_8h.html#aa2823d71a465849891fd044a6371f982", null ],
     [ "t_win", "so__long_8h.html#af506fdcdfac771b1e3d0412cd409539f", null ],
@@ -20,7 +22,7 @@ var so__long_8h =
     [ "load_assets", "so__long_8h.html#a3d86fc8628f8566faa7b64a654c72222", null ],
     [ "load_sprite_array", "so__long_8h.html#a58894d992cdd0000d43051e417a0fe3c", null ],
     [ "move_player", "so__long_8h.html#ae2e77f7fc1b09df20db5400adc4d8595", null ],
-    [ "put_img_to_img", "so__long_8h.html#aab0ff27f077e42500f70bf0e870bf54f", null ],
+    [ "put_img_to_img", "so__long_8h.html#aad3ee8259cd6724ed31aa0c125c4121c", null ],
     [ "read_map", "so__long_8h.html#a727a57ebf42f450212350523d48cc841", null ],
     [ "render_frame", "so__long_8h.html#a1993af9d3ef98ee243dc29090916d5d0", null ],
     [ "scale_image", "so__long_8h.html#af3f4576edde002220a2b8cec2f58a694", null ],
