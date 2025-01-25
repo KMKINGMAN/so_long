@@ -5,6 +5,38 @@
  * @brief Player movement and interaction handling
  */
 
+static void handle_collectible(t_game *game)
+{
+	game->collectibles_count--;
+	if (game->collectibles_count == 0)
+	{
+		game->can_exit = 1;
+		ft_printf("All collectibles gathered! Go to exit!\n");
+	}
+}
+
+static void handle_exit(t_game *game)
+{
+	if (game->can_exit)
+	{
+		ft_printf("You won in %d moves!\n", game->moves_count + 1);
+		mlx_destroy_window(game->mlx, game->win);
+		exit(0);
+	}
+	ft_printf("Collect all items first!\n");
+}
+
+static void update_player_pos(t_game *game, int new_x, int new_y)
+{
+	game->map[game->player_y][game->player_x] = '0';
+	game->map[new_y][new_x] = 'P';
+	game->player_x = new_x;
+	game->player_y = new_y;
+	game->is_running = 1;
+	game->run_counter = 0;
+	game->moves_count++;
+}
+
 /**
  * @brief Handles player movement and collision
  * 
@@ -18,49 +50,27 @@
  * - Manages exit condition
  * - Updates player direction and animation state
  */
-void move_player(t_game *game, int dx, int dy)
+void    move_player(t_game *game, int dx, int dy)
 {
-	int new_x = game->player_x + dx;
-	int new_y = game->player_y + dy;
+	int new_x;
+	int new_y;
 
-	// Update direction
+	new_x = game->player_x + dx;
+	new_y = game->player_y + dy;
 	if (dx > 0)
 		game->facing_right = 1;
 	else if (dx < 0)
 		game->facing_right = 0;
-
 	if (game->map[new_y][new_x] == '1')
-		return;
-
+		return ;
 	if (game->map[new_y][new_x] == 'C')
-	{
-		game->collectibles_count--;
-		if (game->collectibles_count == 0)
-		{
-			game->can_exit = 1;
-			ft_printf("All collectibles gathered! Go to exit!\n");
-		}
-	}
-
+		handle_collectible(game);
 	if (game->map[new_y][new_x] == 'E')
 	{
-		if (game->can_exit)
-		{
-			ft_printf("You won in %d moves!\n", game->moves_count + 1);
-			mlx_destroy_window(game->mlx, game->win);
-			exit(0);
-		}
-		ft_printf("Collect all items first!\n");
-		return;
+		handle_exit(game);
+		return ;
 	}
-
-	game->map[game->player_y][game->player_x] = '0';
-	game->map[new_y][new_x] = 'P';
-	game->player_x = new_x;
-	game->player_y = new_y;
-	game->is_running = 1;
-	game->run_counter = 0;  // Reset run counter when moving
-	game->moves_count++;
+	update_player_pos(game, new_x, new_y);
 }
 
 /**

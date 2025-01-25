@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   assets.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */
+/*   Updated: 2025/01/25 17:21:24 by mkurkar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /**
  * @file assets.c
  * @brief Asset loading and manipulation functions
@@ -19,53 +31,42 @@
  * Creates a new scaled version of the input image using
  * nearest neighbor interpolation.
  */
-void *scale_image(void *mlx, void *original, int width, int height, int new_size)
+void	*scale_image(void *mlx, void *original, int width, int height, int n_size)
 {
-	void *new_img;
-	int *orig_data;
-	int *new_data;
-	int bpp;
-	int sl;
-	int end;
+	void	*new_img;
+	int		*orig_data;
+	int		*new_data;
+	int		params[5];
 
-	// Create new image with standard format instead of alpha
-	new_img = mlx_new_image(mlx, new_size, new_size);
+	new_img = mlx_new_image(mlx, n_size, n_size);
 	if (!new_img)
-		return NULL;
-
-	// Get data addresses safely
-	orig_data = (int *)mlx_get_data_addr(original, &bpp, &sl, &end);
+		return (NULL);
+	orig_data = (int *)mlx_get_data_addr(original, &params[0], &params[1],
+			&params[2]);
 	if (!orig_data)
 	{
 		mlx_destroy_image(mlx, new_img);
-		return NULL;
+		return (NULL);
 	}
-
-	new_data = (int *)mlx_get_data_addr(new_img, &bpp, &sl, &end);
+	new_data = (int *)mlx_get_data_addr(new_img, &params[0], &params[1],
+			&params[2]);
 	if (!new_data)
 	{
 		mlx_destroy_image(mlx, new_img);
-		return NULL;
+		return (NULL);
 	}
-
-	// Scale image
-	for (int y = 0; y < new_size; y++)
+	params[3] = -1;
+	while (++params[3] < n_size)
 	{
-		for (int x = 0; x < new_size; x++)
-		{
-			int src_x = x * width / new_size;
-			int src_y = y * height / new_size;
-			int src_index = src_y * width + src_x;
-			int dst_index = y * new_size + x;
-
-			if (src_index >= 0 && src_index < (width * height) &&
-				dst_index >= 0 && dst_index < (new_size * new_size))
-			{
-				new_data[dst_index] = orig_data[src_index];
-			}
-		}
+		params[4] = -1;
+		while (++params[4] < n_size)
+			if (params[3] * width / n_size * width + params[4] * width / n_size
+				>= 0 && params[3] * width / n_size * width + params[4] * width
+				/ n_size < (width * height))
+				new_data[params[3] * n_size + params[4]] = orig_data[params[3]
+					* width / n_size * width + params[4] * width / n_size];
 	}
-	return new_img;
+	return (new_img);
 }
 
 /**
@@ -79,25 +80,31 @@ void *scale_image(void *mlx, void *original, int width, int height, int new_size
  * Used for creating left-facing sprites from right-facing ones.
  * Maintains transparency information.
  */
-void *flip_image_horizontal(void *mlx, void *img)
+void	*flip_image_horizontal(void *mlx, void *img)
 {
-	int width = 32;
-	int height = 32;
-	int bpp, line_len, endian;
-	void *new_img = mlx_new_image(mlx, width, height);
-	char *new_data = mlx_get_data_addr(new_img, &bpp, &line_len, &endian);
-	char *data = mlx_get_data_addr(img, &bpp, &line_len, &endian);
+	int		width;
+	int		height;
+	int		params[3];
+	void	*new_img;
+	char	*data[2];
 
-	for (int y = 0; y < height; y++)
+	width = 32;
+	height = 32;
+	new_img = mlx_new_image(mlx, width, height);
+	data[0] = mlx_get_data_addr(new_img, &params[0], &params[1], &params[2]);
+	data[1] = mlx_get_data_addr(img, &params[0], &params[1], &params[2]);
+	params[0] = -1;
+	while (++params[0] < height)
 	{
-		for (int x = 0; x < width; x++)
+		params[2] = -1;
+		while (++params[2] < width)
 		{
-			int src_pos = y * line_len + x * (bpp / 8);
-			int dst_pos = y * line_len + (width - 1 - x) * (bpp / 8);
-			*(unsigned int *)(new_data + dst_pos) = *(unsigned int *)(data + src_pos);
+			*(unsigned int *)(data[0] + params[0] * params[1] + (width - 1
+					- params[2]) * 4) = *(unsigned int *)(data[1] + params[0]
+					* params[1] + params[2] * 4);
 		}
 	}
-	return new_img;
+	return (new_img);
 }
 
 /**
@@ -111,33 +118,33 @@ void *flip_image_horizontal(void *mlx, void *img)
  * Loads a sequence of XPM files named f0.xpm through f{frames-1}.xpm
  * from the specified directory. Each sprite is scaled to 32x32 pixels.
  */
-void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
+void	load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
 {
-	char path[256];
-	void *orig_img;
-	void *scaled_img;
-	int width;
-	int height;
+	char	path[256];
+	void	*orig_img;
+	void	*scaled_img;
+	int		params[3];
+	int		i;
 
-	for (int i = 0; i < frames; i++)
+	i = 0;
+	while (i < frames)
 	{
 		ft_snprintf(path, sizeof(path), "%s/f%d.xpm", base_path, i);
-		orig_img = mlx_xpm_file_to_image(mlx, path, &width, &height);
+		orig_img = mlx_xpm_file_to_image(mlx, path, &params[0], &params[1]);
 		if (!orig_img)
 		{
 			ft_printf("Error: Failed to load %s\n", path);
 			exit(1);
 		}
-
-		scaled_img = scale_image(mlx, orig_img, width, height, 32);
+		scaled_img = scale_image(mlx, orig_img, params[0], params[1], 32);
 		mlx_destroy_image(mlx, orig_img);
-
 		if (!scaled_img)
 		{
 			ft_printf("Error: Failed to scale image %s\n", path);
 			exit(1);
 		}
 		arr[i] = scaled_img;
+		i++;
 	}
 }
 
@@ -150,12 +157,39 @@ void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
  * for the player character. These are used when the player is
  * moving or facing left.
  */
-void flip_sprites(t_game *game)
+void	flip_sprites(t_game *game)
 {
-	for (int i = 0; i < 6; i++)
+	int	i;
+
+	i = 0;
+	while (i < 6)
 	{
-		game->player_idle_left[i] = flip_image_horizontal(game->mlx, game->player_idle[i]);
-		game->player_run_left[i] = flip_image_horizontal(game->mlx, game->player_run[i]);
+		game->player_idle_left[i] = flip_image_horizontal(game->mlx,
+				game->player_idle[i]);
+		game->player_run_left[i] = flip_image_horizontal(game->mlx,
+				game->player_run[i]);
+		i++;
+	}
+}
+
+static void	load_single_texture(t_game *game, void **dest, char *path)
+{
+	void	*orig_img;
+
+	orig_img = mlx_xpm_file_to_image(game->mlx, path,
+			&game->img_width, &game->img_height);
+	if (!orig_img)
+	{
+		ft_printf("Error: Failed to load texture: %s\n", path);
+		exit(1);
+	}
+	*dest = scale_image(game->mlx, orig_img, game->img_width,
+			game->img_height, game->tile_size);
+	mlx_destroy_image(game->mlx, orig_img);
+	if (!*dest)
+	{
+		ft_printf("Error: Failed to scale texture: %s\n", path);
+		exit(1);
 	}
 }
 
@@ -172,48 +206,20 @@ void flip_sprites(t_game *game)
  * - Exit texture
  * All textures are scaled to match tile_size (32x32)
  */
-void load_assets(t_game *game)
+void	load_assets(t_game *game)
 {
 	game->tile_size = 32;
 	game->img_width = game->tile_size;
 	game->img_height = game->tile_size;
-
 	ft_printf("Loading assets...\n");
-
-	// Load all sprites with error handling
 	load_sprite_array(game->mlx, game->floor, "./final_assets/floor", 10);
-	load_sprite_array(game->mlx, game->player_idle, "./final_assets/idle_knigh", 6);
-	load_sprite_array(game->mlx, game->player_run, "./final_assets/run_knight", 6);
+	load_sprite_array(game->mlx, game->player_idle,
+		"./final_assets/idle_knigh", 6);
+	load_sprite_array(game->mlx, game->player_run,
+		"./final_assets/run_knight", 6);
 	load_sprite_array(game->mlx, game->collect, "./final_assets/chest", 8);
-
-	// Load wall texture
-	void *orig_img = mlx_xpm_file_to_image(game->mlx, "./final_assets/wall/f1.xpm",
-										   &game->img_width, &game->img_height);
-	if (!orig_img)
-	{
-		ft_printf("Error: Failed to load wall texture\n");
-		exit(1);
-	}
-	game->wall = scale_image(game->mlx, orig_img, game->img_width, game->img_height, game->tile_size);
-	mlx_destroy_image(game->mlx, orig_img);
-
-	// Load exit texture
-	orig_img = mlx_xpm_file_to_image(game->mlx, "./final_assets/exit.xpm",
-									 &game->img_width, &game->img_height);
-	if (!orig_img)
-	{
-		ft_printf("Error: Failed to load exit texture\n");
-		exit(1);
-	}
-	game->exit = scale_image(game->mlx, orig_img, game->img_width, game->img_height, game->tile_size);
-	mlx_destroy_image(game->mlx, orig_img);
-
-	if (!game->wall || !game->exit)
-	{
-		ft_printf("Error: Failed to scale textures\n");
-		exit(1);
-	}
-
+	load_single_texture(game, &game->wall, "./final_assets/wall/f1.xpm");
+	load_single_texture(game, &game->exit, "./final_assets/exit.xpm");
 	init_floor_types(game);
 	ft_printf("All assets loaded successfully!\n");
 }

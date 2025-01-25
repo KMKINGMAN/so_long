@@ -96,6 +96,13 @@ typedef struct s_game
 	void *player_run_left[6];   // for left-facing sprites
 } t_game;
 
+typedef struct s_counts
+{
+	int player;
+	int exit;
+	int collect;
+}	t_counts;
+
 
 // init.c
 void init_game(t_game *game, char *map_path); // Modified to accept map path
