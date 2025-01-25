@@ -1,4 +1,16 @@
-#include "../includes/so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
+/*   Updated: 2025/01/25 17:48:43 by mkurkar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
 
 /**
  * @file player.c
@@ -20,7 +32,7 @@ static void handle_exit(t_game *game)
 	if (game->can_exit)
 	{
 		ft_printf("You won in %d moves!\n", game->moves_count + 1);
-		mlx_destroy_window(game->mlx, game->win);
+		cleanup_game(game);
 		exit(0);
 	}
 	ft_printf("Collect all items first!\n");
@@ -39,18 +51,18 @@ static void update_player_pos(t_game *game, int new_x, int new_y)
 
 /**
  * @brief Handles player movement and collision
- * 
+ *
  * @param game Pointer to game structure
  * @param dx   X-axis movement (-1, 0, 1)
  * @param dy   Y-axis movement (-1, 0, 1)
- * 
+ *
  * @details
  * - Updates player position if move is valid
  * - Handles collectible pickup
  * - Manages exit condition
  * - Updates player direction and animation state
  */
-void    move_player(t_game *game, int dx, int dy)
+void move_player(t_game *game, int dx, int dy)
 {
 	int new_x;
 	int new_y;
@@ -62,13 +74,13 @@ void    move_player(t_game *game, int dx, int dy)
 	else if (dx < 0)
 		game->facing_right = 0;
 	if (game->map[new_y][new_x] == '1')
-		return ;
+		return;
 	if (game->map[new_y][new_x] == 'C')
 		handle_collectible(game);
 	if (game->map[new_y][new_x] == 'E')
 	{
 		handle_exit(game);
-		return ;
+		return;
 	}
 	update_player_pos(game, new_x, new_y);
 }
@@ -78,7 +90,7 @@ void    move_player(t_game *game, int dx, int dy)
  * @param keycode The key code of the pressed key
  * @param game Pointer to the game structure
  * @return int Always returns 0
- * 
+ *
  * @details Controls:
  * - ESC (65307): Exits the game
  * - W/Up (13/119): Move up
@@ -88,9 +100,9 @@ void    move_player(t_game *game, int dx, int dy)
  */
 int key_hook(int keycode, t_game *game)
 {
-	if (keycode == 65307)
+	if (keycode == 65307) // ESC key
 	{
-		mlx_destroy_window(game->mlx, game->win);
+		cleanup_game(game);
 		exit(0);
 	}
 	else if (keycode == 13 || keycode == 119)

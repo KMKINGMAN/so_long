@@ -13,7 +13,8 @@ SRCS = srcs/main.c \
 	srcs/map_validation.c \
 	srcs/ft_snprintf.c \
 	get_next_line/get_next_line_bonus.c \
-	get_next_line/get_next_line_utils_bonus.c
+	get_next_line/get_next_line_utils_bonus.c \
+	srcs/utils.c
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a

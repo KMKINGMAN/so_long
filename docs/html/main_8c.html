@@ -114,10 +114,78 @@ $(function(){initNavTree('main_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a11e0b73c01ab79529c5862a102b1b2d5" id="r_a11e0b73c01ab79529c5862a102b1b2d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:a11e0b73c01ab79529c5862a102b1b2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ca5d43d15c9c5efab34595354e649d" id="r_a11ca5d43d15c9c5efab34595354e649d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11ca5d43d15c9c5efab34595354e649d">exit_game</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:a11ca5d43d15c9c5efab34595354e649d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627" id="r_a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a11e0b73c01ab79529c5862a102b1b2d5" name="a11e0b73c01ab79529c5862a102b1b2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e0b73c01ab79529c5862a102b1b2d5">&#9670;&#160;</a></span>close_window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int close_window </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00009">9</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>{</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_function" href="#a11ca5d43d15c9c5efab34595354e649d">exit_game</a>(game);</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   13</span>}</div>
+<div class="ttc" id="amain_8c_html_a11ca5d43d15c9c5efab34595354e649d"><div class="ttname"><a href="#a11ca5d43d15c9c5efab34595354e649d">exit_game</a></div><div class="ttdeci">static void exit_game(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00003">main.c:3</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="main_8c_source.html#l00003">exit_game()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00015">main()</a>.</p>
+
+</div>
+</div>
+<a id="a11ca5d43d15c9c5efab34595354e649d" name="a11ca5d43d15c9c5efab34595354e649d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ca5d43d15c9c5efab34595354e649d">&#9670;&#160;</a></span>exit_game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void exit_game </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00003">3</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
+<div class="line"><span class="lineno">    5</span>    <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
+<div class="line"><span class="lineno">    6</span>    exit(0);</div>
+<div class="line"><span class="lineno">    7</span>}</div>
+<div class="ttc" id="autils_8c_html_a6b166a434f4f8cc202d9c3feaf33af7a"><div class="ttname"><a href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a></div><div class="ttdeci">void cleanup_game(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="utils_8c_source.html#l00063">cleanup_game()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00009">close_window()</a>.</p>
+
+</div>
+</div>
 <a id="a3c04138a5bfe5d72780bb7e82a18e627" name="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&#160;</a></span>main()</h2>
 
@@ -137,35 +205,51 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00003">3</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
-<div class="line"><span class="lineno">    5</span>    <a class="code hl_struct" href="structt__game.html">t_game</a> game;</div>
-<div class="line"><span class="lineno">    6</span> </div>
-<div class="line"><span class="lineno">    7</span>    <span class="keywordflow">if</span> (argc != 2)</div>
-<div class="line"><span class="lineno">    8</span>    {</div>
-<div class="line"><span class="lineno">    9</span>        ft_printf(<span class="stringliteral">&quot;Error: Usage: %s &lt;map_path.ber&gt;\n&quot;</span>, argv[0]);</div>
-<div class="line"><span class="lineno">   10</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   11</span>    }</div>
-<div class="line"><span class="lineno">   12</span> </div>
-<div class="line"><span class="lineno">   13</span>    <span class="comment">// Check if file ends with .ber</span></div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">char</span> *dot = ft_strrchr(argv[1], <span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">if</span> (!dot || strcmp(dot, <span class="stringliteral">&quot;.ber&quot;</span>) != 0)</div>
-<div class="line"><span class="lineno">   16</span>    {</div>
-<div class="line"><span class="lineno">   17</span>        ft_printf(<span class="stringliteral">&quot;Error: Map file must have .ber extension\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   19</span>    }</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_function" href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a>(&amp;game, argv[1]);</div>
-<div class="line"><span class="lineno">   22</span>    ft_printf(<span class="stringliteral">&quot;Starting game loop...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(&amp;game);</div>
-<div class="line"><span class="lineno">   24</span>    mlx_loop(game.mlx);</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   26</span>}</div>
-<div class="ttc" id="ainit_8c_html_a07af3347aa3856589df3f78056ef1cd1"><div class="ttname"><a href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a></div><div class="ttdeci">void init_game(t_game *game, char *map_path)</div><div class="ttdoc">Main game initialization function.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00154">init.c:154</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00015">15</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_struct" href="structt__game.html">t_game</a> game;</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (argc != 2)</div>
+<div class="line"><span class="lineno">   20</span>    {</div>
+<div class="line"><span class="lineno">   21</span>        ft_printf(<span class="stringliteral">&quot;Error: Usage: %s &lt;map_path.ber&gt;\n&quot;</span>, argv[0]);</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   23</span>    }</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    <span class="comment">// Check if file ends with .ber</span></div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordtype">char</span> *dot = ft_strrchr(argv[1], <span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span> (!dot || strcmp(dot, <span class="stringliteral">&quot;.ber&quot;</span>) != 0)</div>
+<div class="line"><span class="lineno">   28</span>    {</div>
+<div class="line"><span class="lineno">   29</span>        ft_printf(<span class="stringliteral">&quot;Error: Map file must have .ber extension\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    ft_memset(&amp;game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>)); <span class="comment">// Initialize to zero</span></div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_function" href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a>(&amp;game, argv[1]);</div>
+<div class="line"><span class="lineno">   36</span>    ft_printf(<span class="stringliteral">&quot;Starting game loop...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">// Add window close hook</span></div>
+<div class="line"><span class="lineno">   39</span>    mlx_hook(game.win, 17, 0, <a class="code hl_function" href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a>, &amp;game);</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (game.mlx &amp;&amp; game.win)</div>
+<div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(&amp;game);</div>
+<div class="line"><span class="lineno">   44</span>        mlx_loop(game.mlx);</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   47</span>    {</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(&amp;game, <span class="stringliteral">&quot;Failed to initialize game&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   52</span>}</div>
+<div class="ttc" id="ainit_8c_html_a07af3347aa3856589df3f78056ef1cd1"><div class="ttname"><a href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a></div><div class="ttdeci">void init_game(t_game *game, char *map_path)</div><div class="ttdoc">Main game initialization function.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00160">init.c:160</a></div></div>
+<div class="ttc" id="amain_8c_html_a11e0b73c01ab79529c5862a102b1b2d5"><div class="ttname"><a href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a></div><div class="ttdeci">int close_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00009">main.c:9</a></div></div>
 <div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00210">render.c:210</a></div></div>
 <div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
+<div class="ttc" id="autils_8c_html_a8d321f33b7ee1109310b116ebd23081c"><div class="ttname"><a href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a></div><div class="ttdeci">void handle_error(t_game *game, const char *message)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00129">utils.c:129</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="init_8c_source.html#l00154">init_game()</a>, and <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="main_8c_source.html#l00009">close_window()</a>, <a class="el" href="utils_8c_source.html#l00129">handle_error()</a>, <a class="el" href="init_8c_source.html#l00160">init_game()</a>, and <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
 
 </div>
 </div>

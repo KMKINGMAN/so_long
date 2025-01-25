@@ -7,5 +7,6 @@ var dir_b73b02d482d1c4a3db20c3d9ad52d395 =
     [ "map.c", "map_8c.html", "map_8c" ],
     [ "map_validation.c", "map__validation_8c.html", "map__validation_8c" ],
     [ "player.c", "player_8c.html", "player_8c" ],
-    [ "render.c", "render_8c.html", "render_8c" ]
+    [ "render.c", "render_8c.html", "render_8c" ],
+    [ "utils.c", "utils_8c.html", "utils_8c" ]
 ];

@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:25:32 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/25 17:26:20 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:48:52 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ static int validate_counts(t_game *game, t_counts count)
 	return (1);
 }
 
-int	validate_map(t_game *game)
+int validate_map(t_game *game)
 {
-	t_counts	count;
-	int			i;
-	int			j;
+	t_counts count;
+	int i;
+	int j;
 
 	count = (t_counts){0, 0, 0};
 	if (!check_map_borders(game))

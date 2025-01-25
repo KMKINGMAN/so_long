@@ -138,5 +138,10 @@ void free_map(char **map, int height);
 
 int ft_snprintf(char *str, size_t size, const char *format, ...);
 
+void cleanup_game(t_game *game);
+void handle_error(t_game *game, const char *message);
+
+int close_window(t_game *game);
+
 #endif
 
