@@ -65,133 +65,95 @@ void init_buffer(t_game *game)
 }
 
 /**
- * @brief Handles game animation frames and state updates
- * 
- * @param game Pointer to game structure
- * @return int Always returns 0
- * 
- * @details
- * - Updates animation frames every 100 delay ticks
- * - Manages player running/idle state transitions
- * - Triggers frame rendering
+ * @brief Simple animation handler with controlled speed
  */
 int animate(t_game *game)
 {
-	static int delay = 0;
+    static int delay = 0;
 
-	delay++;
-	if (delay > 100)
-	{
-		delay = 0;
-		game->frame = (game->frame + 1) % 6;
+    delay++;
+    if (delay >= 15)
+    {
+        delay = 0;
+        game->frame = (game->frame + 1) % 6;
+        
+        if (game->is_running)
+        {
+            game->run_counter++;
+            if (game->run_counter >= 15)
+            {
+                game->is_running = 0;
+                game->run_counter = 0;
+            }
+        }
+    }
 
-		if (game->is_running)
-		{
-			game->run_counter++;
-			if (game->run_counter >= 20) // After 20 frames of running
-			{
-				game->is_running = 0;  // Set to idle
-				game->run_counter = 0; // Reset counter
-			}
-		}
-	}
-	render_frame(game);
-	return (0);
+    render_frame(game);
+    return (0);
 }
 
 /**
- * @brief Renders a complete frame of the game
- * @param game Pointer to game structure
- * @return int Always returns 0
- * 
- * @details Rendering order:
- * 1. Clear buffer
- * 2. Draw floor tiles
- * 3. Draw exit
- * 4. Draw walls
- * 5. Draw player with direction/animation
- * 6. Draw collectibles
- * 7. Draw UI elements
+ * @brief Renders a complete frame
  */
 int render_frame(t_game *game)
 {
-	int i = 0;
-	int j = 0;
+    int i, j;
 
-	// Clear buffer by setting all pixels to 0
-	ft_memset(game->buffer.addr, 0,
-		   game->map_width * game->tile_size * game->map_height * game->tile_size *
-			   (game->buffer.bpp / 8));
+    // Clear buffer
+    ft_memset(game->buffer.addr, 0,
+        game->map_width * game->tile_size * game->map_height * 
+        game->tile_size * (game->buffer.bpp / 8));
 
-	// First pass: Draw floor and exit
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			int x = j * game->tile_size;
-			int y = i * game->tile_size;
-			put_img_to_img(&game->buffer, game->floor[game->floor_types[i][j]], x, y);
-			if (game->map[i][j] == 'E')
-				put_img_to_img(&game->buffer, game->exit, x, y);
-			j++;
-		}
-		i++;
-	}
+    // Draw floor and walls
+    for (i = 0; i < game->map_height; i++)
+    {
+        for (j = 0; j < game->map_width; j++)
+        {
+            int x = j * game->tile_size;
+            int y = i * game->tile_size;
 
-	// Second pass: Draw walls and entities
-	i = 0;
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			int x = j * game->tile_size;
-			int y = i * game->tile_size;
+            // Draw floor
+            put_img_to_img(&game->buffer, 
+                          game->floor[game->floor_types[i][j]], x, y);
 
-			if (game->map[i][j] == '1')
-				put_img_to_img(&game->buffer, game->wall, x, y);
-			else if (game->map[i][j] == 'P')
-			{
-				void *sprite;
-				if (game->facing_right)
-				{
-					sprite = game->is_running ? game->player_run[game->frame % 6] : game->player_idle[game->frame % 6];
-				}
-				else
-				{
-					sprite = game->is_running ? game->player_run_left[game->frame % 6] : game->player_idle_left[game->frame % 6];
-				}
-				put_img_to_img(&game->buffer, sprite, x, y);
-			}
-			else if (game->map[i][j] == 'C')
-				put_img_to_img(&game->buffer, game->collect[game->frame % 8], x, y);
-			j++;
-		}
-		i++;
-	}
+            // Draw walls
+            if (game->map[i][j] == '1')
+                put_img_to_img(&game->buffer, game->wall, x, y);
+            // Draw exit
+            else if (game->map[i][j] == 'E')
+                put_img_to_img(&game->buffer, game->exit, x, y);
+            // Draw player
+            else if (game->map[i][j] == 'P')
+            {
+                void *sprite = game->facing_right ? 
+                    (game->is_running ? game->player_run[game->frame] : 
+                                      game->player_idle[game->frame]) :
+                    (game->is_running ? game->player_run_left[game->frame] : 
+                                      game->player_idle_left[game->frame]);
+                put_img_to_img(&game->buffer, sprite, x, y);
+            }
+            // Draw collectibles
+            else if (game->map[i][j] == 'C')
+                put_img_to_img(&game->buffer, 
+                              game->collect[game->frame % 8], x, y);
+        }
+    }
 
-	// Put the buffer to window
-	mlx_put_image_to_window(game->mlx, game->win, game->buffer.img_ptr, 0, 0);
+    // Put buffer to window
+    mlx_put_image_to_window(game->mlx, game->win, game->buffer.img_ptr, 0, 0);
 
-	// Draw move counter
-	char moves_str[32];
-	ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
-	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
+    // Draw move counter
+    char moves_str[32];
+    ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
+    mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
 
-	return (0);
+    return (0);
 }
 
 /**
  * @brief Handles window expose events
- * @param game Pointer to game structure
- * @return int Result of render_frame
- * 
- * @details
- * Called when window needs to be redrawn,
- * typically after being uncovered or restored.
  */
 int expose_hook(t_game *game)
 {
-	return (render_frame(game));
+    return (render_frame(game));
 }

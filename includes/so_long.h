@@ -21,6 +21,7 @@
 #include <stdarg.h>
 #include "libft.h"
 #include "ft_printf.h"
+#include <math.h>
 
 typedef struct s_win
 {
@@ -94,6 +95,9 @@ typedef struct s_game
 	int run_counter;  // Add this new field
 	void *player_idle_left[6];  // Add these new arrays
 	void *player_run_left[6];   // for left-facing sprites
+	float time;              // Global time tracker
+	int *collect_offset;     // Array for collectible animations
+	float run_intensity;     // Running animation smoothing
 } t_game;
 
 
