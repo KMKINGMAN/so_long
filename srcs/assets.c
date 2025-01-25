@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/25 17:49:05 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/25 18:25:01 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  * @brief Asset loading and manipulation functions
  */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 /**
  * @brief Scales an image to a new size
