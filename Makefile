@@ -1,8 +1,8 @@
 NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I./includes -I/usr/include -Ilibft -Iincludes -Iminilibx-linux
-LIBS = -L/usr/local/lib -lmlx -L./libft  -Lminilibx-linux -lft -lX11 -lXext -lXrender -lm  
+INCLUDES = -I./includes -I/usr/include -Ilibft -Iincludes
+LIBS = -L/usr/local/lib -lmlx -L./libft -lft -lX11 -lXext -lXrender -lm  
 
 SRCS = srcs/main.c \
 	srcs/init.c \

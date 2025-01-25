@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/25 17:16:42 by mkurkar           #+#    #+#             */
+/*   Updated: 2025/01/25 17:16:47 by mkurkar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /**
  * @file render.c
  * @brief Rendering functions for the so_long game
  */
 
 #include "so_long.h"
+#include <time.h>
 
 /**
  * @brief Copies a sprite to the buffer image with transparency handling
@@ -17,31 +30,32 @@
  * Copies a 32x32 sprite to the buffer while handling transparency.
  * Only non-transparent pixels (alpha != 0) are copied.
  */
-void put_img_to_img(t_img *dst, void *src_ptr, int x, int y)
+void	put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)
 {
-	t_img src;
-	int i;
-	int j;
+	t_img	sprite;
+	int		row;
+	int		col;
+	int		sprite_pos;
+	int		dest_pos;
 
-	src.img_ptr = src_ptr;
-	src.addr = mlx_get_data_addr(src.img_ptr, &src.bpp, &src.line_len, &src.endian);
-
-	i = 0;
-	while (i < 32)
+	sprite.img_ptr = sprite_ptr;
+	sprite.addr = mlx_get_data_addr(sprite.img_ptr, &sprite.bpp, 
+			&sprite.line_len, &sprite.endian);
+	row = 0;
+	while (row < 32)
 	{
-		j = 0;
-		while (j < 32)
+		col = 0;
+		while (col < 32)
 		{
-			int src_i = j * (src.bpp / 8) + i * src.line_len;
-			int dst_i = (x + j) * (dst->bpp / 8) + (y + i) * dst->line_len;
-			unsigned int color;
-
-			color = *(unsigned int *)(src.addr + src_i);
-			if ((color & 0xFF000000) == 0)
-				*(unsigned int *)(dst->addr + dst_i) = color;
-			j++;
+			sprite_pos = col * (sprite.bpp / 8) + row * sprite.line_len;
+			dest_pos = (dest_x + col) * (dest->bpp / 8)
+				+ (dest_y + row) * dest->line_len;
+			if ((*(unsigned int *)(sprite.addr + sprite_pos) & 0xFF000000) == 0)
+				*(unsigned int *)(dest->addr + dest_pos)
+					= *(unsigned int *)(sprite.addr + sprite_pos);
+			col++;
 		}
-		i++;
+		row++;
 	}
 }
 
@@ -54,106 +68,171 @@ void put_img_to_img(t_img *dst, void *src_ptr, int x, int y)
  * Buffer size matches the window dimensions.
  * Used for double buffering to prevent flickering.
  */
-void init_buffer(t_game *game)
+void	init_buffer(t_game *game)
 {
-	int win_width = game->map_width * game->tile_size;
-	int win_height = game->map_height * game->tile_size;
+	int	win_width;
+	int	win_height;
 
+	win_width = game->map_width * game->tile_size;
+	win_height = game->map_height * game->tile_size;
 	game->buffer.img_ptr = mlx_new_image(game->mlx, win_width, win_height);
-	game->buffer.addr = mlx_get_data_addr(game->buffer.img_ptr, &game->buffer.bpp,
-										  &game->buffer.line_len, &game->buffer.endian);
+	game->buffer.addr = mlx_get_data_addr(game->buffer.img_ptr,
+			&game->buffer.bpp, &game->buffer.line_len, &game->buffer.endian);
 }
 
 /**
- * @brief Simple animation handler with controlled speed
+ * @brief Handles game animation frames and state updates
+ * 
+ * @param game Pointer to game structure
+ * @return int Always returns 0
+ * 
+ * @details
+ * - Updates animation frames every 100 delay ticks
+ * - Manages player running/idle state transitions
+ * - Triggers frame rendering
  */
 int animate(t_game *game)
 {
-    static int delay = 0;
+	static struct timespec last_time;
+	struct timespec current_time;
+	double elapsed;
 
-    delay++;
-    if (delay >= 15)
-    {
-        delay = 0;
-        game->frame = (game->frame + 1) % 6;
-        
-        if (game->is_running)
-        {
-            game->run_counter++;
-            if (game->run_counter >= 15)
-            {
-                game->is_running = 0;
-                game->run_counter = 0;
-            }
-        }
-    }
+	clock_gettime(CLOCK_MONOTONIC, &current_time);
+	elapsed = (current_time.tv_sec - last_time.tv_sec) * 1000.0 +
+			 (current_time.tv_nsec - last_time.tv_nsec) / 1000000.0;
+	if (elapsed >= 100.0 || last_time.tv_sec == 0)
+	{
+		game->frame = (game->frame + 1) % 6;
+		last_time = current_time;
 
-    render_frame(game);
-    return (0);
+		if (game->is_running)
+		{
+			game->run_counter++;
+			if (game->run_counter >= 20)
+			{
+				game->is_running = 0;
+				game->run_counter = 0;
+			}
+		}
+	}
+	render_frame(game);
+	return (0);
 }
 
 /**
- * @brief Renders a complete frame
+ * @brief Renders a complete frame of the game
+ * @param game Pointer to game structure
+ * @return int Always returns 0
+ * 
+ * @details Rendering order:
+ * 1. Clear buffer
+ * 2. Draw floor tiles
+ * 3. Draw exit
+ * 4. Draw walls
+ * 5. Draw player with direction/animation
+ * 6. Draw collectibles
+ * 7. Draw UI elements
  */
-int render_frame(t_game *game)
+static void	draw_floor_and_exit(t_game *game)
 {
-    int i, j;
+	int	i;
+	int	j;
+	int	x;
+	int	y;
 
-    // Clear buffer
-    ft_memset(game->buffer.addr, 0,
-        game->map_width * game->tile_size * game->map_height * 
-        game->tile_size * (game->buffer.bpp / 8));
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			x = j * game->tile_size;
+			y = i * game->tile_size;
+			put_img_to_img(&game->buffer,
+				game->floor[game->floor_types[i][j]], x, y);
+			if (game->map[i][j] == 'E')
+				put_img_to_img(&game->buffer, game->exit, x, y);
+			j++;
+		}
+		i++;
+	}
+}
 
-    // Draw floor and walls
-    for (i = 0; i < game->map_height; i++)
-    {
-        for (j = 0; j < game->map_width; j++)
-        {
-            int x = j * game->tile_size;
-            int y = i * game->tile_size;
+static void	draw_player(t_game *game, int x, int y)
+{
+	void	*sprite;
 
-            // Draw floor
-            put_img_to_img(&game->buffer, 
-                          game->floor[game->floor_types[i][j]], x, y);
+	if (game->facing_right)
+	{
+		if (game->is_running)
+			sprite = game->player_run[game->frame % 6];
+		else
+			sprite = game->player_idle[game->frame % 6];
+	}
+	else
+	{
+		if (game->is_running)
+			sprite = game->player_run_left[game->frame % 6];
+		else
+			sprite = game->player_idle_left[game->frame % 6];
+	}
+	put_img_to_img(&game->buffer, sprite, x, y);
+}
 
-            // Draw walls
-            if (game->map[i][j] == '1')
-                put_img_to_img(&game->buffer, game->wall, x, y);
-            // Draw exit
-            else if (game->map[i][j] == 'E')
-                put_img_to_img(&game->buffer, game->exit, x, y);
-            // Draw player
-            else if (game->map[i][j] == 'P')
-            {
-                void *sprite = game->facing_right ? 
-                    (game->is_running ? game->player_run[game->frame] : 
-                                      game->player_idle[game->frame]) :
-                    (game->is_running ? game->player_run_left[game->frame] : 
-                                      game->player_idle_left[game->frame]);
-                put_img_to_img(&game->buffer, sprite, x, y);
-            }
-            // Draw collectibles
-            else if (game->map[i][j] == 'C')
-                put_img_to_img(&game->buffer, 
-                              game->collect[game->frame % 8], x, y);
-        }
-    }
+static void	draw_entities(t_game *game)
+{
+	int	i;
+	int	j;
+	int	x;
+	int	y;
 
-    // Put buffer to window
-    mlx_put_image_to_window(game->mlx, game->win, game->buffer.img_ptr, 0, 0);
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			x = j * game->tile_size;
+			y = i * game->tile_size;
+			if (game->map[i][j] == '1')
+				put_img_to_img(&game->buffer, game->wall, x, y);
+			else if (game->map[i][j] == 'P')
+				draw_player(game, x, y);
+			else if (game->map[i][j] == 'C')
+				put_img_to_img(&game->buffer,
+					game->collect[game->frame % 8], x, y);
+			j++;
+		}
+		i++;
+	}
+}
 
-    // Draw move counter
-    char moves_str[32];
-    ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
-    mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
+int	render_frame(t_game *game)
+{
+	char	moves_str[32];
 
-    return (0);
+	ft_memset(game->buffer.addr, 0,
+		game->map_width * game->tile_size * game->map_height
+		* game->tile_size * (game->buffer.bpp / 8));
+	draw_floor_and_exit(game);
+	draw_entities(game);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->buffer.img_ptr, 0, 0);
+	ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
+	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
+	return (0);
 }
 
 /**
  * @brief Handles window expose events
+ * @param game Pointer to game structure
+ * @return int Result of render_frame
+ * 
+ * @details
+ * Called when window needs to be redrawn,
+ * typically after being uncovered or restored.
  */
 int expose_hook(t_game *game)
 {
-    return (render_frame(game));
+	return (render_frame(game));
 }
