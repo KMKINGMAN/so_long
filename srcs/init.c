@@ -21,17 +21,19 @@
  * Each position gets a random floor variant (0-9)
  * for visual variety in the game.
  */
-void init_floor_types(t_game *game)
+void	init_floor_types(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	game->floor_types = (unsigned char **)malloc(sizeof(unsigned char *) * game->map_height);
+	game->floor_types = (unsigned char **)malloc(sizeof(unsigned char *)
+			* game->map_height);
 	while (i < game->map_height)
 	{
 		j = 0;
-		game->floor_types[i] = (unsigned char *)malloc(sizeof(unsigned char) * game->map_width);
+		game->floor_types[i] = (unsigned char *)malloc(sizeof(unsigned char)
+				* game->map_width);
 		while (j < game->map_width)
 		{
 			game->floor_types[i][j] = (unsigned char)(rand() % 10);
@@ -49,10 +51,10 @@ void init_floor_types(t_game *game)
  * Scans the map for 'P' character and sets
  * player_x and player_y coordinates accordingly.
  */
-void init_player_position(t_game *game)
+void	init_player_position(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (game->map[i])
@@ -64,7 +66,7 @@ void init_player_position(t_game *game)
 			{
 				game->player_x = j;
 				game->player_y = i;
-				return;
+				return ;
 			}
 			j++;
 		}
@@ -81,10 +83,10 @@ void init_player_position(t_game *game)
  * - Locates exit position ('E' in map)
  * - Initializes completion tracking
  */
-void init_collectibles(t_game *game)
+void	init_collectibles(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	game->collectibles_count = 0;
@@ -107,14 +109,13 @@ void init_collectibles(t_game *game)
 	game->can_exit = 0;
 }
 
-static void init_game_window(t_game *game)
+static void	init_game_window(t_game *game)
 {
-	int win_width;
-	int win_height;
+	int	win_width;
+	int	win_height;
 
 	win_width = game->map_width * game->tile_size;
 	win_height = game->map_height * game->tile_size;
-
 	game->win = mlx_new_window(game->mlx, win_width, win_height, "so_long");
 	if (!game->win)
 	{
@@ -124,7 +125,7 @@ static void init_game_window(t_game *game)
 	}
 }
 
-static void init_game_vars(t_game *game)
+static void	init_game_vars(t_game *game)
 {
 	ft_memset(game, 0, sizeof(t_game));
 	game->frame = 0;
@@ -135,7 +136,7 @@ static void init_game_vars(t_game *game)
 	game->run_counter = 0;
 }
 
-static void init_mlx_and_map(t_game *game, char *map_path)
+static void	init_mlx_and_map(t_game *game, char *map_path)
 {
 	ft_printf("Initializing MLX...\n");
 	game->mlx = mlx_init();
@@ -145,7 +146,6 @@ static void init_mlx_and_map(t_game *game, char *map_path)
 		ft_printf("Error: MLX initialization failed\n");
 		exit(1);
 	}
-
 	ft_printf("Reading map: %s\n", map_path);
 	game->map = read_map(map_path, &game->map_width, &game->map_height);
 	if (!game->map || !validate_map(game))
@@ -169,7 +169,7 @@ static void init_mlx_and_map(t_game *game, char *map_path)
  * 6. Initialize player and collectibles
  * 7. Set up event hooks
  */
-void init_game(t_game *game, char *map_path)
+void	init_game(t_game *game, char *map_path)
 {
 	init_game_vars(game);
 	init_mlx_and_map(game, map_path);

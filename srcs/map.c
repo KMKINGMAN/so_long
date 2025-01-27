@@ -58,7 +58,7 @@ static int	validate_width(char **lines, int i, int width)
  * @param width Pointer to store map width
  * @param height Pointer to store map height
  * @return char** 2D array containing the map data
- * 
+ *
  * @details
  * - Reads map file line by line
  * - Allocates memory for map storage

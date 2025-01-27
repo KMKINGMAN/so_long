@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void cleanup_mlx_ptr(t_game *game)
+static void	cleanup_mlx_ptr(t_game *game)
 {
 	if (game->mlx)
 	{
@@ -175,7 +175,7 @@ void	cleanup_game(t_game *game)
 	cleanup_map_data(game);
 }
 
-void handle_error(t_game *game, const char *message)
+void	handle_error(t_game *game, const char *message)
 {
 	ft_printf("Error: %s\n", message);
 	cleanup_game(game);

@@ -17,9 +17,9 @@
  * @param game Pointer to game structure
  * @return int 1 if valid, 0 if invalid
  */
-static int check_map_borders(t_game *game)
+static int	check_map_borders(t_game *game)
 {
-	int j;
+	int	j;
 
 	if (game->map_height < 3 || game->map_width < 3)
 		return (ft_printf("Error: Map too small\n") && 0);
@@ -29,9 +29,9 @@ static int check_map_borders(t_game *game)
 	return (1);
 }
 
-static int check_elements(t_game *game, int i, int j, t_counts *count)
+static int	check_elements(t_game *game, int i, int j, t_counts *count)
 {
-	char c;
+	char	c;
 
 	c = game->map[i][j];
 	if (c == 'P')
@@ -53,7 +53,7 @@ static int check_elements(t_game *game, int i, int j, t_counts *count)
 	return (1);
 }
 
-static int validate_counts(t_game *game, t_counts count)
+static int	validate_counts(t_game *game, t_counts count)
 {
 	if (count.player != 1)
 		return (ft_printf("Error: Must have exactly one player\n") && 0);
@@ -65,11 +65,11 @@ static int validate_counts(t_game *game, t_counts count)
 	return (1);
 }
 
-int validate_map(t_game *game)
+int	validate_map(t_game *game)
 {
-	t_counts count;
-	int i;
-	int j;
+	t_counts	count;
+	int			i;
+	int			j;
 
 	count = (t_counts){0, 0, 0};
 	if (!check_map_borders(game))
@@ -99,10 +99,10 @@ int validate_map(t_game *game)
  * @param map 2D array to free
  * @param height Number of rows in the map
  */
-void free_map(char **map, int height)
+void	free_map(char **map, int height)
 {
 	if (!map)
-		return;
+		return ;
 	for (int i = 0; i < height; i++)
 		free(map[i]);
 	free(map);

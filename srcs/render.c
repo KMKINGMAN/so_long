@@ -20,12 +20,12 @@
 
 /**
  * @brief Copies a sprite to the buffer image with transparency handling
- * 
+ *
  * @param dst     Destination buffer image
  * @param src_ptr Source sprite pointer
  * @param x       X coordinate in destination
  * @param y       Y coordinate in destination
- * 
+ *
  * @details
  * Copies a 32x32 sprite to the buffer while handling transparency.
  * Only non-transparent pixels (alpha != 0) are copied.
@@ -36,11 +36,11 @@ static void	put_img_to_img_part(t_img *dest, t_img *sprite, t_pos pos)
 	int	dest_pos;
 
 	sprite_pos = pos.col * (sprite->bpp / 8) + pos.row * sprite->line_len;
-	dest_pos = (pos.dest_x + pos.col) * (dest->bpp / 8)
-		+ (pos.dest_y + pos.row) * dest->line_len;
+	dest_pos = (pos.dest_x + pos.col) * (dest->bpp / 8) + (pos.dest_y + pos.row)
+		* dest->line_len;
 	if ((*(unsigned int *)(sprite->addr + sprite_pos) & 0xFF000000) == 0)
-		*(unsigned int *)(dest->addr + dest_pos)
-			= *(unsigned int *)(sprite->addr + sprite_pos);
+		*(unsigned int *)(dest->addr
+				+ dest_pos) = *(unsigned int *)(sprite->addr + sprite_pos);
 }
 
 void	put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)
@@ -69,7 +69,7 @@ void	put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)
 /**
  * @brief Initializes the rendering buffer
  * @param game Pointer to game structure
- * 
+ *
  * @details
  * Creates an off-screen buffer for rendering the game frame.
  * Buffer size matches the window dimensions.
@@ -89,29 +89,28 @@ void	init_buffer(t_game *game)
 
 /**
  * @brief Handles game animation frames and state updates
- * 
+ *
  * @param game Pointer to game structure
  * @return int Always returns 0
- * 
+ *
  * @details
  * - Updates animation frames every 100 delay ticks
  * - Manages player running/idle state transitions
  * - Triggers frame rendering
  */
-int animate(t_game *game)
+int	animate(t_game *game)
 {
-	static struct timespec last_time;
-	struct timespec current_time;
-	double elapsed;
+	static struct timespec	last_time;
+	struct timespec			current_time;
+	double					elapsed;
 
 	clock_gettime(CLOCK_MONOTONIC, &current_time);
-	elapsed = (current_time.tv_sec - last_time.tv_sec) * 1000.0 +
-			 (current_time.tv_nsec - last_time.tv_nsec) / 1000000.0;
+	elapsed = (current_time.tv_sec - last_time.tv_sec) * 1000.0
+		+ (current_time.tv_nsec - last_time.tv_nsec) / 1000000.0;
 	if (elapsed >= 100.0 || last_time.tv_sec == 0)
 	{
 		game->frame = (game->frame + 1) % 6;
 		last_time = current_time;
-
 		if (game->is_running)
 		{
 			game->run_counter++;
@@ -130,7 +129,7 @@ int animate(t_game *game)
  * @brief Renders a complete frame of the game
  * @param game Pointer to game structure
  * @return int Always returns 0
- * 
+ *
  * @details Rendering order:
  * 1. Clear buffer
  * 2. Draw floor tiles
@@ -155,8 +154,8 @@ static void	draw_floor_and_exit(t_game *game)
 		{
 			x = j * game->tile_size;
 			y = i * game->tile_size;
-			put_img_to_img(&game->buffer,
-				game->floor[game->floor_types[i][j]], x, y);
+			put_img_to_img(&game->buffer, game->floor[game->floor_types[i][j]],
+				x, y);
 			if (game->map[i][j] == 'E' && game->can_exit)
 				put_img_to_img(&game->buffer, game->exit, x, y);
 			j++;
@@ -206,8 +205,8 @@ static void	draw_entities(t_game *game)
 			else if (game->map[i][j] == 'P')
 				draw_player(game, x, y);
 			else if (game->map[i][j] == 'C')
-				put_img_to_img(&game->buffer,
-					game->collect[game->frame % 8], x, y);
+				put_img_to_img(&game->buffer, game->collect[game->frame % 8], x,
+					y);
 			j++;
 		}
 		i++;
@@ -218,13 +217,11 @@ int	render_frame(t_game *game)
 {
 	char	moves_str[32];
 
-	ft_memset(game->buffer.addr, 0,
-		game->map_width * game->tile_size * game->map_height
-		* game->tile_size * (game->buffer.bpp / 8));
+	ft_memset(game->buffer.addr, 0, game->map_width * game->tile_size
+		* game->map_height * game->tile_size * (game->buffer.bpp / 8));
 	draw_floor_and_exit(game);
 	draw_entities(game);
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->buffer.img_ptr, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->buffer.img_ptr, 0, 0);
 	ft_snprintf(moves_str, sizeof(moves_str), "Moves: %d", game->moves_count);
 	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
 	return (0);
@@ -234,12 +231,12 @@ int	render_frame(t_game *game)
  * @brief Handles window expose events
  * @param game Pointer to game structure
  * @return int Result of render_frame
- * 
+ *
  * @details
  * Called when window needs to be redrawn,
  * typically after being uncovered or restored.
  */
-int expose_hook(t_game *game)
+int	expose_hook(t_game *game)
 {
 	return (render_frame(game));
 }

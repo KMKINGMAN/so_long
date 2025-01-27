@@ -12,12 +12,13 @@
 
 #include "so_long.h"
 
-static void ft_itoa_to_buf(int n, char *str, int *pos, size_t size)
+static void	ft_itoa_to_buf(int n, char *str, int *pos, size_t size)
 {
-	long num;
-	char digits[12]; // Enough for 32-bit int
-	int i = 0;
+	long	num;
+	int		i;
 
+	char digits[12]; // Enough for 32-bit int
+	i = 0;
 	num = n;
 	if (num < 0)
 	{
@@ -25,28 +26,25 @@ static void ft_itoa_to_buf(int n, char *str, int *pos, size_t size)
 			str[(*pos)++] = '-';
 		num = -num;
 	}
-
 	// Handle 0 specially
 	if (num == 0)
 	{
 		if (*pos < (int)size - 1)
 			str[(*pos)++] = '0';
-		return;
+		return ;
 	}
-
 	// Convert to digits in reverse order
 	while (num > 0)
 	{
 		digits[i++] = '0' + (num % 10);
 		num /= 10;
 	}
-
 	// Copy digits in correct order
 	while (i > 0 && *pos < (int)size - 1)
 		str[(*pos)++] = digits[--i];
 }
 
-static void ft_strncpy_buf(const char *src, char *str, int *pos, size_t size)
+static void	ft_strncpy_buf(const char *src, char *str, int *pos, size_t size)
 {
 	while (src && *src && *pos < (int)size - 1)
 		str[(*pos)++] = *src++;
@@ -60,17 +58,15 @@ static void ft_strncpy_buf(const char *src, char *str, int *pos, size_t size)
  * @param ... Variable arguments
  * @return Number of characters written (excluding null terminator)
  */
-int ft_snprintf(char *str, size_t size, const char *format, ...)
+int	ft_snprintf(char *str, size_t size, const char *format, ...)
 {
-	va_list args;
-	int pos;
+	va_list	args;
+	int		pos;
 
 	if (!str || !format || size == 0)
 		return (0);
-
 	va_start(args, format);
 	pos = 0;
-
 	while (*format && pos < (int)size - 1)
 	{
 		if (*format == '%')
@@ -85,17 +81,16 @@ int ft_snprintf(char *str, size_t size, const char *format, ...)
 		else
 			str[pos++] = *format++;
 	}
-
 	str[pos] = '\0';
 	va_end(args);
 	return (pos);
 }
 
 #ifdef DEBUG
-int main(void)
+int	main(void)
 {
-	char buf[64];
-	int n;
+	char	buf[64];
+	int		n;
 
 	n = ft_snprintf(buf, sizeof(buf), "Moves: %d, Player: %s", 42, "Hero");
 	printf("Result (%d): '%s'\n", n, buf);

@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/27 19:56:35 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/27 22:24:01 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @brief Player movement and interaction handling
  */
 
-static void handle_collectible(t_game *game)
+static void	handle_collectible(t_game *game)
 {
 	game->collectibles_count--;
 	if (game->collectibles_count == 0)
@@ -27,7 +27,7 @@ static void handle_collectible(t_game *game)
 	}
 }
 
-static void handle_exit(t_game *game)
+static int	handle_exit(t_game *game)
 {
 	if (game->can_exit)
 	{
@@ -35,12 +35,15 @@ static void handle_exit(t_game *game)
 		cleanup_game(game);
 		exit(0);
 	}
-	ft_printf("Collect all items first!\n");
+	return (1);
 }
 
-static void update_player_pos(t_game *game, int new_x, int new_y)
+static void	update_player_pos(t_game *game, int new_x, int new_y)
 {
-	game->map[game->player_y][game->player_x] = '0';
+	if(game->exit_x == new_x && game->exit_y == new_y)
+		game->map[game->player_y][game->player_x] = 'E';
+	else
+		game->map[game->player_y][game->player_x] = '0';
 	game->map[new_y][new_x] = 'P';
 	game->player_x = new_x;
 	game->player_y = new_y;
@@ -62,10 +65,10 @@ static void update_player_pos(t_game *game, int new_x, int new_y)
  * - Manages exit condition
  * - Updates player direction and animation state
  */
-void move_player(t_game *game, int dx, int dy)
+void	move_player(t_game *game, int dx, int dy)
 {
-	int new_x;
-	int new_y;
+	int	new_x;
+	int	new_y;
 
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
@@ -74,13 +77,15 @@ void move_player(t_game *game, int dx, int dy)
 	else if (dx < 0)
 		game->facing_right = 0;
 	if (game->map[new_y][new_x] == '1')
-		return;
+		return ;
 	if (game->map[new_y][new_x] == 'C')
 		handle_collectible(game);
 	if (game->map[new_y][new_x] == 'E')
 	{
-		handle_exit(game);
-		return;
+		if(handle_exit(game))
+			update_player_pos(game, new_x, new_y);
+		else
+			return ;
 	}
 	update_player_pos(game, new_x, new_y);
 }
@@ -98,7 +103,7 @@ void move_player(t_game *game, int dx, int dy)
  * - A/Left (0/97): Move left
  * - D/Right (2/100): Move right
  */
-int key_hook(int keycode, t_game *game)
+int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == 65307) // ESC key
 	{
