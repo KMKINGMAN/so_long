@@ -113,6 +113,11 @@ $(function(){initNavTree('render_8c.html',''); initResizable(true); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="so__long_8h_source.html">so_long.h</a>&quot;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for render.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c__incl.png" border="0" usemap="#asrcs_2render_8c" alt=""/></div>
+</div>
 </div>
 <p><a href="render_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -135,8 +140,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a253c61fb2aec7f0382a023ae4a8e116b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the rendering buffer.  <br /></td></tr>
 <tr class="separator:a253c61fb2aec7f0382a023ae4a8e116b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3ee8259cd6724ed31aa0c125c4121c" id="r_aad3ee8259cd6724ed31aa0c125c4121c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a> (<a class="el" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a> *dest, void *sprite_ptr, int dest_x, int dest_y)</td></tr>
-<tr class="memdesc:aad3ee8259cd6724ed31aa0c125c4121c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a sprite to the buffer image with transparency handling.  <br /></td></tr>
 <tr class="separator:aad3ee8259cd6724ed31aa0c125c4121c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884f430aa59a4defe5098ec9b1c3fba7" id="r_a884f430aa59a4defe5098ec9b1c3fba7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a884f430aa59a4defe5098ec9b1c3fba7">put_img_to_img_part</a> (<a class="el" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a> *dest, <a class="el" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a> *sprite, <a class="el" href="so__long_8h.html#a5b813d7bf8fa09a2fa8983ebebcfe961">t_pos</a> pos)</td></tr>
+<tr class="memdesc:a884f430aa59a4defe5098ec9b1c3fba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a sprite to the buffer image with transparency handling.  <br /></td></tr>
+<tr class="separator:a884f430aa59a4defe5098ec9b1c3fba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1993af9d3ef98ee243dc29090916d5d0" id="r_a1993af9d3ef98ee243dc29090916d5d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="separator:a1993af9d3ef98ee243dc29090916d5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -174,38 +181,48 @@ Functions</h2></td></tr>
 <li>Triggers frame rendering </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00094">94</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keyword">static</span> <span class="keyword">struct </span>timespec last_time;</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keyword">struct </span>timespec current_time;</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keywordtype">double</span> elapsed;</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>    clock_gettime(CLOCK_MONOTONIC, &amp;current_time);</div>
-<div class="line"><span class="lineno">  101</span>    elapsed = (current_time.tv_sec - last_time.tv_sec) * 1000.0 +</div>
-<div class="line"><span class="lineno">  102</span>             (current_time.tv_nsec - last_time.tv_nsec) / 1000000.0;</div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">if</span> (elapsed &gt;= 100.0 || last_time.tv_sec == 0)</div>
-<div class="line"><span class="lineno">  104</span>    {</div>
-<div class="line"><span class="lineno">  105</span>        game-&gt;frame = (game-&gt;frame + 1) % 6;</div>
-<div class="line"><span class="lineno">  106</span>        last_time = current_time;</div>
-<div class="line"><span class="lineno">  107</span> </div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">if</span> (game-&gt;is_running)</div>
-<div class="line"><span class="lineno">  109</span>        {</div>
-<div class="line"><span class="lineno">  110</span>            game-&gt;run_counter++;</div>
-<div class="line"><span class="lineno">  111</span>            <span class="keywordflow">if</span> (game-&gt;run_counter &gt;= 20)</div>
-<div class="line"><span class="lineno">  112</span>            {</div>
-<div class="line"><span class="lineno">  113</span>                game-&gt;is_running = 0;</div>
-<div class="line"><span class="lineno">  114</span>                game-&gt;run_counter = 0;</div>
-<div class="line"><span class="lineno">  115</span>            }</div>
-<div class="line"><span class="lineno">  116</span>        }</div>
-<div class="line"><span class="lineno">  117</span>    }</div>
-<div class="line"><span class="lineno">  118</span>    <a class="code hl_function" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game);</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">  120</span>}</div>
-<div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00210">render.c:210</a></div></div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00101">101</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>{</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keyword">static</span> <span class="keyword">struct </span>timespec last_time;</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keyword">struct </span>timespec current_time;</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordtype">double</span> elapsed;</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  107</span>    clock_gettime(CLOCK_MONOTONIC, &amp;current_time);</div>
+<div class="line"><span class="lineno">  108</span>    elapsed = (current_time.tv_sec - last_time.tv_sec) * 1000.0 +</div>
+<div class="line"><span class="lineno">  109</span>             (current_time.tv_nsec - last_time.tv_nsec) / 1000000.0;</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">if</span> (elapsed &gt;= 100.0 || last_time.tv_sec == 0)</div>
+<div class="line"><span class="lineno">  111</span>    {</div>
+<div class="line"><span class="lineno">  112</span>        game-&gt;frame = (game-&gt;frame + 1) % 6;</div>
+<div class="line"><span class="lineno">  113</span>        last_time = current_time;</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">if</span> (game-&gt;is_running)</div>
+<div class="line"><span class="lineno">  116</span>        {</div>
+<div class="line"><span class="lineno">  117</span>            game-&gt;run_counter++;</div>
+<div class="line"><span class="lineno">  118</span>            <span class="keywordflow">if</span> (game-&gt;run_counter &gt;= 20)</div>
+<div class="line"><span class="lineno">  119</span>            {</div>
+<div class="line"><span class="lineno">  120</span>                game-&gt;is_running = 0;</div>
+<div class="line"><span class="lineno">  121</span>                game-&gt;run_counter = 0;</div>
+<div class="line"><span class="lineno">  122</span>            }</div>
+<div class="line"><span class="lineno">  123</span>        }</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game);</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  127</span>}</div>
+<div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00217">render.c:217</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00217">render_frame()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00160">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a8b41ee619faf9a9da9790a60cfbb3ce0_cgraph.png" border="0" usemap="#arender_8c_a8b41ee619faf9a9da9790a60cfbb3ce0_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a8b41ee619faf9a9da9790a60cfbb3ce0_icgraph.png" border="0" usemap="#arender_8c_a8b41ee619faf9a9da9790a60cfbb3ce0_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -232,39 +249,49 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00182">182</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  183</span>{</div>
-<div class="line"><span class="lineno">  184</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  185</span>    <span class="keywordtype">int</span> j;</div>
-<div class="line"><span class="lineno">  186</span>    <span class="keywordtype">int</span> x;</div>
-<div class="line"><span class="lineno">  187</span>    <span class="keywordtype">int</span> y;</div>
-<div class="line"><span class="lineno">  188</span> </div>
-<div class="line"><span class="lineno">  189</span>    i = 0;</div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
-<div class="line"><span class="lineno">  191</span>    {</div>
-<div class="line"><span class="lineno">  192</span>        j = 0;</div>
-<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
-<div class="line"><span class="lineno">  194</span>        {</div>
-<div class="line"><span class="lineno">  195</span>            x = j * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  196</span>            y = i * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  197</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;1&#39;</span>)</div>
-<div class="line"><span class="lineno">  198</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, game-&gt;wall, x, y);</div>
-<div class="line"><span class="lineno">  199</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;P&#39;</span>)</div>
-<div class="line"><span class="lineno">  200</span>                <a class="code hl_function" href="#abf42a14b88e691bd08afbd4259321023">draw_player</a>(game, x, y);</div>
-<div class="line"><span class="lineno">  201</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;C&#39;</span>)</div>
-<div class="line"><span class="lineno">  202</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer,</div>
-<div class="line"><span class="lineno">  203</span>                    game-&gt;collect[game-&gt;frame % 8], x, y);</div>
-<div class="line"><span class="lineno">  204</span>            j++;</div>
-<div class="line"><span class="lineno">  205</span>        }</div>
-<div class="line"><span class="lineno">  206</span>        i++;</div>
-<div class="line"><span class="lineno">  207</span>    }</div>
-<div class="line"><span class="lineno">  208</span>}</div>
-<div class="ttc" id="arender_8c_html_aad3ee8259cd6724ed31aa0c125c4121c"><div class="ttname"><a href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a></div><div class="ttdeci">void put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)</div><div class="ttdoc">Copies a sprite to the buffer image with transparency handling.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00033">render.c:33</a></div></div>
-<div class="ttc" id="arender_8c_html_abf42a14b88e691bd08afbd4259321023"><div class="ttname"><a href="#abf42a14b88e691bd08afbd4259321023">draw_player</a></div><div class="ttdeci">static void draw_player(t_game *game, int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00161">render.c:161</a></div></div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00189">189</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  190</span>{</div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  192</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">  193</span>    <span class="keywordtype">int</span> x;</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordtype">int</span> y;</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>    i = 0;</div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
+<div class="line"><span class="lineno">  198</span>    {</div>
+<div class="line"><span class="lineno">  199</span>        j = 0;</div>
+<div class="line"><span class="lineno">  200</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
+<div class="line"><span class="lineno">  201</span>        {</div>
+<div class="line"><span class="lineno">  202</span>            x = j * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  203</span>            y = i * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  204</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><span class="lineno">  205</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, game-&gt;wall, x, y);</div>
+<div class="line"><span class="lineno">  206</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;P&#39;</span>)</div>
+<div class="line"><span class="lineno">  207</span>                <a class="code hl_function" href="#abf42a14b88e691bd08afbd4259321023">draw_player</a>(game, x, y);</div>
+<div class="line"><span class="lineno">  208</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;C&#39;</span>)</div>
+<div class="line"><span class="lineno">  209</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer,</div>
+<div class="line"><span class="lineno">  210</span>                    game-&gt;collect[game-&gt;frame % 8], x, y);</div>
+<div class="line"><span class="lineno">  211</span>            j++;</div>
+<div class="line"><span class="lineno">  212</span>        }</div>
+<div class="line"><span class="lineno">  213</span>        i++;</div>
+<div class="line"><span class="lineno">  214</span>    }</div>
+<div class="line"><span class="lineno">  215</span>}</div>
+<div class="ttc" id="arender_8c_html_aad3ee8259cd6724ed31aa0c125c4121c"><div class="ttname"><a href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a></div><div class="ttdeci">void put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00046">render.c:46</a></div></div>
+<div class="ttc" id="arender_8c_html_abf42a14b88e691bd08afbd4259321023"><div class="ttname"><a href="#abf42a14b88e691bd08afbd4259321023">draw_player</a></div><div class="ttdeci">static void draw_player(t_game *game, int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00168">render.c:168</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00161">draw_player()</a>, and <a class="el" href="render_8c_source.html#l00033">put_img_to_img()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00168">draw_player()</a>, and <a class="el" href="render_8c_source.html#l00046">put_img_to_img()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00217">render_frame()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a2674e4d760f77422743efb41ef82fbc6_cgraph.png" border="0" usemap="#arender_8c_a2674e4d760f77422743efb41ef82fbc6_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a2674e4d760f77422743efb41ef82fbc6_icgraph.png" border="0" usemap="#arender_8c_a2674e4d760f77422743efb41ef82fbc6_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -309,34 +336,44 @@ Functions</h2></td></tr>
 <li>Draw UI elements </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00136">136</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  137</span>{</div>
-<div class="line"><span class="lineno">  138</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordtype">int</span> j;</div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordtype">int</span> x;</div>
-<div class="line"><span class="lineno">  141</span>    <span class="keywordtype">int</span> y;</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>    i = 0;</div>
-<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
-<div class="line"><span class="lineno">  145</span>    {</div>
-<div class="line"><span class="lineno">  146</span>        j = 0;</div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
-<div class="line"><span class="lineno">  148</span>        {</div>
-<div class="line"><span class="lineno">  149</span>            x = j * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  150</span>            y = i * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  151</span>            <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer,</div>
-<div class="line"><span class="lineno">  152</span>                game-&gt;floor[game-&gt;floor_types[i][j]], x, y);</div>
-<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;E&#39;</span>)</div>
-<div class="line"><span class="lineno">  154</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, game-&gt;exit, x, y);</div>
-<div class="line"><span class="lineno">  155</span>            j++;</div>
-<div class="line"><span class="lineno">  156</span>        }</div>
-<div class="line"><span class="lineno">  157</span>        i++;</div>
-<div class="line"><span class="lineno">  158</span>    }</div>
-<div class="line"><span class="lineno">  159</span>}</div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00143">143</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  144</span>{</div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  146</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">  147</span>    <span class="keywordtype">int</span> x;</div>
+<div class="line"><span class="lineno">  148</span>    <span class="keywordtype">int</span> y;</div>
+<div class="line"><span class="lineno">  149</span> </div>
+<div class="line"><span class="lineno">  150</span>    i = 0;</div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">while</span> (game-&gt;map[i])</div>
+<div class="line"><span class="lineno">  152</span>    {</div>
+<div class="line"><span class="lineno">  153</span>        j = 0;</div>
+<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">while</span> (game-&gt;map[i][j])</div>
+<div class="line"><span class="lineno">  155</span>        {</div>
+<div class="line"><span class="lineno">  156</span>            x = j * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  157</span>            y = i * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  158</span>            <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer,</div>
+<div class="line"><span class="lineno">  159</span>                game-&gt;floor[game-&gt;floor_types[i][j]], x, y);</div>
+<div class="line"><span class="lineno">  160</span>            <span class="keywordflow">if</span> (game-&gt;map[i][j] == <span class="charliteral">&#39;E&#39;</span> &amp;&amp; game-&gt;can_exit)</div>
+<div class="line"><span class="lineno">  161</span>                <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, game-&gt;exit, x, y);</div>
+<div class="line"><span class="lineno">  162</span>            j++;</div>
+<div class="line"><span class="lineno">  163</span>        }</div>
+<div class="line"><span class="lineno">  164</span>        i++;</div>
+<div class="line"><span class="lineno">  165</span>    }</div>
+<div class="line"><span class="lineno">  166</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00033">put_img_to_img()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00046">put_img_to_img()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00217">render_frame()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_abfbc1999e5df01524a90cd078d982508_cgraph.png" border="0" usemap="#arender_8c_abfbc1999e5df01524a90cd078d982508_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_abfbc1999e5df01524a90cd078d982508_icgraph.png" border="0" usemap="#arender_8c_abfbc1999e5df01524a90cd078d982508_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -372,30 +409,40 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00161">161</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordtype">void</span>    *sprite;</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">if</span> (game-&gt;facing_right)</div>
-<div class="line"><span class="lineno">  166</span>    {</div>
-<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">if</span> (game-&gt;is_running)</div>
-<div class="line"><span class="lineno">  168</span>            sprite = game-&gt;player_run[game-&gt;frame % 6];</div>
-<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  170</span>            sprite = game-&gt;player_idle[game-&gt;frame % 6];</div>
-<div class="line"><span class="lineno">  171</span>    }</div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">else</span></div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00168">168</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  169</span>{</div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordtype">void</span>    *sprite;</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">if</span> (game-&gt;facing_right)</div>
 <div class="line"><span class="lineno">  173</span>    {</div>
 <div class="line"><span class="lineno">  174</span>        <span class="keywordflow">if</span> (game-&gt;is_running)</div>
-<div class="line"><span class="lineno">  175</span>            sprite = game-&gt;player_run_left[game-&gt;frame % 6];</div>
+<div class="line"><span class="lineno">  175</span>            sprite = game-&gt;player_run[game-&gt;frame % 6];</div>
 <div class="line"><span class="lineno">  176</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  177</span>            sprite = game-&gt;player_idle_left[game-&gt;frame % 6];</div>
+<div class="line"><span class="lineno">  177</span>            sprite = game-&gt;player_idle[game-&gt;frame % 6];</div>
 <div class="line"><span class="lineno">  178</span>    }</div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, sprite, x, y);</div>
-<div class="line"><span class="lineno">  180</span>}</div>
+<div class="line"><span class="lineno">  179</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  180</span>    {</div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">if</span> (game-&gt;is_running)</div>
+<div class="line"><span class="lineno">  182</span>            sprite = game-&gt;player_run_left[game-&gt;frame % 6];</div>
+<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  184</span>            sprite = game-&gt;player_idle_left[game-&gt;frame % 6];</div>
+<div class="line"><span class="lineno">  185</span>    }</div>
+<div class="line"><span class="lineno">  186</span>    <a class="code hl_function" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a>(&amp;game-&gt;buffer, sprite, x, y);</div>
+<div class="line"><span class="lineno">  187</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00033">put_img_to_img()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00046">put_img_to_img()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00182">draw_entities()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00189">draw_entities()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_abf42a14b88e691bd08afbd4259321023_cgraph.png" border="0" usemap="#arender_8c_abf42a14b88e691bd08afbd4259321023_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_abf42a14b88e691bd08afbd4259321023_icgraph.png" border="0" usemap="#arender_8c_abf42a14b88e691bd08afbd4259321023_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -424,14 +471,24 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>int Result of render_frame</dd></dl>
 <p>Called when window needs to be redrawn, typically after being uncovered or restored. </p>
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00235">235</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  236</span>{</div>
-<div class="line"><span class="lineno">  237</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game));</div>
-<div class="line"><span class="lineno">  238</span>}</div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00242">242</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  243</span>{</div>
+<div class="line"><span class="lineno">  244</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game));</div>
+<div class="line"><span class="lineno">  245</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00210">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00217">render_frame()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00160">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_aa493c139c258ad4352b0c57df45ceb92_cgraph.png" border="0" usemap="#arender_8c_aa493c139c258ad4352b0c57df45ceb92_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_aa493c139c258ad4352b0c57df45ceb92_icgraph.png" border="0" usemap="#arender_8c_aa493c139c258ad4352b0c57df45ceb92_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -459,19 +516,24 @@ Functions</h2></td></tr>
 </dl>
 <p>Creates an off-screen buffer for rendering the game frame. Buffer size matches the window dimensions. Used for double buffering to prevent flickering. </p>
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00071">71</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>{</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">int</span> win_width;</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordtype">int</span> win_height;</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    win_width = game-&gt;map_width * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">   77</span>    win_height = game-&gt;map_height * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">   78</span>    game-&gt;buffer.img_ptr = mlx_new_image(game-&gt;mlx, win_width, win_height);</div>
-<div class="line"><span class="lineno">   79</span>    game-&gt;buffer.addr = mlx_get_data_addr(game-&gt;buffer.img_ptr,</div>
-<div class="line"><span class="lineno">   80</span>            &amp;game-&gt;buffer.bpp, &amp;game-&gt;buffer.line_len, &amp;game-&gt;buffer.endian);</div>
-<div class="line"><span class="lineno">   81</span>}</div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00078">78</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordtype">int</span> win_width;</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordtype">int</span> win_height;</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    win_width = game-&gt;map_width * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   84</span>    win_height = game-&gt;map_height * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   85</span>    game-&gt;buffer.img_ptr = mlx_new_image(game-&gt;mlx, win_width, win_height);</div>
+<div class="line"><span class="lineno">   86</span>    game-&gt;buffer.addr = mlx_get_data_addr(game-&gt;buffer.img_ptr,</div>
+<div class="line"><span class="lineno">   87</span>            &amp;game-&gt;buffer.bpp, &amp;game-&gt;buffer.line_len, &amp;game-&gt;buffer.endian);</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00160">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a253c61fb2aec7f0382a023ae4a8e116b_icgraph.png" border="0" usemap="#arender_8c_a253c61fb2aec7f0382a023ae4a8e116b_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -504,6 +566,89 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00046">46</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_typedef" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a>  sprite;</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_typedef" href="so__long_8h.html#a5b813d7bf8fa09a2fa8983ebebcfe961">t_pos</a>  pos;</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    sprite.<a class="code hl_variable" href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">img_ptr</a> = sprite_ptr;</div>
+<div class="line"><span class="lineno">   52</span>    sprite.<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> = mlx_get_data_addr(sprite.<a class="code hl_variable" href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">img_ptr</a>, &amp;sprite.<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a>,</div>
+<div class="line"><span class="lineno">   53</span>            &amp;sprite.<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>, &amp;sprite.<a class="code hl_variable" href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">endian</a>);</div>
+<div class="line"><span class="lineno">   54</span>    pos.<a class="code hl_variable" href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">row</a> = 0;</div>
+<div class="line"><span class="lineno">   55</span>    pos.<a class="code hl_variable" href="structs__pos.html#a4f41989f6d50f23d30ca9dddea128c2c">dest_x</a> = dest_x;</div>
+<div class="line"><span class="lineno">   56</span>    pos.<a class="code hl_variable" href="structs__pos.html#aaded73df4fdc3b6e572d1905b9be1b7b">dest_y</a> = dest_y;</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">while</span> (pos.<a class="code hl_variable" href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">row</a> &lt; 32)</div>
+<div class="line"><span class="lineno">   58</span>    {</div>
+<div class="line"><span class="lineno">   59</span>        pos.<a class="code hl_variable" href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">col</a> = 0;</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">while</span> (pos.<a class="code hl_variable" href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">col</a> &lt; 32)</div>
+<div class="line"><span class="lineno">   61</span>        {</div>
+<div class="line"><span class="lineno">   62</span>            <a class="code hl_function" href="#a884f430aa59a4defe5098ec9b1c3fba7">put_img_to_img_part</a>(dest, &amp;sprite, pos);</div>
+<div class="line"><span class="lineno">   63</span>            pos.<a class="code hl_variable" href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">col</a>++;</div>
+<div class="line"><span class="lineno">   64</span>        }</div>
+<div class="line"><span class="lineno">   65</span>        pos.<a class="code hl_variable" href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">row</a>++;</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
+<div class="line"><span class="lineno">   67</span>}</div>
+<div class="ttc" id="arender_8c_html_a884f430aa59a4defe5098ec9b1c3fba7"><div class="ttname"><a href="#a884f430aa59a4defe5098ec9b1c3fba7">put_img_to_img_part</a></div><div class="ttdeci">static void put_img_to_img_part(t_img *dest, t_img *sprite, t_pos pos)</div><div class="ttdoc">Copies a sprite to the buffer image with transparency handling.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00033">render.c:33</a></div></div>
+<div class="ttc" id="aso__long_8h_html_a5b813d7bf8fa09a2fa8983ebebcfe961"><div class="ttname"><a href="so__long_8h.html#a5b813d7bf8fa09a2fa8983ebebcfe961">t_pos</a></div><div class="ttdeci">struct s_pos t_pos</div></div>
+<div class="ttc" id="aso__long_8h_html_aa2823d71a465849891fd044a6371f982"><div class="ttname"><a href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a></div><div class="ttdeci">struct s_img t_img</div></div>
+<div class="ttc" id="astructs__img_html_a5f3f33ef048bfc56a773660dbf1aa2a9"><div class="ttname"><a href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">s_img::endian</a></div><div class="ttdeci">int endian</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00045">so_long.h:45</a></div></div>
+<div class="ttc" id="astructs__img_html_abdf0cabb04048aa4f65939b7cda0de47"><div class="ttname"><a href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">s_img::line_len</a></div><div class="ttdeci">int line_len</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00046">so_long.h:46</a></div></div>
+<div class="ttc" id="astructs__img_html_ad4f83302a8f09b18b7b70c94e80b6b77"><div class="ttname"><a href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">s_img::bpp</a></div><div class="ttdeci">int bpp</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00044">so_long.h:44</a></div></div>
+<div class="ttc" id="astructs__img_html_ae14bf0ccbda6bebc07343788fdf06fe2"><div class="ttname"><a href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">s_img::img_ptr</a></div><div class="ttdeci">void * img_ptr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00040">so_long.h:40</a></div></div>
+<div class="ttc" id="astructs__img_html_ae36553751be76c60e0ca07fe7419ff8d"><div class="ttname"><a href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">s_img::addr</a></div><div class="ttdeci">char * addr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00041">so_long.h:41</a></div></div>
+<div class="ttc" id="astructs__pos_html_a4f41989f6d50f23d30ca9dddea128c2c"><div class="ttname"><a href="structs__pos.html#a4f41989f6d50f23d30ca9dddea128c2c">s_pos::dest_x</a></div><div class="ttdeci">int dest_x</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00053">so_long.h:53</a></div></div>
+<div class="ttc" id="astructs__pos_html_a6464dcfc6c7fef76b1babfc0f4b16f57"><div class="ttname"><a href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">s_pos::row</a></div><div class="ttdeci">int row</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00051">so_long.h:51</a></div></div>
+<div class="ttc" id="astructs__pos_html_aaded73df4fdc3b6e572d1905b9be1b7b"><div class="ttname"><a href="structs__pos.html#aaded73df4fdc3b6e572d1905b9be1b7b">s_pos::dest_y</a></div><div class="ttdeci">int dest_y</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00054">so_long.h:54</a></div></div>
+<div class="ttc" id="astructs__pos_html_ac69997cf7a2b134a0651f3231359f410"><div class="ttname"><a href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">s_pos::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00052">so_long.h:52</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00041">s_img::addr</a>, <a class="el" href="so__long_8h_source.html#l00044">s_img::bpp</a>, <a class="el" href="so__long_8h_source.html#l00052">s_pos::col</a>, <a class="el" href="so__long_8h_source.html#l00053">s_pos::dest_x</a>, <a class="el" href="so__long_8h_source.html#l00054">s_pos::dest_y</a>, <a class="el" href="so__long_8h_source.html#l00045">s_img::endian</a>, <a class="el" href="so__long_8h_source.html#l00040">s_img::img_ptr</a>, <a class="el" href="so__long_8h_source.html#l00046">s_img::line_len</a>, <a class="el" href="render_8c_source.html#l00033">put_img_to_img_part()</a>, and <a class="el" href="so__long_8h_source.html#l00051">s_pos::row</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00189">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00143">draw_floor_and_exit()</a>, and <a class="el" href="render_8c_source.html#l00168">draw_player()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_aad3ee8259cd6724ed31aa0c125c4121c_cgraph.png" border="0" usemap="#arender_8c_aad3ee8259cd6724ed31aa0c125c4121c_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_aad3ee8259cd6724ed31aa0c125c4121c_icgraph.png" border="0" usemap="#arender_8c_aad3ee8259cd6724ed31aa0c125c4121c_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a884f430aa59a4defe5098ec9b1c3fba7" name="a884f430aa59a4defe5098ec9b1c3fba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884f430aa59a4defe5098ec9b1c3fba7">&#9670;&#160;</a></span>put_img_to_img_part()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void put_img_to_img_part </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a> *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="so__long_8h.html#a5b813d7bf8fa09a2fa8983ebebcfe961">t_pos</a></td>          <td class="paramname"><span class="paramname"><em>pos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p>Copies a sprite to the buffer image with transparency handling. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -518,42 +663,25 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00033">33</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_typedef" href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a>  sprite;</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordtype">int</span>     row;</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">int</span>     col;</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span>     sprite_pos;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span>     dest_pos;</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    sprite.<a class="code hl_variable" href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">img_ptr</a> = sprite_ptr;</div>
-<div class="line"><span class="lineno">   42</span>    sprite.<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> = mlx_get_data_addr(sprite.<a class="code hl_variable" href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">img_ptr</a>, &amp;sprite.<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a>, </div>
-<div class="line"><span class="lineno">   43</span>            &amp;sprite.<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>, &amp;sprite.<a class="code hl_variable" href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">endian</a>);</div>
-<div class="line"><span class="lineno">   44</span>    row = 0;</div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">while</span> (row &lt; 32)</div>
-<div class="line"><span class="lineno">   46</span>    {</div>
-<div class="line"><span class="lineno">   47</span>        col = 0;</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">while</span> (col &lt; 32)</div>
-<div class="line"><span class="lineno">   49</span>        {</div>
-<div class="line"><span class="lineno">   50</span>            sprite_pos = col * (sprite.<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a> / 8) + row * sprite.<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>;</div>
-<div class="line"><span class="lineno">   51</span>            dest_pos = (dest_x + col) * (dest-&gt;<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a> / 8)</div>
-<div class="line"><span class="lineno">   52</span>                + (dest_y + row) * dest-&gt;<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>;</div>
-<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">if</span> ((*(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(sprite.<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + sprite_pos) &amp; 0xFF000000) == 0)</div>
-<div class="line"><span class="lineno">   54</span>                *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(dest-&gt;<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + dest_pos)</div>
-<div class="line"><span class="lineno">   55</span>                    = *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(sprite.<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + sprite_pos);</div>
-<div class="line"><span class="lineno">   56</span>            col++;</div>
-<div class="line"><span class="lineno">   57</span>        }</div>
-<div class="line"><span class="lineno">   58</span>        row++;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span>}</div>
-<div class="ttc" id="aso__long_8h_html_aa2823d71a465849891fd044a6371f982"><div class="ttname"><a href="so__long_8h.html#aa2823d71a465849891fd044a6371f982">t_img</a></div><div class="ttdeci">struct s_img t_img</div></div>
-<div class="ttc" id="astructs__img_html_a5f3f33ef048bfc56a773660dbf1aa2a9"><div class="ttname"><a href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">s_img::endian</a></div><div class="ttdeci">int endian</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00045">so_long.h:45</a></div></div>
-<div class="ttc" id="astructs__img_html_abdf0cabb04048aa4f65939b7cda0de47"><div class="ttname"><a href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">s_img::line_len</a></div><div class="ttdeci">int line_len</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00046">so_long.h:46</a></div></div>
-<div class="ttc" id="astructs__img_html_ad4f83302a8f09b18b7b70c94e80b6b77"><div class="ttname"><a href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">s_img::bpp</a></div><div class="ttdeci">int bpp</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00044">so_long.h:44</a></div></div>
-<div class="ttc" id="astructs__img_html_ae14bf0ccbda6bebc07343788fdf06fe2"><div class="ttname"><a href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">s_img::img_ptr</a></div><div class="ttdeci">void * img_ptr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00040">so_long.h:40</a></div></div>
-<div class="ttc" id="astructs__img_html_ae36553751be76c60e0ca07fe7419ff8d"><div class="ttname"><a href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">s_img::addr</a></div><div class="ttdeci">char * addr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00041">so_long.h:41</a></div></div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordtype">int</span> sprite_pos;</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordtype">int</span> dest_pos;</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    sprite_pos = pos.<a class="code hl_variable" href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">col</a> * (sprite-&gt;<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a> / 8) + pos.<a class="code hl_variable" href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">row</a> * sprite-&gt;<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>;</div>
+<div class="line"><span class="lineno">   39</span>    dest_pos = (pos.<a class="code hl_variable" href="structs__pos.html#a4f41989f6d50f23d30ca9dddea128c2c">dest_x</a> + pos.<a class="code hl_variable" href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">col</a>) * (dest-&gt;<a class="code hl_variable" href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">bpp</a> / 8)</div>
+<div class="line"><span class="lineno">   40</span>        + (pos.<a class="code hl_variable" href="structs__pos.html#aaded73df4fdc3b6e572d1905b9be1b7b">dest_y</a> + pos.<a class="code hl_variable" href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">row</a>) * dest-&gt;<a class="code hl_variable" href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">line_len</a>;</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> ((*(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(sprite-&gt;<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + sprite_pos) &amp; 0xFF000000) == 0)</div>
+<div class="line"><span class="lineno">   42</span>        *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(dest-&gt;<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + dest_pos)</div>
+<div class="line"><span class="lineno">   43</span>            = *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(sprite-&gt;<a class="code hl_variable" href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">addr</a> + sprite_pos);</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00041">s_img::addr</a>, <a class="el" href="so__long_8h_source.html#l00044">s_img::bpp</a>, <a class="el" href="so__long_8h_source.html#l00045">s_img::endian</a>, <a class="el" href="so__long_8h_source.html#l00040">s_img::img_ptr</a>, and <a class="el" href="so__long_8h_source.html#l00046">s_img::line_len</a>.</p>
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00041">s_img::addr</a>, <a class="el" href="so__long_8h_source.html#l00044">s_img::bpp</a>, <a class="el" href="so__long_8h_source.html#l00052">s_pos::col</a>, <a class="el" href="so__long_8h_source.html#l00053">s_pos::dest_x</a>, <a class="el" href="so__long_8h_source.html#l00054">s_pos::dest_y</a>, <a class="el" href="so__long_8h_source.html#l00046">s_img::line_len</a>, and <a class="el" href="so__long_8h_source.html#l00051">s_pos::row</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00182">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00136">draw_floor_and_exit()</a>, and <a class="el" href="render_8c_source.html#l00161">draw_player()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00046">put_img_to_img()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a884f430aa59a4defe5098ec9b1c3fba7_icgraph.png" border="0" usemap="#arender_8c_a884f430aa59a4defe5098ec9b1c3fba7_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -572,28 +700,38 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00210">210</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  211</span>{</div>
-<div class="line"><span class="lineno">  212</span>    <span class="keywordtype">char</span>    moves_str[32];</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>    ft_memset(game-&gt;buffer.addr, 0,</div>
-<div class="line"><span class="lineno">  215</span>        game-&gt;map_width * game-&gt;tile_size * game-&gt;map_height</div>
-<div class="line"><span class="lineno">  216</span>        * game-&gt;tile_size * (game-&gt;buffer.bpp / 8));</div>
-<div class="line"><span class="lineno">  217</span>    <a class="code hl_function" href="#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a>(game);</div>
-<div class="line"><span class="lineno">  218</span>    <a class="code hl_function" href="#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a>(game);</div>
-<div class="line"><span class="lineno">  219</span>    mlx_put_image_to_window(game-&gt;mlx, game-&gt;win,</div>
-<div class="line"><span class="lineno">  220</span>        game-&gt;buffer.img_ptr, 0, 0);</div>
-<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(moves_str, <span class="keyword">sizeof</span>(moves_str), <span class="stringliteral">&quot;Moves: %d&quot;</span>, game-&gt;moves_count);</div>
-<div class="line"><span class="lineno">  222</span>    mlx_string_put(game-&gt;mlx, game-&gt;win, 10, 20, 0xFFFFFF, moves_str);</div>
-<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">  224</span>}</div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00217">217</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  218</span>{</div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordtype">char</span>    moves_str[32];</div>
+<div class="line"><span class="lineno">  220</span> </div>
+<div class="line"><span class="lineno">  221</span>    ft_memset(game-&gt;buffer.addr, 0,</div>
+<div class="line"><span class="lineno">  222</span>        game-&gt;map_width * game-&gt;tile_size * game-&gt;map_height</div>
+<div class="line"><span class="lineno">  223</span>        * game-&gt;tile_size * (game-&gt;buffer.bpp / 8));</div>
+<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a>(game);</div>
+<div class="line"><span class="lineno">  225</span>    <a class="code hl_function" href="#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a>(game);</div>
+<div class="line"><span class="lineno">  226</span>    mlx_put_image_to_window(game-&gt;mlx, game-&gt;win,</div>
+<div class="line"><span class="lineno">  227</span>        game-&gt;buffer.img_ptr, 0, 0);</div>
+<div class="line"><span class="lineno">  228</span>    <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(moves_str, <span class="keyword">sizeof</span>(moves_str), <span class="stringliteral">&quot;Moves: %d&quot;</span>, game-&gt;moves_count);</div>
+<div class="line"><span class="lineno">  229</span>    mlx_string_put(game-&gt;mlx, game-&gt;win, 10, 20, 0xFFFFFF, moves_str);</div>
+<div class="line"><span class="lineno">  230</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  231</span>}</div>
 <div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00063">ft_snprintf.c:63</a></div></div>
-<div class="ttc" id="arender_8c_html_a2674e4d760f77422743efb41ef82fbc6"><div class="ttname"><a href="#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a></div><div class="ttdeci">static void draw_entities(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00182">render.c:182</a></div></div>
-<div class="ttc" id="arender_8c_html_abfbc1999e5df01524a90cd078d982508"><div class="ttname"><a href="#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a></div><div class="ttdeci">static void draw_floor_and_exit(t_game *game)</div><div class="ttdoc">Renders a complete frame of the game.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00136">render.c:136</a></div></div>
+<div class="ttc" id="arender_8c_html_a2674e4d760f77422743efb41ef82fbc6"><div class="ttname"><a href="#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a></div><div class="ttdeci">static void draw_entities(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00189">render.c:189</a></div></div>
+<div class="ttc" id="arender_8c_html_abfbc1999e5df01524a90cd078d982508"><div class="ttname"><a href="#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a></div><div class="ttdeci">static void draw_floor_and_exit(t_game *game)</div><div class="ttdoc">Renders a complete frame of the game.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00143">render.c:143</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00182">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00136">draw_floor_and_exit()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00063">ft_snprintf()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00189">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00143">draw_floor_and_exit()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00063">ft_snprintf()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00094">animate()</a>, <a class="el" href="render_8c_source.html#l00235">expose_hook()</a>, and <a class="el" href="main_8c_source.html#l00015">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00101">animate()</a>, <a class="el" href="render_8c_source.html#l00242">expose_hook()</a>, and <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a1993af9d3ef98ee243dc29090916d5d0_cgraph.png" border="0" usemap="#arender_8c_a1993af9d3ef98ee243dc29090916d5d0_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="render_8c_a1993af9d3ef98ee243dc29090916d5d0_icgraph.png" border="0" usemap="#arender_8c_a1993af9d3ef98ee243dc29090916d5d0_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>

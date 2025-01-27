@@ -1,0 +1,22 @@
+digraph "draw_entities"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="draw_entities",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="render_frame",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$render_8c.html#a1993af9d3ef98ee243dc29090916d5d0",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="animate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0",tooltip="Handles game animation frames and state updates."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="init_game",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$init_8c.html#a07af3347aa3856589df3f78056ef1cd1",tooltip="Main game initialization function."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627",tooltip=" "];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="expose_hook",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$render_8c.html#aa493c139c258ad4352b0c57df45ceb92",tooltip="Handles window expose events."];
+  Node6 -> Node4 [id="edge6_Node000006_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node5 [id="edge7_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}

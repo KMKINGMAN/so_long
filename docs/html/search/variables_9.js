@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['player_0',['player',['../structs__counts.html#a19da059e32416f33cffafd56a6086352',1,'s_counts']]],
-  ['player_5fidle_1',['player_idle',['../structs__game.html#a3c1e311e01a5d6fc845e3beaecff2967',1,'s_game']]],
-  ['player_5fidle_5fleft_2',['player_idle_left',['../structs__game.html#aa2fc5e113afbf767c8c8871a275e5bf5',1,'s_game']]],
-  ['player_5frun_3',['player_run',['../structs__game.html#acc754af518889704ebb38661b99b2ea7',1,'s_game']]],
-  ['player_5frun_5fleft_4',['player_run_left',['../structs__game.html#a4432f74f98f550fc685fccbc91772fae',1,'s_game']]],
-  ['player_5fx_5',['player_x',['../structs__game.html#a917ed52d8e483dc262c813aa16d05342',1,'s_game']]],
-  ['player_5fy_6',['player_y',['../structs__game.html#aa240d873a5b8612491c0c63bd661527d',1,'s_game']]]
+  ['map_0',['map',['../structs__game.html#ae6a1233a3ae4511f2da7f26ac00700a6',1,'s_game']]],
+  ['map_5fheight_1',['map_height',['../structs__game.html#af55768f305138ce9d4f4ecab3305aa2f',1,'s_game']]],
+  ['map_5fwidth_2',['map_width',['../structs__game.html#a83a8c31223acf1e123705096a8f519e3',1,'s_game']]],
+  ['mlx_3',['mlx',['../structs__game.html#a81f2978918b4e75d0c7268982812ba0f',1,'s_game']]],
+  ['mlx_5fptr_4',['mlx_ptr',['../structs__win.html#a5be859bb8f019037848c4bef138350c8',1,'s_win']]],
+  ['moves_5fcount_5',['moves_count',['../structs__game.html#a40011a611ffc68e2563d878d89930a5e',1,'s_game']]]
 ];

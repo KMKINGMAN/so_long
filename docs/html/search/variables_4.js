@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['facing_5fright_0',['facing_right',['../structs__game.html#a63c0d0ecd88c5942bac8d84e7cecb77d',1,'s_game']]],
-  ['floor_1',['floor',['../structs__game.html#a818ab287c036211843718f5f51297ab3',1,'s_game']]],
-  ['floor_5ftypes_2',['floor_types',['../structs__game.html#a0d85a33e975362beb66d1cbb2f60c403',1,'s_game']]],
-  ['frame_3',['frame',['../structs__game.html#a87d9e327a5cc5b288ab047cfbbea8686',1,'s_game']]]
+  ['endian_0',['endian',['../structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9',1,'s_img']]],
+  ['enemy_1',['enemy',['../structs__game.html#a4a209442c3930f108deb05096707450e',1,'s_game']]],
+  ['exit_2',['exit',['../structs__game.html#a62f5c8313d6c414344eee153ecc25020',1,'s_game::exit'],['../structs__counts.html#a64375c414a47e64ab0349e284a5db7d3',1,'s_counts::exit']]],
+  ['exit_5fx_3',['exit_x',['../structs__game.html#a8a33db88432f0e8535d25d53e2e81db1',1,'s_game']]],
+  ['exit_5fy_4',['exit_y',['../structs__game.html#ad6e868520f3b0058612518ee52bfa844',1,'s_game']]]
 ];
