@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:16:42 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/25 17:16:47 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/27 20:05:47 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,39 @@
  * Copies a 32x32 sprite to the buffer while handling transparency.
  * Only non-transparent pixels (alpha != 0) are copied.
  */
+static void	put_img_to_img_part(t_img *dest, t_img *sprite, t_pos pos)
+{
+	int	sprite_pos;
+	int	dest_pos;
+
+	sprite_pos = pos.col * (sprite->bpp / 8) + pos.row * sprite->line_len;
+	dest_pos = (pos.dest_x + pos.col) * (dest->bpp / 8)
+		+ (pos.dest_y + pos.row) * dest->line_len;
+	if ((*(unsigned int *)(sprite->addr + sprite_pos) & 0xFF000000) == 0)
+		*(unsigned int *)(dest->addr + dest_pos)
+			= *(unsigned int *)(sprite->addr + sprite_pos);
+}
+
 void	put_img_to_img(t_img *dest, void *sprite_ptr, int dest_x, int dest_y)
 {
 	t_img	sprite;
-	int		row;
-	int		col;
-	int		sprite_pos;
-	int		dest_pos;
+	t_pos	pos;
 
 	sprite.img_ptr = sprite_ptr;
-	sprite.addr = mlx_get_data_addr(sprite.img_ptr, &sprite.bpp, 
+	sprite.addr = mlx_get_data_addr(sprite.img_ptr, &sprite.bpp,
 			&sprite.line_len, &sprite.endian);
-	row = 0;
-	while (row < 32)
+	pos.row = 0;
+	pos.dest_x = dest_x;
+	pos.dest_y = dest_y;
+	while (pos.row < 32)
 	{
-		col = 0;
-		while (col < 32)
+		pos.col = 0;
+		while (pos.col < 32)
 		{
-			sprite_pos = col * (sprite.bpp / 8) + row * sprite.line_len;
-			dest_pos = (dest_x + col) * (dest->bpp / 8)
-				+ (dest_y + row) * dest->line_len;
-			if ((*(unsigned int *)(sprite.addr + sprite_pos) & 0xFF000000) == 0)
-				*(unsigned int *)(dest->addr + dest_pos)
-					= *(unsigned int *)(sprite.addr + sprite_pos);
-			col++;
+			put_img_to_img_part(dest, &sprite, pos);
+			pos.col++;
 		}
-		row++;
+		pos.row++;
 	}
 }
 
@@ -150,7 +157,7 @@ static void	draw_floor_and_exit(t_game *game)
 			y = i * game->tile_size;
 			put_img_to_img(&game->buffer,
 				game->floor[game->floor_types[i][j]], x, y);
-			if (game->map[i][j] == 'E')
+			if (game->map[i][j] == 'E' && game->can_exit)
 				put_img_to_img(&game->buffer, game->exit, x, y);
 			j++;
 		}

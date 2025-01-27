@@ -46,6 +46,14 @@ typedef struct s_img
 	int		line_len;
 }		t_img;
 
+typedef struct s_pos
+{
+	int	row;
+	int	col;
+	int	dest_x;
+	int	dest_y;
+}	t_pos;
+
 /**
  * @struct t_game
  * @brief Main game structure containing all game state and resources

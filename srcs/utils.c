@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:34 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/25 18:24:34 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/27 20:05:44 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,28 @@ static void cleanup_mlx_ptr(t_game *game)
 	}
 }
 
-static void cleanup_scaled_images(t_game *game)
+static void	cleanup_floor_images(t_game *game)
 {
-	int i;
+	int	i;
 
-	// Cleanup scaled floor images
-	for (i = 0; i < 10; i++)
+	i = 0;
+	while (i < 10)
 	{
 		if (game->floor[i])
 		{
 			mlx_destroy_image(game->mlx, game->floor[i]);
 			game->floor[i] = NULL;
 		}
+		i++;
 	}
+}
 
-	// Cleanup scaled player animations
-	for (i = 0; i < 6; i++)
+static void	cleanup_player_anims(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
 	{
 		if (game->player_idle[i])
 		{
@@ -49,6 +55,17 @@ static void cleanup_scaled_images(t_game *game)
 			mlx_destroy_image(game->mlx, game->player_run[i]);
 			game->player_run[i] = NULL;
 		}
+		i++;
+	}
+}
+
+static void	cleanup_player_left_anims(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
+	{
 		if (game->player_idle_left[i])
 		{
 			mlx_destroy_image(game->mlx, game->player_idle_left[i]);
@@ -59,83 +76,103 @@ static void cleanup_scaled_images(t_game *game)
 			mlx_destroy_image(game->mlx, game->player_run_left[i]);
 			game->player_run_left[i] = NULL;
 		}
+		i++;
 	}
+}
 
-	// Cleanup collectible animations
-	for (i = 0; i < 8; i++)
+static void	cleanup_collect_anims(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 8)
 	{
 		if (game->collect[i])
 		{
 			mlx_destroy_image(game->mlx, game->collect[i]);
 			game->collect[i] = NULL;
 		}
+		i++;
 	}
 }
 
-void cleanup_game(t_game *game)
+static void	cleanup_scaled_images(t_game *game)
 {
-	int i;
+	cleanup_floor_images(game);
+	cleanup_player_anims(game);
+	cleanup_player_left_anims(game);
+	cleanup_collect_anims(game);
+}
 
-	if (!game)
-		return;
-
-	// First cleanup all MLX images
-	if (game->mlx)
+static void	cleanup_mlx_images(t_game *game)
+{
+	if (game->buffer.img_ptr)
 	{
-		if (game->buffer.img_ptr)
-		{
-			mlx_destroy_image(game->mlx, game->buffer.img_ptr);
-			game->buffer.img_ptr = NULL;
-		}
-
-		cleanup_scaled_images(game);
-
-		// Cleanup single images
-		if (game->wall)
-		{
-			mlx_destroy_image(game->mlx, game->wall);
-			game->wall = NULL;
-		}
-		if (game->exit)
-		{
-			mlx_destroy_image(game->mlx, game->exit);
-			game->exit = NULL;
-		}
-
-		// Cleanup window
-		if (game->win)
-		{
-			mlx_clear_window(game->mlx, game->win);
-			mlx_destroy_window(game->mlx, game->win);
-			game->win = NULL;
-		}
-
-		// Finally cleanup MLX itself
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		game->mlx = NULL;
+		mlx_destroy_image(game->mlx, game->buffer.img_ptr);
+		game->buffer.img_ptr = NULL;
 	}
+	cleanup_scaled_images(game);
+	if (game->wall)
+	{
+		mlx_destroy_image(game->mlx, game->wall);
+		game->wall = NULL;
+	}
+	if (game->exit)
+	{
+		mlx_destroy_image(game->mlx, game->exit);
+		game->exit = NULL;
+	}
+}
 
-	// Cleanup map data
+static void	cleanup_window(t_game *game)
+{
+	if (game->win)
+	{
+		mlx_clear_window(game->mlx, game->win);
+		mlx_destroy_window(game->mlx, game->win);
+		game->win = NULL;
+	}
+}
+
+static void	cleanup_map_data(t_game *game)
+{
+	int	i;
+
 	if (game->map)
 	{
-		for (i = 0; i < game->map_height; i++)
+		i = 0;
+		while (i < game->map_height)
+		{
 			free(game->map[i]);
+			i++;
+		}
 		free(game->map);
 		game->map = NULL;
 	}
-
-	// Cleanup floor types
 	if (game->floor_types)
 	{
-		for (i = 0; i < game->map_height; i++)
+		i = 0;
+		while (i < game->map_height)
+		{
 			free(game->floor_types[i]);
+			i++;
+		}
 		free(game->floor_types);
 		game->floor_types = NULL;
 	}
+}
 
-	// Finally cleanup MLX
-	cleanup_mlx_ptr(game);
+void	cleanup_game(t_game *game)
+{
+	if (!game)
+		return ;
+	if (game->mlx)
+	{
+		cleanup_mlx_images(game);
+		cleanup_window(game);
+		cleanup_mlx_ptr(game);
+	}
+	cleanup_map_data(game);
 }
 
 void handle_error(t_game *game, const char *message)
