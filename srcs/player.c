@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/28 14:12:03 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:23:40 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,13 @@ int	key_hook(int keycode, t_game *game)
 		cleanup_game(game);
 		exit(0);
 	}
-	else if (keycode == 13 || keycode == 119)
+	else if (keycode == XK_w || keycode == XK_Up)
 		move_player(game, 0, -1);
-	else if (keycode == 1 || keycode == 115)
+	else if (keycode == XK_s || keycode == XK_Down)
 		move_player(game, 0, 1);
-	else if (keycode == 0 || keycode == 97)
+	else if (keycode == XK_a|| keycode == XK_Left)
 		move_player(game, -1, 0);
-	else if (keycode == 2 || keycode == 100)
+	else if (keycode == XK_d || keycode == XK_Right)
 		move_player(game, 1, 0);
 	return (0);
 }

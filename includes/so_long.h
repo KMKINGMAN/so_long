@@ -21,6 +21,7 @@
 #include <stdarg.h>
 #include "libft.h"
 #include "ft_printf.h"
+#include <X11/keysym.h>
 
 typedef struct s_win
 {
