@@ -172,7 +172,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00032">32</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">char</span> c;</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">char</span>    c;</div>
 <div class="line"><span class="lineno">   35</span> </div>
 <div class="line"><span class="lineno">   36</span>    c = game-&gt;map[i][j];</div>
 <div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;P&#39;</span>)</div>
@@ -193,11 +193,11 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Invalid character in map\n&quot;</span>) &amp;&amp; 0);</div>
 <div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> (1);</div>
 <div class="line"><span class="lineno">   54</span>}</div>
-<div class="ttc" id="astructs__counts_html_a19da059e32416f33cffafd56a6086352"><div class="ttname"><a href="structs__counts.html#a19da059e32416f33cffafd56a6086352">s_counts::player</a></div><div class="ttdeci">int player</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00109">so_long.h:109</a></div></div>
-<div class="ttc" id="astructs__counts_html_a64375c414a47e64ab0349e284a5db7d3"><div class="ttname"><a href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">s_counts::exit</a></div><div class="ttdeci">int exit</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00110">so_long.h:110</a></div></div>
-<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00111">so_long.h:111</a></div></div>
+<div class="ttc" id="astructs__counts_html_a19da059e32416f33cffafd56a6086352"><div class="ttname"><a href="structs__counts.html#a19da059e32416f33cffafd56a6086352">s_counts::player</a></div><div class="ttdeci">int player</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00111">so_long.h:111</a></div></div>
+<div class="ttc" id="astructs__counts_html_a64375c414a47e64ab0349e284a5db7d3"><div class="ttname"><a href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">s_counts::exit</a></div><div class="ttdeci">int exit</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00112">so_long.h:112</a></div></div>
+<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00113">so_long.h:113</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00111">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00110">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00109">s_counts::player</a>.</p>
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00112">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00111">s_counts::player</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
 <div class="dynheader">
@@ -292,7 +292,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00102">102</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
 <div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!map)</div>
-<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  105</span>        return ;</div>
 <div class="line"><span class="lineno">  106</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; i++)</div>
 <div class="line"><span class="lineno">  107</span>        free(map[i]);</div>
 <div class="line"><span class="lineno">  108</span>    free(map);</div>
@@ -346,7 +346,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> (1);</div>
 <div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00111">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00110">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00109">s_counts::player</a>.</p>
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00112">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00111">s_counts::player</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
 <div class="dynheader">
@@ -374,9 +374,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00068">68</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> count;</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">int</span>         i;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">int</span>         j;</div>
 <div class="line"><span class="lineno">   73</span> </div>
 <div class="line"><span class="lineno">   74</span>    count = (<a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>){0, 0, 0};</div>
 <div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a>(game))</div>
@@ -405,9 +405,9 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="amap__validation_8c_html_a7edc20170d1a50acb334e8fb16b47e9c"><div class="ttname"><a href="#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a></div><div class="ttdeci">static int check_map_borders(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00020">map_validation.c:20</a></div></div>
 <div class="ttc" id="aso__long_8h_html_a6ea7ef360a45d222d0ad36b64bebe0a6"><div class="ttname"><a href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a></div><div class="ttdeci">struct s_counts t_counts</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00032">check_elements()</a>, <a class="el" href="map__validation_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="so__long_8h_source.html#l00111">s_counts::collect</a>, and <a class="el" href="map__validation_8c_source.html#l00056">validate_counts()</a>.</p>
+<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00032">check_elements()</a>, <a class="el" href="map__validation_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, and <a class="el" href="map__validation_8c_source.html#l00056">validate_counts()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00138">init_mlx_and_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

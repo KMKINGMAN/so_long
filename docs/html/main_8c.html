@@ -232,49 +232,44 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00027">27</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_struct" href="structt__game.html">t_game</a> game;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (argc != 2)</div>
-<div class="line"><span class="lineno">   32</span>    {</div>
-<div class="line"><span class="lineno">   33</span>        ft_printf(<span class="stringliteral">&quot;Error: Usage: %s &lt;map_path.ber&gt;\n&quot;</span>, argv[0]);</div>
-<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   35</span>    }</div>
-<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_struct" href="structt__game.html">t_game</a>    game;</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">char</span>    *dot;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (argc != 2)</div>
+<div class="line"><span class="lineno">   33</span>    {</div>
+<div class="line"><span class="lineno">   34</span>        ft_printf(<span class="stringliteral">&quot;Error: Usage: %s &lt;map_path.ber&gt;\n&quot;</span>, argv[0]);</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   36</span>    }</div>
 <div class="line"><span class="lineno">   37</span>    <span class="comment">// Check if file ends with .ber</span></div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">char</span> *dot = ft_strrchr(argv[1], <span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><span class="lineno">   38</span>    dot = ft_strrchr(argv[1], <span class="charliteral">&#39;.&#39;</span>);</div>
 <div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span> (!dot || strcmp(dot, <span class="stringliteral">&quot;.ber&quot;</span>) != 0)</div>
 <div class="line"><span class="lineno">   40</span>    {</div>
 <div class="line"><span class="lineno">   41</span>        ft_printf(<span class="stringliteral">&quot;Error: Map file must have .ber extension\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> (1);</div>
 <div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    ft_memset(&amp;game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>)); <span class="comment">// Initialize to zero</span></div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_function" href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a>(&amp;game, argv[1]);</div>
-<div class="line"><span class="lineno">   48</span>    ft_printf(<span class="stringliteral">&quot;Starting game loop...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   50</span>    <span class="comment">// Add window close hook</span></div>
-<div class="line"><span class="lineno">   51</span>    mlx_hook(game.win, 17, 0, <a class="code hl_function" href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a>, &amp;game);</div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (game.mlx &amp;&amp; game.win)</div>
-<div class="line"><span class="lineno">   54</span>    {</div>
-<div class="line"><span class="lineno">   55</span>        <a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(&amp;game);</div>
-<div class="line"><span class="lineno">   56</span>        mlx_loop(game.mlx);</div>
+<div class="line"><span class="lineno">   44</span>    ft_memset(&amp;game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>)); <span class="comment">// Initialize to zero</span></div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_function" href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a>(&amp;game, argv[1]);</div>
+<div class="line"><span class="lineno">   46</span>    ft_printf(<span class="stringliteral">&quot;Starting game loop...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Add window close hook</span></div>
+<div class="line"><span class="lineno">   48</span>    mlx_hook(game.win, 17, 0, <a class="code hl_function" href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a>, &amp;game);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (game.mlx &amp;&amp; game.win)</div>
+<div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(&amp;game);</div>
+<div class="line"><span class="lineno">   52</span>        mlx_loop(game.mlx);</div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   55</span>    {</div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(&amp;game, <span class="stringliteral">&quot;Failed to initialize game&quot;</span>);</div>
 <div class="line"><span class="lineno">   57</span>    }</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(&amp;game, <span class="stringliteral">&quot;Failed to initialize game&quot;</span>);</div>
-<div class="line"><span class="lineno">   61</span>    }</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   64</span>}</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   59</span>}</div>
 <div class="ttc" id="ainit_8c_html_a07af3347aa3856589df3f78056ef1cd1"><div class="ttname"><a href="init_8c.html#a07af3347aa3856589df3f78056ef1cd1">init_game</a></div><div class="ttdeci">void init_game(t_game *game, char *map_path)</div><div class="ttdoc">Main game initialization function.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00172">init.c:172</a></div></div>
 <div class="ttc" id="amain_8c_html_a11e0b73c01ab79529c5862a102b1b2d5"><div class="ttname"><a href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a></div><div class="ttdeci">int close_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00021">main.c:21</a></div></div>
-<div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00217">render.c:217</a></div></div>
+<div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00215">render.c:215</a></div></div>
 <div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
 <div class="ttc" id="autils_8c_html_a8d321f33b7ee1109310b116ebd23081c"><div class="ttname"><a href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a></div><div class="ttdeci">void handle_error(t_game *game, const char *message)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00178">utils.c:178</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="main_8c_source.html#l00021">close_window()</a>, <a class="el" href="utils_8c_source.html#l00178">handle_error()</a>, <a class="el" href="init_8c_source.html#l00172">init_game()</a>, and <a class="el" href="render_8c_source.html#l00217">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="main_8c_source.html#l00021">close_window()</a>, <a class="el" href="utils_8c_source.html#l00178">handle_error()</a>, <a class="el" href="init_8c_source.html#l00172">init_game()</a>, and <a class="el" href="render_8c_source.html#l00215">render_frame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

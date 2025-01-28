@@ -175,32 +175,34 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void* Pointer to the new flipped image</dd></dl>
 <p>Creates a new image that is a mirror of the input image. Used for creating left-facing sprites from right-facing ones. Maintains transparency information. </p>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00080">80</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>{</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordtype">int</span> width;</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordtype">int</span> height;</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keywordtype">int</span> params[3];</div>
-<div class="line"><span class="lineno">   85</span>    <span class="keywordtype">void</span> *new_img;</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordtype">char</span> *data[2];</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>    width = 32;</div>
-<div class="line"><span class="lineno">   89</span>    height = 32;</div>
-<div class="line"><span class="lineno">   90</span>    new_img = mlx_new_image(mlx, width, height);</div>
-<div class="line"><span class="lineno">   91</span>    data[0] = mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
-<div class="line"><span class="lineno">   92</span>    data[1] = mlx_get_data_addr(img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
-<div class="line"><span class="lineno">   93</span>    params[0] = -1;</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">while</span> (++params[0] &lt; height)</div>
-<div class="line"><span class="lineno">   95</span>    {</div>
-<div class="line"><span class="lineno">   96</span>        params[2] = -1;</div>
-<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">while</span> (++params[2] &lt; width)</div>
-<div class="line"><span class="lineno">   98</span>        {</div>
-<div class="line"><span class="lineno">   99</span>            *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[0] + params[0] * params[1] + (width - 1 - params[2]) * 4) = *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[1] + params[0] * params[1] + params[2] * 4);</div>
-<div class="line"><span class="lineno">  100</span>        }</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> (new_img);</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00084">84</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordtype">int</span>     width;</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordtype">int</span>     height;</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordtype">int</span>     params[3];</div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordtype">void</span>    *new_img;</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordtype">char</span>    *data[2];</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>    width = 32;</div>
+<div class="line"><span class="lineno">   93</span>    height = 32;</div>
+<div class="line"><span class="lineno">   94</span>    new_img = mlx_new_image(mlx, width, height);</div>
+<div class="line"><span class="lineno">   95</span>    data[0] = mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
+<div class="line"><span class="lineno">   96</span>    data[1] = mlx_get_data_addr(img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
+<div class="line"><span class="lineno">   97</span>    params[0] = -1;</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">while</span> (++params[0] &lt; height)</div>
+<div class="line"><span class="lineno">   99</span>    {</div>
+<div class="line"><span class="lineno">  100</span>        params[2] = -1;</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">while</span> (++params[2] &lt; width)</div>
+<div class="line"><span class="lineno">  102</span>        {</div>
+<div class="line"><span class="lineno">  103</span>            *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[0] + params[0] * params[1] + (width - 1</div>
+<div class="line"><span class="lineno">  104</span>                        - params[2]) * 4) = *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[1]</div>
+<div class="line"><span class="lineno">  105</span>                    + params[0] * params[1] + params[2] * 4);</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">  107</span>    }</div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> (new_img);</div>
+<div class="line"><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00155">flip_sprites()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00161">flip_sprites()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -233,23 +235,23 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Creates mirrored versions of both idle and running animations for the player character. These are used when the player is moving or facing left. </p>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00155">155</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  156</span>{</div>
-<div class="line"><span class="lineno">  157</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>    i = 0;</div>
-<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
-<div class="line"><span class="lineno">  161</span>    {</div>
-<div class="line"><span class="lineno">  162</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  163</span>                                                          game-&gt;player_idle[i]);</div>
-<div class="line"><span class="lineno">  164</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  165</span>                                                         game-&gt;player_run[i]);</div>
-<div class="line"><span class="lineno">  166</span>        i++;</div>
-<div class="line"><span class="lineno">  167</span>    }</div>
-<div class="line"><span class="lineno">  168</span>}</div>
-<div class="ttc" id="aassets_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00080">assets.c:80</a></div></div>
+<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00161">161</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
+<div class="line"><span class="lineno">  163</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>    i = 0;</div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
+<div class="line"><span class="lineno">  167</span>    {</div>
+<div class="line"><span class="lineno">  168</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line"><span class="lineno">  169</span>                game-&gt;player_idle[i]);</div>
+<div class="line"><span class="lineno">  170</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line"><span class="lineno">  171</span>                game-&gt;player_run[i]);</div>
+<div class="line"><span class="lineno">  172</span>        i++;</div>
+<div class="line"><span class="lineno">  173</span>    }</div>
+<div class="line"><span class="lineno">  174</span>}</div>
+<div class="ttc" id="aassets_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00084">assets.c:84</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="assets_8c_source.html#l00080">flip_image_horizontal()</a>.</p>
+<p class="reference">References <a class="el" href="assets_8c_source.html#l00084">flip_image_horizontal()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
 <div class="dynheader">
@@ -295,28 +297,28 @@ Here is the caller graph for this function:</div>
 <li>Exit texture All textures are scaled to match tile_size (32x32) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00204">204</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  205</span>{</div>
-<div class="line"><span class="lineno">  206</span>    game-&gt;tile_size = 32;</div>
-<div class="line"><span class="lineno">  207</span>    game-&gt;img_width = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  208</span>    game-&gt;img_height = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  209</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  210</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
-<div class="line"><span class="lineno">  211</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_idle,</div>
-<div class="line"><span class="lineno">  212</span>                      <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>, 6);</div>
-<div class="line"><span class="lineno">  213</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_run,</div>
-<div class="line"><span class="lineno">  214</span>                      <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>, 6);</div>
-<div class="line"><span class="lineno">  215</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
-<div class="line"><span class="lineno">  216</span>    <a class="code hl_function" href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  217</span>    <a class="code hl_function" href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  218</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
-<div class="line"><span class="lineno">  219</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  220</span>}</div>
-<div class="ttc" id="aassets_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00170">assets.c:170</a></div></div>
-<div class="ttc" id="aassets_8c_html_a58894d992cdd0000d43051e417a0fe3c"><div class="ttname"><a href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00116">assets.c:116</a></div></div>
+<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00210">210</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  211</span>{</div>
+<div class="line"><span class="lineno">  212</span>    game-&gt;tile_size = 32;</div>
+<div class="line"><span class="lineno">  213</span>    game-&gt;img_width = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  214</span>    game-&gt;img_height = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">  215</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  216</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
+<div class="line"><span class="lineno">  217</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_idle, <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>,</div>
+<div class="line"><span class="lineno">  218</span>        6);</div>
+<div class="line"><span class="lineno">  219</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_run, <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>,</div>
+<div class="line"><span class="lineno">  220</span>        6);</div>
+<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
+<div class="line"><span class="lineno">  222</span>    <a class="code hl_function" href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">  223</span>    <a class="code hl_function" href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
+<div class="line"><span class="lineno">  225</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  226</span>}</div>
+<div class="ttc" id="aassets_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00176">assets.c:176</a></div></div>
+<div class="ttc" id="aassets_8c_html_a58894d992cdd0000d43051e417a0fe3c"><div class="ttname"><a href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00122">assets.c:122</a></div></div>
 <div class="ttc" id="ainit_8c_html_a2b7c4d2399f29ac12a27feb1ddf2b130"><div class="ttname"><a href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a></div><div class="ttdeci">void init_floor_types(t_game *game)</div><div class="ttdoc">Initializes random floor tile variations.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00024">init.c:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="assets_8c_source.html#l00170">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00116">load_sprite_array()</a>.</p>
+<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="assets_8c_source.html#l00176">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00122">load_sprite_array()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
 <div class="dynheader">
@@ -364,31 +366,31 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00170">170</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  171</span>{</div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordtype">void</span> *orig_img;</div>
-<div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>    orig_img = mlx_xpm_file_to_image(game-&gt;mlx, path,</div>
-<div class="line"><span class="lineno">  175</span>                                     &amp;game-&gt;img_width, &amp;game-&gt;img_height);</div>
-<div class="line"><span class="lineno">  176</span>    <span class="keywordflow">if</span> (!orig_img)</div>
-<div class="line"><span class="lineno">  177</span>    {</div>
-<div class="line"><span class="lineno">  178</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to load texture: %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  179</span>        exit(1);</div>
-<div class="line"><span class="lineno">  180</span>    }</div>
-<div class="line"><span class="lineno">  181</span>    *dest = <a class="code hl_function" href="#a4d12bcc48a801053179242221986c3b1">scale_image</a>(game-&gt;mlx, orig_img, game-&gt;img_width,</div>
-<div class="line"><span class="lineno">  182</span>                        game-&gt;img_height, game-&gt;tile_size);</div>
-<div class="line"><span class="lineno">  183</span>    mlx_destroy_image(game-&gt;mlx, orig_img);</div>
-<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">if</span> (!*dest)</div>
-<div class="line"><span class="lineno">  185</span>    {</div>
-<div class="line"><span class="lineno">  186</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to scale texture: %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  187</span>        exit(1);</div>
-<div class="line"><span class="lineno">  188</span>    }</div>
-<div class="line"><span class="lineno">  189</span>}</div>
+<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00176">176</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  177</span>{</div>
+<div class="line"><span class="lineno">  178</span>    <span class="keywordtype">void</span>    *orig_img;</div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>    orig_img = mlx_xpm_file_to_image(game-&gt;mlx, path, &amp;game-&gt;img_width,</div>
+<div class="line"><span class="lineno">  181</span>            &amp;game-&gt;img_height);</div>
+<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">if</span> (!orig_img)</div>
+<div class="line"><span class="lineno">  183</span>    {</div>
+<div class="line"><span class="lineno">  184</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to load texture: %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">  185</span>        exit(1);</div>
+<div class="line"><span class="lineno">  186</span>    }</div>
+<div class="line"><span class="lineno">  187</span>    *dest = <a class="code hl_function" href="#a4d12bcc48a801053179242221986c3b1">scale_image</a>(game-&gt;mlx, orig_img, game-&gt;img_width, game-&gt;img_height,</div>
+<div class="line"><span class="lineno">  188</span>            game-&gt;tile_size);</div>
+<div class="line"><span class="lineno">  189</span>    mlx_destroy_image(game-&gt;mlx, orig_img);</div>
+<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">if</span> (!*dest)</div>
+<div class="line"><span class="lineno">  191</span>    {</div>
+<div class="line"><span class="lineno">  192</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to scale texture: %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">  193</span>        exit(1);</div>
+<div class="line"><span class="lineno">  194</span>    }</div>
+<div class="line"><span class="lineno">  195</span>}</div>
 <div class="ttc" id="aassets_8c_html_a4d12bcc48a801053179242221986c3b1"><div class="ttname"><a href="#a4d12bcc48a801053179242221986c3b1">scale_image</a></div><div class="ttdeci">void * scale_image(void *mlx, void *original, int width, int height, int n_size)</div><div class="ttdoc">Scales an image to a new size.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00034">assets.c:34</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="assets_8c_source.html#l00034">scale_image()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00204">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -443,40 +445,40 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Loads a sequence of XPM files named f0.xpm through f{frames-1}.xpm from the specified directory. Each sprite is scaled to 32x32 pixels. </p>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00116">116</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  117</span>{</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">char</span> path[256];</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordtype">void</span> *orig_img;</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordtype">void</span> *scaled_img;</div>
-<div class="line"><span class="lineno">  121</span>    <span class="keywordtype">int</span> params[3];</div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>    i = 0;</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">while</span> (i &lt; frames)</div>
-<div class="line"><span class="lineno">  126</span>    {</div>
-<div class="line"><span class="lineno">  127</span>        <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(path, <span class="keyword">sizeof</span>(path), <span class="stringliteral">&quot;%s/f%d.xpm&quot;</span>, base_path, i);</div>
-<div class="line"><span class="lineno">  128</span>        orig_img = mlx_xpm_file_to_image(mlx, path, &amp;params[0], &amp;params[1]);</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">if</span> (!orig_img)</div>
-<div class="line"><span class="lineno">  130</span>        {</div>
-<div class="line"><span class="lineno">  131</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to load %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  132</span>            exit(1);</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span>        scaled_img = <a class="code hl_function" href="#a4d12bcc48a801053179242221986c3b1">scale_image</a>(mlx, orig_img, params[0], params[1], 32);</div>
-<div class="line"><span class="lineno">  135</span>        mlx_destroy_image(mlx, orig_img);</div>
-<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
-<div class="line"><span class="lineno">  137</span>        {</div>
-<div class="line"><span class="lineno">  138</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to scale image %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  139</span>            exit(1);</div>
-<div class="line"><span class="lineno">  140</span>        }</div>
-<div class="line"><span class="lineno">  141</span>        arr[i] = scaled_img;</div>
-<div class="line"><span class="lineno">  142</span>        i++;</div>
-<div class="line"><span class="lineno">  143</span>    }</div>
-<div class="line"><span class="lineno">  144</span>}</div>
-<div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00063">ft_snprintf.c:63</a></div></div>
+<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00122">122</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordtype">char</span>    path[256];</div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordtype">void</span>    *orig_img;</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordtype">void</span>    *scaled_img;</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordtype">int</span>     params[3];</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">int</span>     i;</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    i = 0;</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">while</span> (i &lt; frames)</div>
+<div class="line"><span class="lineno">  132</span>    {</div>
+<div class="line"><span class="lineno">  133</span>        <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(path, <span class="keyword">sizeof</span>(path), <span class="stringliteral">&quot;%s/f%d.xpm&quot;</span>, base_path, i);</div>
+<div class="line"><span class="lineno">  134</span>        orig_img = mlx_xpm_file_to_image(mlx, path, &amp;params[0], &amp;params[1]);</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">if</span> (!orig_img)</div>
+<div class="line"><span class="lineno">  136</span>        {</div>
+<div class="line"><span class="lineno">  137</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to load %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">  138</span>            exit(1);</div>
+<div class="line"><span class="lineno">  139</span>        }</div>
+<div class="line"><span class="lineno">  140</span>        scaled_img = <a class="code hl_function" href="#a4d12bcc48a801053179242221986c3b1">scale_image</a>(mlx, orig_img, params[0], params[1], 32);</div>
+<div class="line"><span class="lineno">  141</span>        mlx_destroy_image(mlx, orig_img);</div>
+<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
+<div class="line"><span class="lineno">  143</span>        {</div>
+<div class="line"><span class="lineno">  144</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to scale image %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">  145</span>            exit(1);</div>
+<div class="line"><span class="lineno">  146</span>        }</div>
+<div class="line"><span class="lineno">  147</span>        arr[i] = scaled_img;</div>
+<div class="line"><span class="lineno">  148</span>        i++;</div>
+<div class="line"><span class="lineno">  149</span>    }</div>
+<div class="line"><span class="lineno">  150</span>}</div>
+<div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00061">ft_snprintf.c:61</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00063">ft_snprintf()</a>, and <a class="el" href="assets_8c_source.html#l00034">scale_image()</a>.</p>
+<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00061">ft_snprintf()</a>, and <a class="el" href="assets_8c_source.html#l00034">scale_image()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00204">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -539,41 +541,44 @@ Here is the caller graph for this function:</div>
 <p>Creates a new scaled version of the input image using nearest neighbor interpolation. </p>
 
 <p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00034">34</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>{</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordtype">void</span> *new_img;</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">int</span> *orig_data;</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span> *new_data;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span> params[5];</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    new_img = mlx_new_image(mlx, n_size, n_size);</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (!new_img)</div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   44</span>    orig_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(original, &amp;params[0], &amp;params[1],</div>
-<div class="line"><span class="lineno">   45</span>                                         &amp;params[2]);</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (!orig_data)</div>
-<div class="line"><span class="lineno">   47</span>    {</div>
-<div class="line"><span class="lineno">   48</span>        mlx_destroy_image(mlx, new_img);</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   50</span>    }</div>
-<div class="line"><span class="lineno">   51</span>    new_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1],</div>
-<div class="line"><span class="lineno">   52</span>                                        &amp;params[2]);</div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (!new_data)</div>
-<div class="line"><span class="lineno">   54</span>    {</div>
-<div class="line"><span class="lineno">   55</span>        mlx_destroy_image(mlx, new_img);</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   57</span>    }</div>
-<div class="line"><span class="lineno">   58</span>    params[3] = -1;</div>
-<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">while</span> (++params[3] &lt; n_size)</div>
-<div class="line"><span class="lineno">   60</span>    {</div>
-<div class="line"><span class="lineno">   61</span>        params[4] = -1;</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">while</span> (++params[4] &lt; n_size)</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">if</span> (params[3] * width / n_size * width + params[4] * width / n_size &gt;= 0 &amp;&amp; params[3] * width / n_size * width + params[4] * width / n_size &lt; (width * height))</div>
-<div class="line"><span class="lineno">   64</span>                new_data[params[3] * n_size + params[4]] = orig_data[params[3] * width / n_size * width + params[4] * width / n_size];</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> (new_img);</div>
-<div class="line"><span class="lineno">   67</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">void</span>    *new_img;</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span>     *orig_data;</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span>     *new_data;</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordtype">int</span>     params[5];</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    new_img = mlx_new_image(mlx, n_size, n_size);</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">if</span> (!new_img)</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   45</span>    orig_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(original, &amp;params[0], &amp;params[1],</div>
+<div class="line"><span class="lineno">   46</span>            &amp;params[2]);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (!orig_data)</div>
+<div class="line"><span class="lineno">   48</span>    {</div>
+<div class="line"><span class="lineno">   49</span>        mlx_destroy_image(mlx, new_img);</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>    new_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1],</div>
+<div class="line"><span class="lineno">   53</span>            &amp;params[2]);</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (!new_data)</div>
+<div class="line"><span class="lineno">   55</span>    {</div>
+<div class="line"><span class="lineno">   56</span>        mlx_destroy_image(mlx, new_img);</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   58</span>    }</div>
+<div class="line"><span class="lineno">   59</span>    params[3] = -1;</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">while</span> (++params[3] &lt; n_size)</div>
+<div class="line"><span class="lineno">   61</span>    {</div>
+<div class="line"><span class="lineno">   62</span>        params[4] = -1;</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">while</span> (++params[4] &lt; n_size)</div>
+<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">if</span> (params[3] * width / n_size * width + params[4] * width</div>
+<div class="line"><span class="lineno">   65</span>                / n_size &gt;= 0 &amp;&amp; params[3] * width / n_size * width + params[4]</div>
+<div class="line"><span class="lineno">   66</span>                * width / n_size &lt; (width * height))</div>
+<div class="line"><span class="lineno">   67</span>                new_data[params[3] * n_size + params[4]] = orig_data[params[3]</div>
+<div class="line"><span class="lineno">   68</span>                    * width / n_size * width + params[4] * width / n_size];</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> (new_img);</div>
+<div class="line"><span class="lineno">   71</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00170">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00116">load_sprite_array()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00176">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00122">load_sprite_array()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
