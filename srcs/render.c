@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:16:42 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/27 20:05:47 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:26:53 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
  */
 
 #include "so_long.h"
-#include <time.h>
 
 /**
  * @brief Copies a sprite to the buffer image with transparency handling
