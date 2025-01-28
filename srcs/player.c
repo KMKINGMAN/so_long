@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/27 22:24:01 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:12:03 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	handle_collectible(t_game *game)
 	}
 }
 
-static int	handle_exit(t_game *game)
+static void	handle_exit(t_game *game)
 {
 	if (game->can_exit)
 	{
@@ -35,12 +35,11 @@ static int	handle_exit(t_game *game)
 		cleanup_game(game);
 		exit(0);
 	}
-	return (1);
 }
 
 static void	update_player_pos(t_game *game, int new_x, int new_y)
 {
-	if(game->exit_x == new_x && game->exit_y == new_y)
+	if (game->player_x == game->exit_x && game->player_y == game->exit_y)
 		game->map[game->player_y][game->player_x] = 'E';
 	else
 		game->map[game->player_y][game->player_x] = '0';
@@ -82,10 +81,7 @@ void	move_player(t_game *game, int dx, int dy)
 		handle_collectible(game);
 	if (game->map[new_y][new_x] == 'E')
 	{
-		if(handle_exit(game))
-			update_player_pos(game, new_x, new_y);
-		else
-			return ;
+		handle_exit(game);
 	}
 	update_player_pos(game, new_x, new_y);
 }
