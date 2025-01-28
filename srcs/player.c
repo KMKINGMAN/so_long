@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/28 14:23:40 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:24:49 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	move_player(t_game *game, int dx, int dy)
  */
 int	key_hook(int keycode, t_game *game)
 {
-	if (keycode == 65307) // ESC key
+	if (keycode == XK_Escape) // ESC key
 	{
 		cleanup_game(game);
 		exit(0);
