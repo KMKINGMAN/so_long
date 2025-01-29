@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:48:40 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/28 14:25:31 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/29 02:53:34 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	key_hook(int keycode, t_game *game)
 		move_player(game, 0, -1);
 	else if (keycode == XK_s || keycode == XK_Down)
 		move_player(game, 0, 1);
-	else if (keycode == XK_a|| keycode == XK_Left)
+	else if (keycode == XK_a || keycode == XK_Left)
 		move_player(game, -1, 0);
 	else if (keycode == XK_d || keycode == XK_Right)
 		move_player(game, 1, 0);

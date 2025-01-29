@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:51 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/25 18:24:54 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/29 02:53:05 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ static void	init_game_window(t_game *game)
 	game->win = mlx_new_window(game->mlx, win_width, win_height, "so_long");
 	if (!game->win)
 	{
-		cleanup_game(game); // Add cleanup before error
+		cleanup_game(game);
 		ft_printf("Error: Failed to create window\n");
 		exit(1);
 	}

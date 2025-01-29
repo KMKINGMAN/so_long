@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:33:34 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/24 19:52:03 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/01/29 02:55:50 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	ft_itoa_to_buf(int n, char *str, int *pos, size_t size)
 {
 	long	num;
 	int		i;
+	char	digits[12];
 
-	char digits[12]; // Enough for 32-bit int
 	i = 0;
 	num = n;
 	if (num < 0)
@@ -26,20 +26,17 @@ static void	ft_itoa_to_buf(int n, char *str, int *pos, size_t size)
 			str[(*pos)++] = '-';
 		num = -num;
 	}
-	// Handle 0 specially
 	if (num == 0)
 	{
 		if (*pos < (int)size - 1)
 			str[(*pos)++] = '0';
 		return ;
 	}
-	// Convert to digits in reverse order
 	while (num > 0)
 	{
 		digits[i++] = '0' + (num % 10);
 		num /= 10;
 	}
-	// Copy digits in correct order
 	while (i > 0 && *pos < (int)size - 1)
 		str[(*pos)++] = digits[--i];
 }
@@ -87,6 +84,7 @@ int	ft_snprintf(char *str, size_t size, const char *format, ...)
 }
 
 #ifdef DEBUG
+
 int	main(void)
 {
 	char	buf[64];
