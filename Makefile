@@ -14,7 +14,10 @@ SRCS = srcs/main.c \
 	srcs/ft_snprintf.c \
 	get_next_line/get_next_line_bonus.c \
 	get_next_line/get_next_line_utils_bonus.c \
-	srcs/utils.c
+	srcs/utils.c	\
+	srcs/clean_images.c	\
+	srcs/render_frame.c	\
+	srcs/map_validations_utils.c
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a

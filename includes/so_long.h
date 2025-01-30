@@ -152,6 +152,10 @@ void cleanup_game(t_game *game);
 void handle_error(t_game *game, const char *message);
 
 int close_window(t_game *game);
-
+void	cleanup_scaled_images(t_game *game);
+int	check_map_borders(t_game *game);
+int	check_elements(t_game *game, int i, int j, t_counts *count);
+int	check_map_content(t_game *game, t_counts *count);
+int	validate_counts(t_game *game, t_counts count);
 #endif
 
