@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:30:48 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:36:52 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,33 @@ static void	*create_scaled_image(void *mlx, int n_size)
 	return (new_img);
 }
 
+/**
+ * Processes image scaling by mapping original image data to a new scaled format
+ * 
+ * @param new_data    Pointer to destination 
+ * array for scaled image data
+ * @param orig_data   Pointer to source array 
+ * containing original image data
+ * @param p          Pointer to array containing 
+ * scaling parameters where p[4] represents height
+ * @param width      Width of the original image
+ * 
+ * @details
+ * The function scales the image to a fixed size of 32x32 pixels (n_size).
+ * For each pixel in the new scaled image, it maps back to corresponding pixel
+ * in original image using proportional scaling calculations.
+ * 
+ * @example
+ * int original[100 * 100];  // Original 100x100 image
+ * int scaled[32 * 32];      // Will contain 32x32 scaled image
+ * int params[5] = {0, 0, 0, 0, 100}; // params where p[4] is height
+ * process_scaling(scaled, original, params, 100);
+ * 
+ * @note
+ * - Output is always scaled to 32x32 pixels
+ * - Function includes bounds checking to prevent buffer overflows
+ * - Scaling is done using integer arithmetic for performance
+ */
 static void	process_scaling(int *new_data, int *orig_data, int *p, int width)
 {
 	int	i;
@@ -47,6 +74,36 @@ static void	process_scaling(int *new_data, int *orig_data, int *p, int width)
 	}
 }
 
+/**
+ * @brief Scales an MLX image to a fixed size of 32x32 pixels
+ *
+ * This function takes an original 
+ * MLX image and creates a new scaled version
+ * with dimensions of 32x32 pixels. 
+ * It handles the memory allocation and pixel 
+ * data transfer between the images.
+ *
+ * @param mlx Pointer to the MLX instance
+ * @param original Pointer to the original image to be scaled
+ * @param width Original image width in pixels
+ * @param height Original image height in pixels
+ *
+ * @return Pointer to the newly created scaled image, 
+ * or NULL if an error occurred
+ *
+ * @note The function internally uses create_scaled_image()
+ *  and process_scaling()
+ * to handle the actual scaling operation
+ *
+ * @example
+ * void *mlx = mlx_init();
+ * void *original_img = mlx_xpm_file_to_image(mlx, "sprite.xpm",
+ *  &width, &height);
+ * void *scaled_img = scale_image(mlx, original_img,
+ *  width, height);
+ * if (scaled_img)
+ *     mlx_put_image_to_window(mlx, window, scaled_img, x, y);
+ */
 void	*scale_image(void *mlx, void *original, int width, int height)
 {
 	void	*new_img;
