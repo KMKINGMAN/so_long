@@ -8,7 +8,7 @@ SRCS = srcs/main.c \
 	srcs/init.c \
 	srcs/render.c \
 	srcs/player.c \
-	srcs/assets.c \
+	srcs/image_operations.c \
 	srcs/map.c \
 	srcs/map_validation.c \
 	srcs/ft_snprintf.c \
@@ -17,7 +17,9 @@ SRCS = srcs/main.c \
 	srcs/utils.c	\
 	srcs/clean_images.c	\
 	srcs/render_frame.c	\
-	srcs/map_validations_utils.c
+	srcs/map_validations_utils.c	\
+	srcs/load.c	\
+	srcs/init_main.c
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a

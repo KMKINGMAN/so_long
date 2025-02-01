@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:47 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/29 02:50:34 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:08:34 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 	}
 	ft_memset(&game, 0, sizeof(t_game));
 	init_game(&game, argv[1]);
-	ft_printf("Starting game loop...\n");
 	mlx_hook(game.win, 17, 0, close_window, &game);
 	if (game.mlx && game.win)
 	{
@@ -50,8 +49,6 @@ int	main(int argc, char **argv)
 		mlx_loop(game.mlx);
 	}
 	else
-	{
 		handle_error(&game, "Failed to initialize game");
-	}
 	return (0);
 }

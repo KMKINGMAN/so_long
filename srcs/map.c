@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:42 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/27 20:23:52 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:15:42 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ static char	**allocate_map(char *file, int *height)
 	if (fd < 0)
 		return (NULL);
 	*height = 0;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		(*height)++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	lines = (char **)malloc(sizeof(char *) * (*height + 1));

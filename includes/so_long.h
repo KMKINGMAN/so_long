@@ -157,5 +157,6 @@ int	check_map_borders(t_game *game);
 int	check_elements(t_game *game, int i, int j, t_counts *count);
 int	check_map_content(t_game *game, t_counts *count);
 int	validate_counts(t_game *game, t_counts count);
+void	init_game_window(t_game *game);
 #endif
 
