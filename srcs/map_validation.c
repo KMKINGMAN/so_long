@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:25:32 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/01/30 17:08:22 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:44:10 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	flood_fill(char **map_copy, int x, int y, t_counts *count)
 {
+	if (x < 0 || y < 0 || !map_copy[y] || !map_copy[y][x])
+		return ;
 	if (map_copy[y][x] == '1' || map_copy[y][x] == 'F')
 		return ;
 	if (map_copy[y][x] == 'C')
@@ -75,6 +77,49 @@ static int	validate_path(t_game *game)
 	return (1);
 }
 
+/**
+ * Validates the game map according to specific
+ *  rules and requirements.
+ *
+ * This function performs several validation
+ *  checks on the game map:
+ * 1. Checks if map borders are valid walls
+ * 2. Validates internal map content and counts
+ *  elements
+ * 3. Verifies required element counts
+ *  (player, exit, collectibles)
+ * 4. Validates if there exists a valid path to
+ *  collect all items and reach exit
+ *
+ * @param {t_game*} game - Pointer to game structure
+ *  containing map data
+ *
+ * @returns {int} 1 if map is valid, 0 if any
+ *  validation fails
+ *
+ * @example
+ * t_game game;
+ * // Initialize game structure with map data
+ * game.map = [
+ *   "1111111",
+ *   "1P0C001",
+ *   "100E001",
+ *   "1111111"
+ * ];
+ * game.map_width = 7;
+ * game.map_height = 4;
+ *
+ * if (validate_map(&game)) {
+ *     // Map is valid, proceed with game
+ * } else {
+ *     // Handle invalid map error
+ * }
+ *
+ * @throws Can print error messages to standard
+ * output if validation fails
+ * @note Successful validation prints map statistics
+ * including dimensions and collectible count
+ */
 int	validate_map(t_game *game)
 {
 	t_counts	count;
