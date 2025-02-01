@@ -123,7 +123,7 @@ void init_floor_types(t_game *game);
 // assets.c
 void load_assets(t_game *game);
 void load_sprite_array(void *mlx, void **arr, char *base_path, int frames);
-void *scale_image(void *mlx, void *original, int width, int height, int new_size);
+void *scale_image(void *mlx, void *original, int width, int height);
 
 // map.c
 char **read_map(char *file, int *width, int *height);

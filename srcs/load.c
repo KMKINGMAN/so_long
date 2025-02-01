@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:09:38 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:12:12 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:25:20 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	load_sprite_array(void *mlx, void **arr, char *base_path, int frames)
 			ft_printf("Error: Failed to load %s\n", path);
 			exit(1);
 		}
-		scaled_img = scale_image(mlx, orig_img, params[0], params[1], 32);
+		scaled_img = scale_image(mlx, orig_img, params[0], params[1]);
 		mlx_destroy_image(mlx, orig_img);
 		if (!scaled_img)
 		{
@@ -63,8 +63,7 @@ static void	load_single_texture(t_game *game, void **dest, char *path)
 		ft_printf("Error: Failed to load texture: %s\n", path);
 		exit(1);
 	}
-	*dest = scale_image(game->mlx, orig_img, game->img_width, game->img_height,
-			game->tile_size);
+	*dest = scale_image(game->mlx, orig_img, game->img_width, game->img_height);
 	mlx_destroy_image(game->mlx, orig_img);
 	if (!*dest)
 	{

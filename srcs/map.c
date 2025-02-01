@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:42 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:15:42 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:29:13 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,36 +54,18 @@ static int	validate_width(char **lines, int i, int width)
 	}
 	return (width);
 }
-/**
- * @brief Reads and parses the game map from a file
- * @param file Path to the map file
- * @param width Pointer to store map width
- * @param height Pointer to store map height
- * @return char** 2D array containing the map data
- *
- * @details
- * - Reads map file line by line
- * - Allocates memory for map storage
- * - Validates map dimensions
- * - Returns NULL if any error occurs
- */
-char	**read_map(char *file, int *width, int *height)
+
+char	**reading_map(int *width, char **lines, char *file)
 {
 	int		fd;
 	char	*line;
-	char	**lines;
 	int		i;
 
-	lines = allocate_map(file, height);
-	if (!lines)
-	{
-		ft_printf("Error: Cannot open map file\n");
-		return (NULL);
-	}
 	fd = open(file, O_RDONLY);
 	i = 0;
 	*width = 0;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		clean_newline(line);
 		lines[i] = line;
@@ -94,8 +76,22 @@ char	**read_map(char *file, int *width, int *height)
 			return (NULL);
 		}
 		i++;
+		line = get_next_line(fd);
 	}
 	lines[i] = NULL;
 	close(fd);
 	return (lines);
+}
+
+char	**read_map(char *file, int *width, int *height)
+{
+	char	**lines;
+
+	lines = allocate_map(file, height);
+	if (!lines)
+	{
+		ft_printf("Error: Cannot open map file\n");
+		return (NULL);
+	}
+	return (reading_map(width, lines, file));
 }

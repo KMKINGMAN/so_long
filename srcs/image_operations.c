@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assets.c                                           :+:      :+:    :+:   */
+/*   image_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:12:33 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:30:48 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,44 @@
 
 #include "so_long.h"
 
-/**
- * @brief Scales an image to a new size
- *
- * @param mlx      MLX instance pointer
- * @param original Original image
- * @param width    Original width
- * @param height   Original height
- * @param new_size Target size
- * @return void*   Scaled image pointer or NULL on failure
- *
- * @details
- * Creates a new scaled version of the input image using
- * nearest neighbor interpolation.
- */
-void	*scale_image(void *mlx, void *original, int width, int height,
-		int n_size)
+static void	*create_scaled_image(void *mlx, int n_size)
+{
+	void	*new_img;
+
+	new_img = mlx_new_image(mlx, n_size, n_size);
+	return (new_img);
+}
+
+static void	process_scaling(int *new_data, int *orig_data, int *p, int width)
+{
+	int	i;
+	int	j;
+	int	n_size;
+
+	i = -1;
+	n_size = 32;
+	while (++i < n_size)
+	{
+		j = -1;
+		while (++j < n_size)
+		{
+			if (i * width / n_size * width + j * width / n_size >= 0
+				&& i * width / n_size * width + j * width / n_size
+				< (width * p[4]))
+				new_data[i * n_size + j] = orig_data[i * width / n_size
+					* width + j * width / n_size];
+		}
+	}
+}
+
+void	*scale_image(void *mlx, void *original, int width, int height)
 {
 	void	*new_img;
 	int		*orig_data;
 	int		*new_data;
 	int		params[5];
 
-	new_img = mlx_new_image(mlx, n_size, n_size);
+	new_img = create_scaled_image(mlx, 32);
 	if (!new_img)
 		return (NULL);
 	orig_data = (int *)mlx_get_data_addr(original, &params[0], &params[1],
@@ -56,17 +71,8 @@ void	*scale_image(void *mlx, void *original, int width, int height,
 		mlx_destroy_image(mlx, new_img);
 		return (NULL);
 	}
-	params[3] = -1;
-	while (++params[3] < n_size)
-	{
-		params[4] = -1;
-		while (++params[4] < n_size)
-			if (params[3] * width / n_size * width + params[4] * width
-				/ n_size >= 0 && params[3] * width / n_size * width + params[4]
-				* width / n_size < (width * height))
-				new_data[params[3] * n_size + params[4]] = orig_data[params[3]
-					* width / n_size * width + params[4] * width / n_size];
-	}
+	params[4] = height;
+	process_scaling(new_data, orig_data, params, width);
 	return (new_img);
 }
 
