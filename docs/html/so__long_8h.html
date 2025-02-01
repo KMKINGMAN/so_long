@@ -113,18 +113,18 @@ $(function(){initNavTree('so__long_8h.html',''); initResizable(true); });
 
 <p>Main header file for the so_long game.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;mlx.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;ft_printf.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="get__next__line__bonus_8h_source.html">get_next_line_bonus.h</a>&quot;</code><br />
+<code>#include &quot;libft.h&quot;</code><br />
+<code>#include &lt;X11/keysym.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;mlx.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="get__next__line__bonus_8h_source.html">get_next_line_bonus.h</a>&quot;</code><br />
-<code>#include &lt;stdarg.h&gt;</code><br />
-<code>#include &quot;libft.h&quot;</code><br />
-<code>#include &quot;ft_printf.h&quot;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &lt;X11/keysym.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for so_long.h:</div>
 <div class="dyncontent">
@@ -169,8 +169,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a8b41ee619faf9a9da9790a60cfbb3ce0" id="r_a8b41ee619faf9a9da9790a60cfbb3ce0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:a8b41ee619faf9a9da9790a60cfbb3ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles game animation frames and state updates.  <br /></td></tr>
 <tr class="separator:a8b41ee619faf9a9da9790a60cfbb3ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab57416e9adb3b7e53faaea9a658f3991" id="r_ab57416e9adb3b7e53faaea9a658f3991"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab57416e9adb3b7e53faaea9a658f3991">check_elements</a> (<a class="el" href="structt__game.html">t_game</a> *game, int i, int j, <a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *count)</td></tr>
+<tr class="separator:ab57416e9adb3b7e53faaea9a658f3991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f3d0903ec435a5cc5caee34bfc58ff" id="r_ab0f3d0903ec435a5cc5caee34bfc58ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0f3d0903ec435a5cc5caee34bfc58ff">check_map_borders</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="memdesc:ab0f3d0903ec435a5cc5caee34bfc58ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple map validation check for basic requirements.  <br /></td></tr>
+<tr class="separator:ab0f3d0903ec435a5cc5caee34bfc58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51f0ff88843223e47b6e2571305c576" id="r_ad51f0ff88843223e47b6e2571305c576"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad51f0ff88843223e47b6e2571305c576">check_map_content</a> (<a class="el" href="structt__game.html">t_game</a> *game, <a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *count)</td></tr>
+<tr class="separator:ad51f0ff88843223e47b6e2571305c576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b166a434f4f8cc202d9c3feaf33af7a" id="r_a6b166a434f4f8cc202d9c3feaf33af7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="separator:a6b166a434f4f8cc202d9c3feaf33af7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fd54b2926142613d5f2ee67a6b69b0" id="r_a87fd54b2926142613d5f2ee67a6b69b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87fd54b2926142613d5f2ee67a6b69b0">cleanup_scaled_images</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:a87fd54b2926142613d5f2ee67a6b69b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e0b73c01ab79529c5862a102b1b2d5" id="r_a11e0b73c01ab79529c5862a102b1b2d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11e0b73c01ab79529c5862a102b1b2d5">close_window</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="separator:a11e0b73c01ab79529c5862a102b1b2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa493c139c258ad4352b0c57df45ceb92" id="r_aa493c139c258ad4352b0c57df45ceb92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
@@ -199,6 +208,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a07af3347aa3856589df3f78056ef1cd1" id="r_a07af3347aa3856589df3f78056ef1cd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07af3347aa3856589df3f78056ef1cd1">init_game</a> (<a class="el" href="structt__game.html">t_game</a> *game, char *map_path)</td></tr>
 <tr class="memdesc:a07af3347aa3856589df3f78056ef1cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main game initialization function.  <br /></td></tr>
 <tr class="separator:a07af3347aa3856589df3f78056ef1cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5f5ea698ac0b148d9327d0290dc115" id="r_a2b5f5ea698ac0b148d9327d0290dc115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:a2b5f5ea698ac0b148d9327d0290dc115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdb37c7089768a2590ff97818f5d41d" id="r_adfdb37c7089768a2590ff97818f5d41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:adfdb37c7089768a2590ff97818f5d41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates and sets the player's starting position.  <br /></td></tr>
 <tr class="separator:adfdb37c7089768a2590ff97818f5d41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,13 +228,14 @@ Functions</h2></td></tr>
 <tr class="memitem:aad3ee8259cd6724ed31aa0c125c4121c" id="r_aad3ee8259cd6724ed31aa0c125c4121c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3ee8259cd6724ed31aa0c125c4121c">put_img_to_img</a> (<a class="el" href="#aa2823d71a465849891fd044a6371f982">t_img</a> *dest, void *sprite_ptr, int dest_x, int dest_y)</td></tr>
 <tr class="separator:aad3ee8259cd6724ed31aa0c125c4121c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727a57ebf42f450212350523d48cc841" id="r_a727a57ebf42f450212350523d48cc841"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a727a57ebf42f450212350523d48cc841">read_map</a> (char *file, int *width, int *height)</td></tr>
-<tr class="memdesc:a727a57ebf42f450212350523d48cc841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and parses the game map from a file.  <br /></td></tr>
 <tr class="separator:a727a57ebf42f450212350523d48cc841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1993af9d3ef98ee243dc29090916d5d0" id="r_a1993af9d3ef98ee243dc29090916d5d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="memdesc:a1993af9d3ef98ee243dc29090916d5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a complete frame of the game.  <br /></td></tr>
 <tr class="separator:a1993af9d3ef98ee243dc29090916d5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3f4576edde002220a2b8cec2f58a694" id="r_af3f4576edde002220a2b8cec2f58a694"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3f4576edde002220a2b8cec2f58a694">scale_image</a> (void *mlx, void *original, int width, int height, int new_size)</td></tr>
-<tr class="memdesc:af3f4576edde002220a2b8cec2f58a694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales an image to a new size.  <br /></td></tr>
-<tr class="separator:af3f4576edde002220a2b8cec2f58a694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d445bdc504f460b0e12b55a802bbeff" id="r_a9d445bdc504f460b0e12b55a802bbeff"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a> (void *mlx, void *original, int width, int height)</td></tr>
+<tr class="separator:a9d445bdc504f460b0e12b55a802bbeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ddd9917a2157d58123a5ef270052206" id="r_a7ddd9917a2157d58123a5ef270052206"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ddd9917a2157d58123a5ef270052206">validate_counts</a> (<a class="el" href="structt__game.html">t_game</a> *game, <a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> count)</td></tr>
+<tr class="separator:a7ddd9917a2157d58123a5ef270052206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a560a42b860dc2abf0cb8dbb2ea25693a" id="r_a560a42b860dc2abf0cb8dbb2ea25693a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="separator:a560a42b860dc2abf0cb8dbb2ea25693a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -358,14 +370,14 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  120</span>            }</div>
 <div class="line"><span class="lineno">  121</span>        }</div>
 <div class="line"><span class="lineno">  122</span>    }</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game);</div>
+<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="render__frame_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game);</div>
 <div class="line"><span class="lineno">  124</span>    <span class="keywordflow">return</span> (0);</div>
 <div class="line"><span class="lineno">  125</span>}</div>
-<div class="ttc" id="arender_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00215">render.c:215</a></div></div>
+<div class="ttc" id="arender__frame_8c_html_a1993af9d3ef98ee243dc29090916d5d0"><div class="ttname"><a href="render__frame_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a></div><div class="ttdeci">int render_frame(t_game *game)</div><div class="ttdoc">Renders a complete frame of the game.</div><div class="ttdef"><b>Definition</b> <a href="render__frame_8c_source.html#l00103">render_frame.c:103</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00215">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="render__frame_8c_source.html#l00103">render_frame()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -375,6 +387,175 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="so__long_8h_a8b41ee619faf9a9da9790a60cfbb3ce0_icgraph.png" border="0" usemap="#aso__long_8h_a8b41ee619faf9a9da9790a60cfbb3ce0_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab57416e9adb3b7e53faaea9a658f3991" name="ab57416e9adb3b7e53faaea9a658f3991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab57416e9adb3b7e53faaea9a658f3991">&#9670;&#160;</a></span>check_elements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_elements </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map__validations__utils_8c_source.html#l00033">33</a> of file <a class="el" href="map__validations__utils_8c_source.html">map_validations_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordtype">char</span>    c;</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    c = game-&gt;map[i][j];</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;P&#39;</span>)</div>
+<div class="line"><span class="lineno">   39</span>    {</div>
+<div class="line"><span class="lineno">   40</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#a19da059e32416f33cffafd56a6086352">player</a>++;</div>
+<div class="line"><span class="lineno">   41</span>        game-&gt;player_x = j;</div>
+<div class="line"><span class="lineno">   42</span>        game-&gt;player_y = i;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;E&#39;</span>)</div>
+<div class="line"><span class="lineno">   45</span>    {</div>
+<div class="line"><span class="lineno">   46</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a>++;</div>
+<div class="line"><span class="lineno">   47</span>        game-&gt;exit_x = j;</div>
+<div class="line"><span class="lineno">   48</span>        game-&gt;exit_y = i;</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;C&#39;</span>)</div>
+<div class="line"><span class="lineno">   51</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>++;</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c != <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c != <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Invalid character in map\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   55</span>}</div>
+<div class="ttc" id="astructs__counts_html_a19da059e32416f33cffafd56a6086352"><div class="ttname"><a href="structs__counts.html#a19da059e32416f33cffafd56a6086352">s_counts::player</a></div><div class="ttdeci">int player</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00120">so_long.h:120</a></div></div>
+<div class="ttc" id="astructs__counts_html_a64375c414a47e64ab0349e284a5db7d3"><div class="ttname"><a href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">s_counts::exit</a></div><div class="ttdeci">int exit</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00121">so_long.h:121</a></div></div>
+<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00122">so_long.h:122</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00121">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00120">s_counts::player</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validations__utils_8c_source.html#l00057">check_map_content()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_ab57416e9adb3b7e53faaea9a658f3991_icgraph.png" border="0" usemap="#aso__long_8h_ab57416e9adb3b7e53faaea9a658f3991_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab0f3d0903ec435a5cc5caee34bfc58ff" name="ab0f3d0903ec435a5cc5caee34bfc58ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f3d0903ec435a5cc5caee34bfc58ff">&#9670;&#160;</a></span>check_map_borders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_map_borders </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simple map validation check for basic requirements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to game structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if valid, 0 if invalid </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="map__validations__utils_8c_source.html#l00020">20</a> of file <a class="el" href="map__validations__utils_8c_source.html">map_validations_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (game-&gt;map_height &lt; 3 || game-&gt;map_width &lt; 3)</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map too small\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   26</span>    j = -1;</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">while</span> (++j &lt; game-&gt;map_width)</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (game-&gt;map[0][j] != <span class="charliteral">&#39;1&#39;</span> || game-&gt;map[game-&gt;map_height - 1][j] != <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not surrounded by walls\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   31</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00123">validate_map()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_ab0f3d0903ec435a5cc5caee34bfc58ff_icgraph.png" border="0" usemap="#aso__long_8h_ab0f3d0903ec435a5cc5caee34bfc58ff_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ad51f0ff88843223e47b6e2571305c576" name="ad51f0ff88843223e47b6e2571305c576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51f0ff88843223e47b6e2571305c576">&#9670;&#160;</a></span>check_map_content()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_map_content </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map__validations__utils_8c_source.html#l00057">57</a> of file <a class="el" href="map__validations__utils_8c_source.html">map_validations_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordtype">int</span> j;</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>    i = -1;</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">while</span> (++i &lt; game-&gt;map_height)</div>
+<div class="line"><span class="lineno">   64</span>    {</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)ft_strlen(game-&gt;map[i]) != game-&gt;map_width)</div>
+<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not rectangular\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">if</span> (game-&gt;map[i][0] != <span class="charliteral">&#39;1&#39;</span> || game-&gt;map[i][game-&gt;map_width - 1] != <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><span class="lineno">   68</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not surrounded by walls\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   69</span>        j = -1;</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">while</span> (++j &lt; game-&gt;map_width)</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#ab57416e9adb3b7e53faaea9a658f3991">check_elements</a>(game, i, j, count))</div>
+<div class="line"><span class="lineno">   72</span>                <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   75</span>}</div>
+<div class="ttc" id="amap__validations__utils_8c_html_ab57416e9adb3b7e53faaea9a658f3991"><div class="ttname"><a href="map__validations__utils_8c.html#ab57416e9adb3b7e53faaea9a658f3991">check_elements</a></div><div class="ttdeci">int check_elements(t_game *game, int i, int j, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00033">map_validations_utils.c:33</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="map__validations__utils_8c_source.html#l00033">check_elements()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00123">validate_map()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_ad51f0ff88843223e47b6e2571305c576_cgraph.png" border="0" usemap="#aso__long_8h_ad51f0ff88843223e47b6e2571305c576_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_ad51f0ff88843223e47b6e2571305c576_icgraph.png" border="0" usemap="#aso__long_8h_ad51f0ff88843223e47b6e2571305c576_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -394,26 +575,30 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00165">165</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">if</span> (!game)</div>
-<div class="line"><span class="lineno">  168</span>        return ;</div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (game-&gt;mlx)</div>
-<div class="line"><span class="lineno">  170</span>    {</div>
-<div class="line"><span class="lineno">  171</span>        <a class="code hl_function" href="utils_8c.html#a72c99faf18094cf6f6f0bd4ec752f1ae">cleanup_mlx_images</a>(game);</div>
-<div class="line"><span class="lineno">  172</span>        <a class="code hl_function" href="utils_8c.html#a123b79110158baa49ed60b2d7a82eebb">cleanup_window</a>(game);</div>
-<div class="line"><span class="lineno">  173</span>        <a class="code hl_function" href="utils_8c.html#a2cfca98fadaab70f5db802269eea3f46">cleanup_mlx_ptr</a>(game);</div>
-<div class="line"><span class="lineno">  174</span>    }</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="utils_8c.html#abc5614c78184dfae0a3a6a03ee44d059">cleanup_map_data</a>(game);</div>
-<div class="line"><span class="lineno">  176</span>}</div>
-<div class="ttc" id="autils_8c_html_a123b79110158baa49ed60b2d7a82eebb"><div class="ttname"><a href="utils_8c.html#a123b79110158baa49ed60b2d7a82eebb">cleanup_window</a></div><div class="ttdeci">static void cleanup_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00127">utils.c:127</a></div></div>
-<div class="ttc" id="autils_8c_html_a2cfca98fadaab70f5db802269eea3f46"><div class="ttname"><a href="utils_8c.html#a2cfca98fadaab70f5db802269eea3f46">cleanup_mlx_ptr</a></div><div class="ttdeci">static void cleanup_mlx_ptr(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00015">utils.c:15</a></div></div>
-<div class="ttc" id="autils_8c_html_a72c99faf18094cf6f6f0bd4ec752f1ae"><div class="ttname"><a href="utils_8c.html#a72c99faf18094cf6f6f0bd4ec752f1ae">cleanup_mlx_images</a></div><div class="ttdeci">static void cleanup_mlx_images(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00107">utils.c:107</a></div></div>
-<div class="ttc" id="autils_8c_html_abc5614c78184dfae0a3a6a03ee44d059"><div class="ttname"><a href="utils_8c.html#abc5614c78184dfae0a3a6a03ee44d059">cleanup_map_data</a></div><div class="ttdeci">static void cleanup_map_data(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00137">utils.c:137</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00073">73</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!game)</div>
+<div class="line"><span class="lineno">   76</span>        return ;</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">if</span> (game-&gt;mlx)</div>
+<div class="line"><span class="lineno">   78</span>    {</div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_function" href="utils_8c.html#a72c99faf18094cf6f6f0bd4ec752f1ae">cleanup_mlx_images</a>(game);</div>
+<div class="line"><span class="lineno">   80</span>        <a class="code hl_function" href="utils_8c.html#a123b79110158baa49ed60b2d7a82eebb">cleanup_window</a>(game);</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> (game-&gt;mlx)</div>
+<div class="line"><span class="lineno">   82</span>        {</div>
+<div class="line"><span class="lineno">   83</span>            mlx_destroy_display(game-&gt;mlx);</div>
+<div class="line"><span class="lineno">   84</span>            free(game-&gt;mlx);</div>
+<div class="line"><span class="lineno">   85</span>            game-&gt;mlx = NULL;</div>
+<div class="line"><span class="lineno">   86</span>        }</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   88</span>    <a class="code hl_function" href="utils_8c.html#abc5614c78184dfae0a3a6a03ee44d059">cleanup_map_data</a>(game);</div>
+<div class="line"><span class="lineno">   89</span>}</div>
+<div class="ttc" id="autils_8c_html_a123b79110158baa49ed60b2d7a82eebb"><div class="ttname"><a href="utils_8c.html#a123b79110158baa49ed60b2d7a82eebb">cleanup_window</a></div><div class="ttdeci">static void cleanup_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00035">utils.c:35</a></div></div>
+<div class="ttc" id="autils_8c_html_a72c99faf18094cf6f6f0bd4ec752f1ae"><div class="ttname"><a href="utils_8c.html#a72c99faf18094cf6f6f0bd4ec752f1ae">cleanup_mlx_images</a></div><div class="ttdeci">static void cleanup_mlx_images(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00015">utils.c:15</a></div></div>
+<div class="ttc" id="autils_8c_html_abc5614c78184dfae0a3a6a03ee44d059"><div class="ttname"><a href="utils_8c.html#abc5614c78184dfae0a3a6a03ee44d059">cleanup_map_data</a></div><div class="ttdeci">static void cleanup_map_data(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00045">utils.c:45</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="utils_8c_source.html#l00137">cleanup_map_data()</a>, <a class="el" href="utils_8c_source.html#l00107">cleanup_mlx_images()</a>, <a class="el" href="utils_8c_source.html#l00015">cleanup_mlx_ptr()</a>, and <a class="el" href="utils_8c_source.html#l00127">cleanup_window()</a>.</p>
+<p class="reference">References <a class="el" href="utils_8c_source.html#l00045">cleanup_map_data()</a>, <a class="el" href="utils_8c_source.html#l00015">cleanup_mlx_images()</a>, and <a class="el" href="utils_8c_source.html#l00035">cleanup_window()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00015">exit_game()</a>, <a class="el" href="utils_8c_source.html#l00178">handle_error()</a>, <a class="el" href="player_8c_source.html#l00030">handle_exit()</a>, <a class="el" href="init_8c_source.html#l00112">init_game_window()</a>, <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>, and <a class="el" href="player_8c_source.html#l00102">key_hook()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00015">exit_game()</a>, <a class="el" href="utils_8c_source.html#l00091">handle_error()</a>, <a class="el" href="player_8c_source.html#l00030">handle_exit()</a>, <a class="el" href="init__main_8c_source.html#l00052">init_game_window()</a>, <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>, and <a class="el" href="player_8c_source.html#l00102">key_hook()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -423,6 +608,49 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="so__long_8h_a6b166a434f4f8cc202d9c3feaf33af7a_icgraph.png" border="0" usemap="#aso__long_8h_a6b166a434f4f8cc202d9c3feaf33af7a_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a87fd54b2926142613d5f2ee67a6b69b0" name="a87fd54b2926142613d5f2ee67a6b69b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fd54b2926142613d5f2ee67a6b69b0">&#9670;&#160;</a></span>cleanup_scaled_images()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cleanup_scaled_images </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="clean__images_8c_source.html#l00089">89</a> of file <a class="el" href="clean__images_8c_source.html">clean_images.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>{</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_function" href="clean__images_8c.html#af696a35befccf80ea35fc848c9292fef">cleanup_floor_images</a>(game);</div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_function" href="clean__images_8c.html#a4644ff6c8a89161bb498cbce5edd4c27">cleanup_player_anims</a>(game);</div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_function" href="clean__images_8c.html#a55a5e38ede17361f52b74b7108edb421">cleanup_player_left_anims</a>(game);</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="clean__images_8c.html#a248d446aa9c26de1799fe09b07531c3d">cleanup_collect_anims</a>(game);</div>
+<div class="line"><span class="lineno">   95</span>}</div>
+<div class="ttc" id="aclean__images_8c_html_a248d446aa9c26de1799fe09b07531c3d"><div class="ttname"><a href="clean__images_8c.html#a248d446aa9c26de1799fe09b07531c3d">cleanup_collect_anims</a></div><div class="ttdeci">static void cleanup_collect_anims(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="clean__images_8c_source.html#l00073">clean_images.c:73</a></div></div>
+<div class="ttc" id="aclean__images_8c_html_a4644ff6c8a89161bb498cbce5edd4c27"><div class="ttname"><a href="clean__images_8c.html#a4644ff6c8a89161bb498cbce5edd4c27">cleanup_player_anims</a></div><div class="ttdeci">static void cleanup_player_anims(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="clean__images_8c_source.html#l00031">clean_images.c:31</a></div></div>
+<div class="ttc" id="aclean__images_8c_html_a55a5e38ede17361f52b74b7108edb421"><div class="ttname"><a href="clean__images_8c.html#a55a5e38ede17361f52b74b7108edb421">cleanup_player_left_anims</a></div><div class="ttdeci">static void cleanup_player_left_anims(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="clean__images_8c_source.html#l00052">clean_images.c:52</a></div></div>
+<div class="ttc" id="aclean__images_8c_html_af696a35befccf80ea35fc848c9292fef"><div class="ttname"><a href="clean__images_8c.html#af696a35befccf80ea35fc848c9292fef">cleanup_floor_images</a></div><div class="ttdeci">static void cleanup_floor_images(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="clean__images_8c_source.html#l00015">clean_images.c:15</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="clean__images_8c_source.html#l00073">cleanup_collect_anims()</a>, <a class="el" href="clean__images_8c_source.html#l00015">cleanup_floor_images()</a>, <a class="el" href="clean__images_8c_source.html#l00031">cleanup_player_anims()</a>, and <a class="el" href="clean__images_8c_source.html#l00052">cleanup_player_left_anims()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="utils_8c_source.html#l00015">cleanup_mlx_images()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a87fd54b2926142613d5f2ee67a6b69b0_cgraph.png" border="0" usemap="#aso__long_8h_a87fd54b2926142613d5f2ee67a6b69b0_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a87fd54b2926142613d5f2ee67a6b69b0_icgraph.png" border="0" usemap="#aso__long_8h_a87fd54b2926142613d5f2ee67a6b69b0_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -490,14 +718,14 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>int Result of render_frame</dd></dl>
 <p>Called when window needs to be redrawn, typically after being uncovered or restored. </p>
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00238">238</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  239</span>{</div>
-<div class="line"><span class="lineno">  240</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="render_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game));</div>
-<div class="line"><span class="lineno">  241</span>}</div>
+<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00136">136</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  137</span>{</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="render__frame_8c.html#a1993af9d3ef98ee243dc29090916d5d0">render_frame</a>(game));</div>
+<div class="line"><span class="lineno">  139</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00215">render_frame()</a>.</p>
+<p class="reference">References <a class="el" href="render__frame_8c_source.html#l00103">render_frame()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -535,25 +763,25 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Creates mirrored versions of both idle and running animations for the player character. These are used when the player is moving or facing left. </p>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00161">161</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>    i = 0;</div>
-<div class="line"><span class="lineno">  166</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
-<div class="line"><span class="lineno">  167</span>    {</div>
-<div class="line"><span class="lineno">  168</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="assets_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  169</span>                game-&gt;player_idle[i]);</div>
-<div class="line"><span class="lineno">  170</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="assets_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  171</span>                game-&gt;player_run[i]);</div>
-<div class="line"><span class="lineno">  172</span>        i++;</div>
-<div class="line"><span class="lineno">  173</span>    }</div>
-<div class="line"><span class="lineno">  174</span>}</div>
-<div class="ttc" id="aassets_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="assets_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00084">assets.c:84</a></div></div>
+<p class="definition">Definition at line <a class="el" href="image__operations_8c_source.html#l00183">183</a> of file <a class="el" href="image__operations_8c_source.html">image_operations.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  184</span>{</div>
+<div class="line"><span class="lineno">  185</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>    i = 0;</div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
+<div class="line"><span class="lineno">  189</span>    {</div>
+<div class="line"><span class="lineno">  190</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line"><span class="lineno">  191</span>                game-&gt;player_idle[i]);</div>
+<div class="line"><span class="lineno">  192</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line"><span class="lineno">  193</span>                game-&gt;player_run[i]);</div>
+<div class="line"><span class="lineno">  194</span>        i++;</div>
+<div class="line"><span class="lineno">  195</span>    }</div>
+<div class="line"><span class="lineno">  196</span>}</div>
+<div class="ttc" id="aimage__operations_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00147">image_operations.c:147</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="assets_8c_source.html#l00084">flip_image_horizontal()</a>.</p>
+<p class="reference">References <a class="el" href="image__operations_8c_source.html#l00147">flip_image_horizontal()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -595,16 +823,22 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00102">102</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!map)</div>
-<div class="line"><span class="lineno">  105</span>        return ;</div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; i++)</div>
-<div class="line"><span class="lineno">  107</span>        free(map[i]);</div>
-<div class="line"><span class="lineno">  108</span>    free(map);</div>
-<div class="line"><span class="lineno">  109</span>}</div>
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00147">147</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>{</div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">if</span> (!map)</div>
+<div class="line"><span class="lineno">  152</span>        return ;</div>
+<div class="line"><span class="lineno">  153</span>    i = 0;</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">while</span> (i &lt; height)</div>
+<div class="line"><span class="lineno">  155</span>    {</div>
+<div class="line"><span class="lineno">  156</span>        free(map[i]);</div>
+<div class="line"><span class="lineno">  157</span>        i++;</div>
+<div class="line"><span class="lineno">  158</span>    }</div>
+<div class="line"><span class="lineno">  159</span>    free(map);</div>
+<div class="line"><span class="lineno">  160</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="map_8c_source.html#l00068">read_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00032">copy_map()</a>, <a class="el" href="map_8c_source.html#l00058">reading_map()</a>, and <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -654,39 +888,39 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of characters written (excluding null terminator) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ft__snprintf_8c_source.html#l00061">61</a> of file <a class="el" href="ft__snprintf_8c_source.html">ft_snprintf.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
-<div class="line"><span class="lineno">   63</span>    va_list args;</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordtype">int</span>     pos;</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!str || !format || size == 0)</div>
-<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   68</span>    va_start(args, format);</div>
-<div class="line"><span class="lineno">   69</span>    pos = 0;</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">while</span> (*format &amp;&amp; pos &lt; (<span class="keywordtype">int</span>)size - 1)</div>
-<div class="line"><span class="lineno">   71</span>    {</div>
-<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;%&#39;</span>)</div>
-<div class="line"><span class="lineno">   73</span>        {</div>
-<div class="line"><span class="lineno">   74</span>            format++;</div>
-<div class="line"><span class="lineno">   75</span>            <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;d&#39;</span>)</div>
-<div class="line"><span class="lineno">   76</span>                <a class="code hl_function" href="ft__snprintf_8c.html#a03788c0f9878d830142dfc9ea1eef09c">ft_itoa_to_buf</a>(va_arg(args, <span class="keywordtype">int</span>), str, &amp;pos, size);</div>
-<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;s&#39;</span>)</div>
-<div class="line"><span class="lineno">   78</span>                <a class="code hl_function" href="ft__snprintf_8c.html#af9a50005500549b232e43c9f31356ac1">ft_strncpy_buf</a>(va_arg(args, <span class="keywordtype">char</span> *), str, &amp;pos, size);</div>
-<div class="line"><span class="lineno">   79</span>            format++;</div>
-<div class="line"><span class="lineno">   80</span>        }</div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   82</span>            str[pos++] = *format++;</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span>    str[pos] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   85</span>    va_end(args);</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> (pos);</div>
-<div class="line"><span class="lineno">   87</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ft__snprintf_8c_source.html#l00058">58</a> of file <a class="el" href="ft__snprintf_8c_source.html">ft_snprintf.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
+<div class="line"><span class="lineno">   60</span>    va_list args;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordtype">int</span>     pos;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span> (!str || !format || size == 0)</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   65</span>    va_start(args, format);</div>
+<div class="line"><span class="lineno">   66</span>    pos = 0;</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">while</span> (*format &amp;&amp; pos &lt; (<span class="keywordtype">int</span>)size - 1)</div>
+<div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;%&#39;</span>)</div>
+<div class="line"><span class="lineno">   70</span>        {</div>
+<div class="line"><span class="lineno">   71</span>            format++;</div>
+<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;d&#39;</span>)</div>
+<div class="line"><span class="lineno">   73</span>                <a class="code hl_function" href="ft__snprintf_8c.html#a03788c0f9878d830142dfc9ea1eef09c">ft_itoa_to_buf</a>(va_arg(args, <span class="keywordtype">int</span>), str, &amp;pos, size);</div>
+<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;s&#39;</span>)</div>
+<div class="line"><span class="lineno">   75</span>                <a class="code hl_function" href="ft__snprintf_8c.html#af9a50005500549b232e43c9f31356ac1">ft_strncpy_buf</a>(va_arg(args, <span class="keywordtype">char</span> *), str, &amp;pos, size);</div>
+<div class="line"><span class="lineno">   76</span>            format++;</div>
+<div class="line"><span class="lineno">   77</span>        }</div>
+<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   79</span>            str[pos++] = *format++;</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
+<div class="line"><span class="lineno">   81</span>    str[pos] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   82</span>    va_end(args);</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> (pos);</div>
+<div class="line"><span class="lineno">   84</span>}</div>
 <div class="ttc" id="aft__snprintf_8c_html_a03788c0f9878d830142dfc9ea1eef09c"><div class="ttname"><a href="ft__snprintf_8c.html#a03788c0f9878d830142dfc9ea1eef09c">ft_itoa_to_buf</a></div><div class="ttdeci">static void ft_itoa_to_buf(int n, char *str, int *pos, size_t size)</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00015">ft_snprintf.c:15</a></div></div>
-<div class="ttc" id="aft__snprintf_8c_html_af9a50005500549b232e43c9f31356ac1"><div class="ttname"><a href="ft__snprintf_8c.html#af9a50005500549b232e43c9f31356ac1">ft_strncpy_buf</a></div><div class="ttdeci">static void ft_strncpy_buf(const char *src, char *str, int *pos, size_t size)</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00047">ft_snprintf.c:47</a></div></div>
+<div class="ttc" id="aft__snprintf_8c_html_af9a50005500549b232e43c9f31356ac1"><div class="ttname"><a href="ft__snprintf_8c.html#af9a50005500549b232e43c9f31356ac1">ft_strncpy_buf</a></div><div class="ttdeci">static void ft_strncpy_buf(const char *src, char *str, int *pos, size_t size)</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00044">ft_snprintf.c:44</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00015">ft_itoa_to_buf()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00047">ft_strncpy_buf()</a>.</p>
+<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00015">ft_itoa_to_buf()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00044">ft_strncpy_buf()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00122">load_sprite_array()</a>, and <a class="el" href="render_8c_source.html#l00215">render_frame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>, and <a class="el" href="render__frame_8c_source.html#l00103">render_frame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -719,15 +953,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00178">178</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  179</span>{</div>
-<div class="line"><span class="lineno">  180</span>    ft_printf(<span class="stringliteral">&quot;Error: %s\n&quot;</span>, message);</div>
-<div class="line"><span class="lineno">  181</span>    <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
-<div class="line"><span class="lineno">  182</span>    exit(1);</div>
-<div class="line"><span class="lineno">  183</span>}</div>
-<div class="ttc" id="autils_8c_html_a6b166a434f4f8cc202d9c3feaf33af7a"><div class="ttname"><a href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a></div><div class="ttdeci">void cleanup_game(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00165">utils.c:165</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00091">91</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>{</div>
+<div class="line"><span class="lineno">   93</span>    ft_printf(<span class="stringliteral">&quot;Error: %s\n&quot;</span>, message);</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
+<div class="line"><span class="lineno">   95</span>    exit(1);</div>
+<div class="line"><span class="lineno">   96</span>}</div>
+<div class="ttc" id="autils_8c_html_a6b166a434f4f8cc202d9c3feaf33af7a"><div class="ttname"><a href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a></div><div class="ttdeci">void cleanup_game(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00073">utils.c:73</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="utils_8c_source.html#l00165">cleanup_game()</a>.</p>
+<p class="reference">References <a class="el" href="utils_8c_source.html#l00073">cleanup_game()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
 <div class="dynheader">
@@ -779,7 +1013,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   86</span>            &amp;game-&gt;buffer.bpp, &amp;game-&gt;buffer.line_len, &amp;game-&gt;buffer.endian);</div>
 <div class="line"><span class="lineno">   87</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -842,7 +1076,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  109</span>    game-&gt;can_exit = 0;</div>
 <div class="line"><span class="lineno">  110</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -897,7 +1131,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   43</span>    }</div>
 <div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -943,33 +1177,33 @@ Here is the caller graph for this function:</div>
 <li>Set up event hooks </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00172">172</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  173</span>{</div>
-<div class="line"><span class="lineno">  174</span>    <a class="code hl_function" href="init_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a>(game);</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="init_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a>(game, map_path);</div>
-<div class="line"><span class="lineno">  176</span>    <a class="code hl_function" href="init_8c.html#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a>(game);</div>
-<div class="line"><span class="lineno">  177</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
-<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
-<div class="line"><span class="lineno">  180</span>    <a class="code hl_function" href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
-<div class="line"><span class="lineno">  181</span>    <a class="code hl_function" href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
-<div class="line"><span class="lineno">  182</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
-<div class="line"><span class="lineno">  183</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
-<div class="line"><span class="lineno">  184</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
-<div class="line"><span class="lineno">  185</span>}</div>
-<div class="ttc" id="aassets_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00210">assets.c:210</a></div></div>
-<div class="ttc" id="aassets_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00161">assets.c:161</a></div></div>
-<div class="ttc" id="ainit_8c_html_a144dd69d560b7542ee30156c40f03bfa"><div class="ttname"><a href="init_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a></div><div class="ttdeci">static void init_mlx_and_map(t_game *game, char *map_path)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00139">init.c:139</a></div></div>
+<p class="definition">Definition at line <a class="el" href="init__main_8c_source.html#l00123">123</a> of file <a class="el" href="init__main_8c_source.html">init_main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>{</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="init__main_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a>(game);</div>
+<div class="line"><span class="lineno">  126</span>    <a class="code hl_function" href="init__main_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a>(game, map_path);</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="init__main_8c.html#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a>(game);</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_function" href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
+<div class="line"><span class="lineno">  133</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
+<div class="line"><span class="lineno">  134</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
+<div class="line"><span class="lineno">  135</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
+<div class="line"><span class="lineno">  136</span>}</div>
+<div class="ttc" id="aimage__operations_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00183">image_operations.c:183</a></div></div>
 <div class="ttc" id="ainit_8c_html_ad060f77fadab05b39ee1b4e4a3677ef9"><div class="ttname"><a href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a></div><div class="ttdeci">void init_collectibles(t_game *game)</div><div class="ttdoc">Initializes collectible items and exit.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00086">init.c:86</a></div></div>
-<div class="ttc" id="ainit_8c_html_ad9e79af1da4495ae17ade030b1bd1ceb"><div class="ttname"><a href="init_8c.html#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a></div><div class="ttdeci">static void init_game_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00112">init.c:112</a></div></div>
 <div class="ttc" id="ainit_8c_html_adfdb37c7089768a2590ff97818f5d41d"><div class="ttname"><a href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a></div><div class="ttdeci">void init_player_position(t_game *game)</div><div class="ttdoc">Locates and sets the player&#39;s starting position.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00054">init.c:54</a></div></div>
-<div class="ttc" id="ainit_8c_html_af1850989b7637f891d0fbc5f27ae9b22"><div class="ttname"><a href="init_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a></div><div class="ttdeci">static void init_game_vars(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00128">init.c:128</a></div></div>
+<div class="ttc" id="ainit__main_8c_html_a144dd69d560b7542ee30156c40f03bfa"><div class="ttname"><a href="init__main_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a></div><div class="ttdeci">static void init_mlx_and_map(t_game *game, char *map_path)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00089">init_main.c:89</a></div></div>
+<div class="ttc" id="ainit__main_8c_html_a2b5f5ea698ac0b148d9327d0290dc115"><div class="ttname"><a href="init__main_8c.html#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a></div><div class="ttdeci">void init_game_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00052">init_main.c:52</a></div></div>
+<div class="ttc" id="ainit__main_8c_html_af1850989b7637f891d0fbc5f27ae9b22"><div class="ttname"><a href="init__main_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a></div><div class="ttdeci">static void init_game_vars(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00015">init_main.c:15</a></div></div>
+<div class="ttc" id="aload_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00088">load.c:88</a></div></div>
 <div class="ttc" id="aplayer_8c_html_a57186e90338fdf78b81242e92e563823"><div class="ttname"><a href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a></div><div class="ttdeci">int key_hook(int keycode, t_game *game)</div><div class="ttdoc">Handles keyboard input events.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00102">player.c:102</a></div></div>
 <div class="ttc" id="arender_8c_html_a253c61fb2aec7f0382a023ae4a8e116b"><div class="ttname"><a href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a></div><div class="ttdeci">void init_buffer(t_game *game)</div><div class="ttdoc">Initializes the rendering buffer.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00077">render.c:77</a></div></div>
 <div class="ttc" id="arender_8c_html_a8b41ee619faf9a9da9790a60cfbb3ce0"><div class="ttname"><a href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a></div><div class="ttdeci">int animate(t_game *game)</div><div class="ttdoc">Handles game animation frames and state updates.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00100">render.c:100</a></div></div>
-<div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00238">render.c:238</a></div></div>
+<div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00136">render.c:136</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00238">expose_hook()</a>, <a class="el" href="assets_8c_source.html#l00161">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00077">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00086">init_collectibles()</a>, <a class="el" href="init_8c_source.html#l00128">init_game_vars()</a>, <a class="el" href="init_8c_source.html#l00112">init_game_window()</a>, <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00054">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00102">key_hook()</a>, and <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00136">expose_hook()</a>, <a class="el" href="image__operations_8c_source.html#l00183">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00077">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00086">init_collectibles()</a>, <a class="el" href="init__main_8c_source.html#l00015">init_game_vars()</a>, <a class="el" href="init__main_8c_source.html#l00052">init_game_window()</a>, <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00054">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00102">key_hook()</a>, and <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
 <div class="dynheader">
@@ -981,6 +1215,53 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="so__long_8h_a07af3347aa3856589df3f78056ef1cd1_icgraph.png" border="0" usemap="#aso__long_8h_a07af3347aa3856589df3f78056ef1cd1_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a2b5f5ea698ac0b148d9327d0290dc115" name="a2b5f5ea698ac0b148d9327d0290dc115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b5f5ea698ac0b148d9327d0290dc115">&#9670;&#160;</a></span>init_game_window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_game_window </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init__main_8c_source.html#l00052">52</a> of file <a class="el" href="init__main_8c_source.html">init_main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordtype">int</span> win_width;</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordtype">int</span> win_height;</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>    win_width = game-&gt;map_width * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   58</span>    win_height = game-&gt;map_height * game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   59</span>    game-&gt;win = mlx_new_window(game-&gt;mlx, win_width, win_height, <span class="stringliteral">&quot;so_long&quot;</span>);</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!game-&gt;win)</div>
+<div class="line"><span class="lineno">   61</span>    {</div>
+<div class="line"><span class="lineno">   62</span>        <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
+<div class="line"><span class="lineno">   63</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to create window\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   64</span>        exit(1);</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="utils_8c_source.html#l00073">cleanup_game()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a2b5f5ea698ac0b148d9327d0290dc115_cgraph.png" border="0" usemap="#aso__long_8h_a2b5f5ea698ac0b148d9327d0290dc115_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a2b5f5ea698ac0b148d9327d0290dc115_icgraph.png" border="0" usemap="#aso__long_8h_a2b5f5ea698ac0b148d9327d0290dc115_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -1032,7 +1313,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   74</span>    }</div>
 <div class="line"><span class="lineno">   75</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1088,7 +1369,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  110</span>        <a class="code hl_function" href="player_8c.html#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a>(game, 0, -1);</div>
 <div class="line"><span class="lineno">  111</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (keycode == XK_s || keycode == XK_Down)</div>
 <div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="player_8c.html#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a>(game, 0, 1);</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (keycode == XK_a|| keycode == XK_Left)</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (keycode == XK_a || keycode == XK_Left)</div>
 <div class="line"><span class="lineno">  114</span>        <a class="code hl_function" href="player_8c.html#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a>(game, -1, 0);</div>
 <div class="line"><span class="lineno">  115</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (keycode == XK_d || keycode == XK_Right)</div>
 <div class="line"><span class="lineno">  116</span>        <a class="code hl_function" href="player_8c.html#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a>(game, 1, 0);</div>
@@ -1096,9 +1377,9 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  118</span>}</div>
 <div class="ttc" id="aplayer_8c_html_ae2e77f7fc1b09df20db5400adc4d8595"><div class="ttname"><a href="player_8c.html#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a></div><div class="ttdeci">void move_player(t_game *game, int dx, int dy)</div><div class="ttdoc">Handles player movement and collision.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00067">player.c:67</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="utils_8c_source.html#l00165">cleanup_game()</a>, and <a class="el" href="player_8c_source.html#l00067">move_player()</a>.</p>
+<p class="reference">References <a class="el" href="utils_8c_source.html#l00073">cleanup_game()</a>, and <a class="el" href="player_8c_source.html#l00067">move_player()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1142,30 +1423,30 @@ Here is the caller graph for this function:</div>
 <li>Exit texture All textures are scaled to match tile_size (32x32) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00210">210</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  211</span>{</div>
-<div class="line"><span class="lineno">  212</span>    game-&gt;tile_size = 32;</div>
-<div class="line"><span class="lineno">  213</span>    game-&gt;img_width = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  214</span>    game-&gt;img_height = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  215</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  216</span>    <a class="code hl_function" href="assets_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
-<div class="line"><span class="lineno">  217</span>    <a class="code hl_function" href="assets_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_idle, <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>,</div>
-<div class="line"><span class="lineno">  218</span>        6);</div>
-<div class="line"><span class="lineno">  219</span>    <a class="code hl_function" href="assets_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_run, <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>,</div>
-<div class="line"><span class="lineno">  220</span>        6);</div>
-<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="assets_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
-<div class="line"><span class="lineno">  222</span>    <a class="code hl_function" href="assets_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  223</span>    <a class="code hl_function" href="assets_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
-<div class="line"><span class="lineno">  225</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  226</span>}</div>
-<div class="ttc" id="aassets_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="assets_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00176">assets.c:176</a></div></div>
-<div class="ttc" id="aassets_8c_html_a58894d992cdd0000d43051e417a0fe3c"><div class="ttname"><a href="assets_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00122">assets.c:122</a></div></div>
+<p class="definition">Definition at line <a class="el" href="load_8c_source.html#l00088">88</a> of file <a class="el" href="load_8c_source.html">load.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
+<div class="line"><span class="lineno">   90</span>    game-&gt;tile_size = 32;</div>
+<div class="line"><span class="lineno">   91</span>    game-&gt;img_width = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   92</span>    game-&gt;img_height = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   93</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_idle, <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>,</div>
+<div class="line"><span class="lineno">   96</span>        6);</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_run, <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>,</div>
+<div class="line"><span class="lineno">   98</span>        6);</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">  101</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
+<div class="line"><span class="lineno">  103</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  104</span>}</div>
 <div class="ttc" id="ainit_8c_html_a2b7c4d2399f29ac12a27feb1ddf2b130"><div class="ttname"><a href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a></div><div class="ttdeci">void init_floor_types(t_game *game)</div><div class="ttdoc">Initializes random floor tile variations.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00024">init.c:24</a></div></div>
+<div class="ttc" id="aload_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00055">load.c:55</a></div></div>
+<div class="ttc" id="aload_8c_html_a58894d992cdd0000d43051e417a0fe3c"><div class="ttname"><a href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00026">load.c:26</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="assets_8c_source.html#l00176">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00122">load_sprite_array()</a>.</p>
+<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="load_8c_source.html#l00055">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1220,41 +1501,40 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Loads a sequence of XPM files named f0.xpm through f{frames-1}.xpm from the specified directory. Each sprite is scaled to 32x32 pixels. </p>
 
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00122">122</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
-<div class="line"><span class="lineno">  124</span>    <span class="keywordtype">char</span>    path[256];</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordtype">void</span>    *orig_img;</div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordtype">void</span>    *scaled_img;</div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordtype">int</span>     params[3];</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">int</span>     i;</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>    i = 0;</div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">while</span> (i &lt; frames)</div>
-<div class="line"><span class="lineno">  132</span>    {</div>
-<div class="line"><span class="lineno">  133</span>        <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(path, <span class="keyword">sizeof</span>(path), <span class="stringliteral">&quot;%s/f%d.xpm&quot;</span>, base_path, i);</div>
-<div class="line"><span class="lineno">  134</span>        orig_img = mlx_xpm_file_to_image(mlx, path, &amp;params[0], &amp;params[1]);</div>
-<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">if</span> (!orig_img)</div>
-<div class="line"><span class="lineno">  136</span>        {</div>
-<div class="line"><span class="lineno">  137</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to load %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  138</span>            exit(1);</div>
-<div class="line"><span class="lineno">  139</span>        }</div>
-<div class="line"><span class="lineno">  140</span>        scaled_img = <a class="code hl_function" href="assets_8c.html#a4d12bcc48a801053179242221986c3b1">scale_image</a>(mlx, orig_img, params[0], params[1], 32);</div>
-<div class="line"><span class="lineno">  141</span>        mlx_destroy_image(mlx, orig_img);</div>
-<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
-<div class="line"><span class="lineno">  143</span>        {</div>
-<div class="line"><span class="lineno">  144</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to scale image %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">  145</span>            exit(1);</div>
-<div class="line"><span class="lineno">  146</span>        }</div>
-<div class="line"><span class="lineno">  147</span>        arr[i] = scaled_img;</div>
-<div class="line"><span class="lineno">  148</span>        i++;</div>
-<div class="line"><span class="lineno">  149</span>    }</div>
-<div class="line"><span class="lineno">  150</span>}</div>
-<div class="ttc" id="aassets_8c_html_a4d12bcc48a801053179242221986c3b1"><div class="ttname"><a href="assets_8c.html#a4d12bcc48a801053179242221986c3b1">scale_image</a></div><div class="ttdeci">void * scale_image(void *mlx, void *original, int width, int height, int n_size)</div><div class="ttdoc">Scales an image to a new size.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00034">assets.c:34</a></div></div>
-<div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00061">ft_snprintf.c:61</a></div></div>
+<p class="definition">Definition at line <a class="el" href="load_8c_source.html#l00026">26</a> of file <a class="el" href="load_8c_source.html">load.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">char</span>    path[256];</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordtype">void</span>    *orig_img;</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">void</span>    *scaled_img;</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordtype">int</span>     params[3];</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordtype">int</span>     i;</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    i = 0;</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">while</span> (i &lt; frames)</div>
+<div class="line"><span class="lineno">   36</span>    {</div>
+<div class="line"><span class="lineno">   37</span>        <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(path, <span class="keyword">sizeof</span>(path), <span class="stringliteral">&quot;%s/f%d.xpm&quot;</span>, base_path, i);</div>
+<div class="line"><span class="lineno">   38</span>        orig_img = mlx_xpm_file_to_image(mlx, path, &amp;params[0], &amp;params[1]);</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span> (!orig_img)</div>
+<div class="line"><span class="lineno">   40</span>        {</div>
+<div class="line"><span class="lineno">   41</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to load %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">   42</span>            exit(1);</div>
+<div class="line"><span class="lineno">   43</span>        }</div>
+<div class="line"><span class="lineno">   44</span>        scaled_img = <a class="code hl_function" href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a>(mlx, orig_img, params[0], params[1]);</div>
+<div class="line"><span class="lineno">   45</span>        mlx_destroy_image(mlx, orig_img);</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
+<div class="line"><span class="lineno">   47</span>        {</div>
+<div class="line"><span class="lineno">   48</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to scale image %s\n&quot;</span>, path);</div>
+<div class="line"><span class="lineno">   49</span>            exit(1);</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
+<div class="line"><span class="lineno">   51</span>        arr[i++] = scaled_img;</div>
+<div class="line"><span class="lineno">   52</span>    }</div>
+<div class="line"><span class="lineno">   53</span>}</div>
+<div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00058">ft_snprintf.c:58</a></div></div>
+<div class="ttc" id="aimage__operations_8c_html_a9d445bdc504f460b0e12b55a802bbeff"><div class="ttname"><a href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a></div><div class="ttdeci">void * scale_image(void *mlx, void *original, int width, int height)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00107">image_operations.c:107</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00061">ft_snprintf()</a>, and <a class="el" href="assets_8c_source.html#l00034">scale_image()</a>.</p>
+<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00058">ft_snprintf()</a>, and <a class="el" href="image__operations_8c_source.html#l00107">scale_image()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1403,19 +1683,19 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="arender_8c_html_a884f430aa59a4defe5098ec9b1c3fba7"><div class="ttname"><a href="render_8c.html#a884f430aa59a4defe5098ec9b1c3fba7">put_img_to_img_part</a></div><div class="ttdeci">static void put_img_to_img_part(t_img *dest, t_img *sprite, t_pos pos)</div><div class="ttdoc">Copies a sprite to the buffer image with transparency handling.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00032">render.c:32</a></div></div>
 <div class="ttc" id="aso__long_8h_html_a5b813d7bf8fa09a2fa8983ebebcfe961"><div class="ttname"><a href="#a5b813d7bf8fa09a2fa8983ebebcfe961">t_pos</a></div><div class="ttdeci">struct s_pos t_pos</div></div>
 <div class="ttc" id="aso__long_8h_html_aa2823d71a465849891fd044a6371f982"><div class="ttname"><a href="#aa2823d71a465849891fd044a6371f982">t_img</a></div><div class="ttdeci">struct s_img t_img</div></div>
-<div class="ttc" id="astructs__img_html_a5f3f33ef048bfc56a773660dbf1aa2a9"><div class="ttname"><a href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">s_img::endian</a></div><div class="ttdeci">int endian</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00047">so_long.h:47</a></div></div>
-<div class="ttc" id="astructs__img_html_abdf0cabb04048aa4f65939b7cda0de47"><div class="ttname"><a href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">s_img::line_len</a></div><div class="ttdeci">int line_len</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00048">so_long.h:48</a></div></div>
-<div class="ttc" id="astructs__img_html_ad4f83302a8f09b18b7b70c94e80b6b77"><div class="ttname"><a href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">s_img::bpp</a></div><div class="ttdeci">int bpp</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00046">so_long.h:46</a></div></div>
-<div class="ttc" id="astructs__img_html_ae14bf0ccbda6bebc07343788fdf06fe2"><div class="ttname"><a href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">s_img::img_ptr</a></div><div class="ttdeci">void * img_ptr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00042">so_long.h:42</a></div></div>
-<div class="ttc" id="astructs__img_html_ae36553751be76c60e0ca07fe7419ff8d"><div class="ttname"><a href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">s_img::addr</a></div><div class="ttdeci">char * addr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00043">so_long.h:43</a></div></div>
-<div class="ttc" id="astructs__pos_html_a4f41989f6d50f23d30ca9dddea128c2c"><div class="ttname"><a href="structs__pos.html#a4f41989f6d50f23d30ca9dddea128c2c">s_pos::dest_x</a></div><div class="ttdeci">int dest_x</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00055">so_long.h:55</a></div></div>
-<div class="ttc" id="astructs__pos_html_a6464dcfc6c7fef76b1babfc0f4b16f57"><div class="ttname"><a href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">s_pos::row</a></div><div class="ttdeci">int row</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00053">so_long.h:53</a></div></div>
-<div class="ttc" id="astructs__pos_html_aaded73df4fdc3b6e572d1905b9be1b7b"><div class="ttname"><a href="structs__pos.html#aaded73df4fdc3b6e572d1905b9be1b7b">s_pos::dest_y</a></div><div class="ttdeci">int dest_y</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00056">so_long.h:56</a></div></div>
-<div class="ttc" id="astructs__pos_html_ac69997cf7a2b134a0651f3231359f410"><div class="ttname"><a href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">s_pos::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00054">so_long.h:54</a></div></div>
+<div class="ttc" id="astructs__img_html_a5f3f33ef048bfc56a773660dbf1aa2a9"><div class="ttname"><a href="structs__img.html#a5f3f33ef048bfc56a773660dbf1aa2a9">s_img::endian</a></div><div class="ttdeci">int endian</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00056">so_long.h:56</a></div></div>
+<div class="ttc" id="astructs__img_html_abdf0cabb04048aa4f65939b7cda0de47"><div class="ttname"><a href="structs__img.html#abdf0cabb04048aa4f65939b7cda0de47">s_img::line_len</a></div><div class="ttdeci">int line_len</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00057">so_long.h:57</a></div></div>
+<div class="ttc" id="astructs__img_html_ad4f83302a8f09b18b7b70c94e80b6b77"><div class="ttname"><a href="structs__img.html#ad4f83302a8f09b18b7b70c94e80b6b77">s_img::bpp</a></div><div class="ttdeci">int bpp</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00055">so_long.h:55</a></div></div>
+<div class="ttc" id="astructs__img_html_ae14bf0ccbda6bebc07343788fdf06fe2"><div class="ttname"><a href="structs__img.html#ae14bf0ccbda6bebc07343788fdf06fe2">s_img::img_ptr</a></div><div class="ttdeci">void * img_ptr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00051">so_long.h:51</a></div></div>
+<div class="ttc" id="astructs__img_html_ae36553751be76c60e0ca07fe7419ff8d"><div class="ttname"><a href="structs__img.html#ae36553751be76c60e0ca07fe7419ff8d">s_img::addr</a></div><div class="ttdeci">char * addr</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00052">so_long.h:52</a></div></div>
+<div class="ttc" id="astructs__pos_html_a4f41989f6d50f23d30ca9dddea128c2c"><div class="ttname"><a href="structs__pos.html#a4f41989f6d50f23d30ca9dddea128c2c">s_pos::dest_x</a></div><div class="ttdeci">int dest_x</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00064">so_long.h:64</a></div></div>
+<div class="ttc" id="astructs__pos_html_a6464dcfc6c7fef76b1babfc0f4b16f57"><div class="ttname"><a href="structs__pos.html#a6464dcfc6c7fef76b1babfc0f4b16f57">s_pos::row</a></div><div class="ttdeci">int row</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00062">so_long.h:62</a></div></div>
+<div class="ttc" id="astructs__pos_html_aaded73df4fdc3b6e572d1905b9be1b7b"><div class="ttname"><a href="structs__pos.html#aaded73df4fdc3b6e572d1905b9be1b7b">s_pos::dest_y</a></div><div class="ttdeci">int dest_y</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00065">so_long.h:65</a></div></div>
+<div class="ttc" id="astructs__pos_html_ac69997cf7a2b134a0651f3231359f410"><div class="ttname"><a href="structs__pos.html#ac69997cf7a2b134a0651f3231359f410">s_pos::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00063">so_long.h:63</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00043">s_img::addr</a>, <a class="el" href="so__long_8h_source.html#l00046">s_img::bpp</a>, <a class="el" href="so__long_8h_source.html#l00054">s_pos::col</a>, <a class="el" href="so__long_8h_source.html#l00055">s_pos::dest_x</a>, <a class="el" href="so__long_8h_source.html#l00056">s_pos::dest_y</a>, <a class="el" href="so__long_8h_source.html#l00047">s_img::endian</a>, <a class="el" href="so__long_8h_source.html#l00042">s_img::img_ptr</a>, <a class="el" href="so__long_8h_source.html#l00048">s_img::line_len</a>, <a class="el" href="render_8c_source.html#l00032">put_img_to_img_part()</a>, and <a class="el" href="so__long_8h_source.html#l00053">s_pos::row</a>.</p>
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00052">s_img::addr</a>, <a class="el" href="so__long_8h_source.html#l00055">s_img::bpp</a>, <a class="el" href="so__long_8h_source.html#l00063">s_pos::col</a>, <a class="el" href="so__long_8h_source.html#l00064">s_pos::dest_x</a>, <a class="el" href="so__long_8h_source.html#l00065">s_pos::dest_y</a>, <a class="el" href="so__long_8h_source.html#l00056">s_img::endian</a>, <a class="el" href="so__long_8h_source.html#l00051">s_img::img_ptr</a>, <a class="el" href="so__long_8h_source.html#l00057">s_img::line_len</a>, <a class="el" href="render_8c_source.html#l00032">put_img_to_img_part()</a>, and <a class="el" href="so__long_8h_source.html#l00062">s_pos::row</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00187">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00141">draw_floor_and_exit()</a>, and <a class="el" href="render_8c_source.html#l00166">draw_player()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="render__frame_8c_source.html#l00061">draw_entities()</a>, <a class="el" href="render__frame_8c_source.html#l00015">draw_floor_and_exit()</a>, and <a class="el" href="render__frame_8c_source.html#l00040">draw_player()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1453,64 +1733,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Reads and parses the game map from a file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>Path to the map file </td></tr>
-    <tr><td class="paramname">width</td><td>Pointer to store map width </td></tr>
-    <tr><td class="paramname">height</td><td>Pointer to store map height </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>char** 2D array containing the map data</dd></dl>
-<ul>
-<li>Reads map file line by line</li>
-<li>Allocates memory for map storage</li>
-<li>Validates map dimensions</li>
-<li>Returns NULL if any error occurs </li>
-</ul>
-
-<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00068">68</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordtype">int</span>     fd;</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">char</span>    *line;</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">char</span>    **lines;</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">int</span>     i;</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    lines = <a class="code hl_function" href="map_8c.html#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a>(file, height);</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!lines)</div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        ft_printf(<span class="stringliteral">&quot;Error: Cannot open map file\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="line"><span class="lineno">   81</span>    fd = open(file, O_RDONLY);</div>
-<div class="line"><span class="lineno">   82</span>    i = 0;</div>
-<div class="line"><span class="lineno">   83</span>    *width = 0;</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">while</span> ((line = <a class="code hl_function" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a>(fd)))</div>
-<div class="line"><span class="lineno">   85</span>    {</div>
-<div class="line"><span class="lineno">   86</span>        <a class="code hl_function" href="map_8c.html#a79d8891e7be1c35539089d9e8c942abf">clean_newline</a>(line);</div>
-<div class="line"><span class="lineno">   87</span>        lines[i] = line;</div>
-<div class="line"><span class="lineno">   88</span>        *width = <a class="code hl_function" href="map_8c.html#aad3ffa129c7b155e2ccdc77b7d2afcb8">validate_width</a>(lines, i, *width);</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">if</span> (*width == 0)</div>
-<div class="line"><span class="lineno">   90</span>        {</div>
-<div class="line"><span class="lineno">   91</span>            <a class="code hl_function" href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(lines, i);</div>
-<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   93</span>        }</div>
-<div class="line"><span class="lineno">   94</span>        i++;</div>
+<p class="definition">Definition at line <a class="el" href="map_8c_source.html#l00086">86</a> of file <a class="el" href="map_8c_source.html">map.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>{</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordtype">char</span>    **lines;</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>    lines = <a class="code hl_function" href="map_8c.html#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a>(file, height);</div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">if</span> (!lines)</div>
+<div class="line"><span class="lineno">   92</span>    {</div>
+<div class="line"><span class="lineno">   93</span>        ft_printf(<span class="stringliteral">&quot;Error: Cannot open map file\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">return</span> (NULL);</div>
 <div class="line"><span class="lineno">   95</span>    }</div>
-<div class="line"><span class="lineno">   96</span>    lines[i] = NULL;</div>
-<div class="line"><span class="lineno">   97</span>    close(fd);</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">return</span> (lines);</div>
-<div class="line"><span class="lineno">   99</span>}</div>
-<div class="ttc" id="aget__next__line__bonus_8h_html_a78d68a5f50a6eec0380ce25b4a1bd5b7"><div class="ttname"><a href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line</a></div><div class="ttdeci">char * get_next_line(int fd)</div></div>
-<div class="ttc" id="amap_8c_html_a79d8891e7be1c35539089d9e8c942abf"><div class="ttname"><a href="map_8c.html#a79d8891e7be1c35539089d9e8c942abf">clean_newline</a></div><div class="ttdeci">static void clean_newline(char *line)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00015">map.c:15</a></div></div>
-<div class="ttc" id="amap_8c_html_aad3ffa129c7b155e2ccdc77b7d2afcb8"><div class="ttname"><a href="map_8c.html#aad3ffa129c7b155e2ccdc77b7d2afcb8">validate_width</a></div><div class="ttdeci">static int validate_width(char **lines, int i, int width)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00044">map.c:44</a></div></div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="map_8c.html#a462bf94d03bcf3d052b298c537753f4b">reading_map</a>(width, lines, file));</div>
+<div class="line"><span class="lineno">   97</span>}</div>
+<div class="ttc" id="amap_8c_html_a462bf94d03bcf3d052b298c537753f4b"><div class="ttname"><a href="map_8c.html#a462bf94d03bcf3d052b298c537753f4b">reading_map</a></div><div class="ttdeci">char ** reading_map(int *width, char **lines, char *file)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00058">map.c:58</a></div></div>
 <div class="ttc" id="amap_8c_html_abf448dce0d9e0c0355ce13ff0d82ca23"><div class="ttname"><a href="map_8c.html#abf448dce0d9e0c0355ce13ff0d82ca23">allocate_map</a></div><div class="ttdeci">static char ** allocate_map(char *file, int *height)</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00024">map.c:24</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00102">map_validation.c:102</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="map_8c_source.html#l00024">allocate_map()</a>, <a class="el" href="map_8c_source.html#l00015">clean_newline()</a>, <a class="el" href="map__validation_8c_source.html#l00102">free_map()</a>, <a class="el" href="get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7">get_next_line()</a>, and <a class="el" href="map_8c_source.html#l00044">validate_width()</a>.</p>
+<p class="reference">References <a class="el" href="map_8c_source.html#l00024">allocate_map()</a>, and <a class="el" href="map_8c_source.html#l00058">reading_map()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1539,25 +1779,43 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_8c_source.html#l00215">215</a> of file <a class="el" href="render_8c_source.html">render.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  216</span>{</div>
-<div class="line"><span class="lineno">  217</span>    <span class="keywordtype">char</span>    moves_str[32];</div>
-<div class="line"><span class="lineno">  218</span> </div>
-<div class="line"><span class="lineno">  219</span>    ft_memset(game-&gt;buffer.addr, 0, game-&gt;map_width * game-&gt;tile_size</div>
-<div class="line"><span class="lineno">  220</span>        * game-&gt;map_height * game-&gt;tile_size * (game-&gt;buffer.bpp / 8));</div>
-<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="render_8c.html#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a>(game);</div>
-<div class="line"><span class="lineno">  222</span>    <a class="code hl_function" href="render_8c.html#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a>(game);</div>
-<div class="line"><span class="lineno">  223</span>    mlx_put_image_to_window(game-&gt;mlx, game-&gt;win, game-&gt;buffer.img_ptr, 0, 0);</div>
-<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(moves_str, <span class="keyword">sizeof</span>(moves_str), <span class="stringliteral">&quot;Moves: %d&quot;</span>, game-&gt;moves_count);</div>
-<div class="line"><span class="lineno">  225</span>    mlx_string_put(game-&gt;mlx, game-&gt;win, 10, 20, 0xFFFFFF, moves_str);</div>
-<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">  227</span>}</div>
-<div class="ttc" id="arender_8c_html_a2674e4d760f77422743efb41ef82fbc6"><div class="ttname"><a href="render_8c.html#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a></div><div class="ttdeci">static void draw_entities(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00187">render.c:187</a></div></div>
-<div class="ttc" id="arender_8c_html_abfbc1999e5df01524a90cd078d982508"><div class="ttname"><a href="render_8c.html#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a></div><div class="ttdeci">static void draw_floor_and_exit(t_game *game)</div><div class="ttdoc">Renders a complete frame of the game.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00141">render.c:141</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00187">draw_entities()</a>, <a class="el" href="render_8c_source.html#l00141">draw_floor_and_exit()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00061">ft_snprintf()</a>.</p>
+<p>Renders a complete frame of the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to game structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Always returns 0</dd></dl>
+<p>Rendering order:</p><ol type="1">
+<li>Clear buffer</li>
+<li>Draw floor tiles</li>
+<li>Draw exit</li>
+<li>Draw walls</li>
+<li>Draw player with direction/animation</li>
+<li>Draw collectibles</li>
+<li>Draw UI elements </li>
+</ol>
 
-<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00238">expose_hook()</a>, and <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="render__frame_8c_source.html#l00103">103</a> of file <a class="el" href="render__frame_8c_source.html">render_frame.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>{</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordtype">char</span>    moves_str[32];</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  107</span>    ft_memset(game-&gt;buffer.addr, 0, game-&gt;map_width * game-&gt;tile_size</div>
+<div class="line"><span class="lineno">  108</span>        * game-&gt;map_height * game-&gt;tile_size * (game-&gt;buffer.bpp / 8));</div>
+<div class="line"><span class="lineno">  109</span>    <a class="code hl_function" href="render__frame_8c.html#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a>(game);</div>
+<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="render__frame_8c.html#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a>(game);</div>
+<div class="line"><span class="lineno">  111</span>    mlx_put_image_to_window(game-&gt;mlx, game-&gt;win, game-&gt;buffer.img_ptr, 0, 0);</div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(moves_str, <span class="keyword">sizeof</span>(moves_str), <span class="stringliteral">&quot;Moves: %d&quot;</span>, game-&gt;moves_count);</div>
+<div class="line"><span class="lineno">  113</span>    mlx_string_put(game-&gt;mlx, game-&gt;win, 10, 20, 0xFFFFFF, moves_str);</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  115</span>}</div>
+<div class="ttc" id="arender__frame_8c_html_a2674e4d760f77422743efb41ef82fbc6"><div class="ttname"><a href="render__frame_8c.html#a2674e4d760f77422743efb41ef82fbc6">draw_entities</a></div><div class="ttdeci">static void draw_entities(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render__frame_8c_source.html#l00061">render_frame.c:61</a></div></div>
+<div class="ttc" id="arender__frame_8c_html_abfbc1999e5df01524a90cd078d982508"><div class="ttname"><a href="render__frame_8c.html#abfbc1999e5df01524a90cd078d982508">draw_floor_and_exit</a></div><div class="ttdeci">static void draw_floor_and_exit(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="render__frame_8c_source.html#l00015">render_frame.c:15</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="render__frame_8c_source.html#l00061">draw_entities()</a>, <a class="el" href="render__frame_8c_source.html#l00015">draw_floor_and_exit()</a>, and <a class="el" href="ft__snprintf_8c_source.html#l00058">ft_snprintf()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00136">expose_hook()</a>, and <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1571,8 +1829,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af3f4576edde002220a2b8cec2f58a694" name="af3f4576edde002220a2b8cec2f58a694"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f4576edde002220a2b8cec2f58a694">&#9670;&#160;</a></span>scale_image()</h2>
+<a id="a9d445bdc504f460b0e12b55a802bbeff" name="a9d445bdc504f460b0e12b55a802bbeff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d445bdc504f460b0e12b55a802bbeff">&#9670;&#160;</a></span>scale_image()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1595,73 +1853,96 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n_size</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Scales an image to a new size. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mlx</td><td>MLX instance pointer </td></tr>
-    <tr><td class="paramname">original</td><td>Original image </td></tr>
-    <tr><td class="paramname">width</td><td>Original width </td></tr>
-    <tr><td class="paramname">height</td><td>Original height </td></tr>
-    <tr><td class="paramname">new_size</td><td>Target size </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void* Scaled image pointer or NULL on failure</dd></dl>
-<p>Creates a new scaled version of the input image using nearest neighbor interpolation. </p>
-
-<p class="definition">Definition at line <a class="el" href="assets_8c_source.html#l00034">34</a> of file <a class="el" href="assets_8c_source.html">assets.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">void</span>    *new_img;</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span>     *orig_data;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span>     *new_data;</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordtype">int</span>     params[5];</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    new_img = mlx_new_image(mlx, n_size, n_size);</div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">if</span> (!new_img)</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   45</span>    orig_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(original, &amp;params[0], &amp;params[1],</div>
-<div class="line"><span class="lineno">   46</span>            &amp;params[2]);</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (!orig_data)</div>
-<div class="line"><span class="lineno">   48</span>    {</div>
-<div class="line"><span class="lineno">   49</span>        mlx_destroy_image(mlx, new_img);</div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   51</span>    }</div>
-<div class="line"><span class="lineno">   52</span>    new_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1],</div>
-<div class="line"><span class="lineno">   53</span>            &amp;params[2]);</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (!new_data)</div>
-<div class="line"><span class="lineno">   55</span>    {</div>
-<div class="line"><span class="lineno">   56</span>        mlx_destroy_image(mlx, new_img);</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> (NULL);</div>
-<div class="line"><span class="lineno">   58</span>    }</div>
-<div class="line"><span class="lineno">   59</span>    params[3] = -1;</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">while</span> (++params[3] &lt; n_size)</div>
-<div class="line"><span class="lineno">   61</span>    {</div>
-<div class="line"><span class="lineno">   62</span>        params[4] = -1;</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">while</span> (++params[4] &lt; n_size)</div>
-<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">if</span> (params[3] * width / n_size * width + params[4] * width</div>
-<div class="line"><span class="lineno">   65</span>                / n_size &gt;= 0 &amp;&amp; params[3] * width / n_size * width + params[4]</div>
-<div class="line"><span class="lineno">   66</span>                * width / n_size &lt; (width * height))</div>
-<div class="line"><span class="lineno">   67</span>                new_data[params[3] * n_size + params[4]] = orig_data[params[3]</div>
-<div class="line"><span class="lineno">   68</span>                    * width / n_size * width + params[4] * width / n_size];</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> (new_img);</div>
-<div class="line"><span class="lineno">   71</span>}</div>
+<p class="definition">Definition at line <a class="el" href="image__operations_8c_source.html#l00107">107</a> of file <a class="el" href="image__operations_8c_source.html">image_operations.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordtype">void</span>    *new_img;</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordtype">int</span>     *orig_data;</div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordtype">int</span>     *new_data;</div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">int</span>     params[5];</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>    new_img = <a class="code hl_function" href="image__operations_8c.html#ad0ff2a985bd862c59d908a3e41d43287">create_scaled_image</a>(mlx, 32);</div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (!new_img)</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">  117</span>    orig_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(original, &amp;params[0], &amp;params[1],</div>
+<div class="line"><span class="lineno">  118</span>            &amp;params[2]);</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (!orig_data)</div>
+<div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        mlx_destroy_image(mlx, new_img);</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="line"><span class="lineno">  124</span>    new_data = (<span class="keywordtype">int</span> *)mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1],</div>
+<div class="line"><span class="lineno">  125</span>            &amp;params[2]);</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> (!new_data)</div>
+<div class="line"><span class="lineno">  127</span>    {</div>
+<div class="line"><span class="lineno">  128</span>        mlx_destroy_image(mlx, new_img);</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">  130</span>    }</div>
+<div class="line"><span class="lineno">  131</span>    params[4] = height;</div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="image__operations_8c.html#a905c1b3d5aa8ffd661cc367b83f139fa">process_scaling</a>(new_data, orig_data, params, width);</div>
+<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">return</span> (new_img);</div>
+<div class="line"><span class="lineno">  134</span>}</div>
+<div class="ttc" id="aimage__operations_8c_html_a905c1b3d5aa8ffd661cc367b83f139fa"><div class="ttname"><a href="image__operations_8c.html#a905c1b3d5aa8ffd661cc367b83f139fa">process_scaling</a></div><div class="ttdeci">static void process_scaling(int *new_data, int *orig_data, int *p, int width)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00055">image_operations.c:55</a></div></div>
+<div class="ttc" id="aimage__operations_8c_html_ad0ff2a985bd862c59d908a3e41d43287"><div class="ttname"><a href="image__operations_8c.html#ad0ff2a985bd862c59d908a3e41d43287">create_scaled_image</a></div><div class="ttdeci">static void * create_scaled_image(void *mlx, int n_size)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00020">image_operations.c:20</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00176">load_single_texture()</a>, and <a class="el" href="assets_8c_source.html#l00122">load_sprite_array()</a>.</p>
+<p class="reference">References <a class="el" href="image__operations_8c_source.html#l00020">create_scaled_image()</a>, and <a class="el" href="image__operations_8c_source.html#l00055">process_scaling()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00055">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a9d445bdc504f460b0e12b55a802bbeff_cgraph.png" border="0" usemap="#aso__long_8h_a9d445bdc504f460b0e12b55a802bbeff_cgraph" alt=""/></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="so__long_8h_af3f4576edde002220a2b8cec2f58a694_icgraph.png" border="0" usemap="#aso__long_8h_af3f4576edde002220a2b8cec2f58a694_icgraph" alt=""/></div>
+<div class="center"><img src="so__long_8h_a9d445bdc504f460b0e12b55a802bbeff_icgraph.png" border="0" usemap="#aso__long_8h_a9d445bdc504f460b0e12b55a802bbeff_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a7ddd9917a2157d58123a5ef270052206" name="a7ddd9917a2157d58123a5ef270052206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ddd9917a2157d58123a5ef270052206">&#9670;&#160;</a></span>validate_counts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int validate_counts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a></td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="map__validations__utils_8c_source.html#l00077">77</a> of file <a class="el" href="map__validations__utils_8c_source.html">map_validations_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>{</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#a19da059e32416f33cffafd56a6086352">player</a> != 1)</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have exactly one player\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a> != 1)</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have exactly one exit\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a> &lt; 1)</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have at least one collectible\n&quot;</span>) &amp;&amp; 0);</div>
+<div class="line"><span class="lineno">   85</span>    game-&gt;collectibles_count = count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>;</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00121">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00120">s_counts::player</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00123">validate_map()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="so__long_8h_a7ddd9917a2157d58123a5ef270052206_icgraph.png" border="0" usemap="#aso__long_8h_a7ddd9917a2157d58123a5ef270052206_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -1681,43 +1962,33 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00068">68</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_typedef" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">int</span>         i;</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">int</span>         j;</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>    count = (<a class="code hl_typedef" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>){0, 0, 0};</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validation_8c.html#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a>(game))</div>
-<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   77</span>    i = -1;</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">while</span> (++i &lt; game-&gt;map_height)</div>
-<div class="line"><span class="lineno">   79</span>    {</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)ft_strlen(game-&gt;map[i]) != game-&gt;map_width)</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not rectangular\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (game-&gt;map[i][0] != <span class="charliteral">&#39;1&#39;</span> || game-&gt;map[i][game-&gt;map_width - 1] != <span class="charliteral">&#39;1&#39;</span>)</div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not surrounded by walls\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   84</span>        j = -1;</div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">while</span> (++j &lt; game-&gt;map_width)</div>
-<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validation_8c.html#a18ca22ee5526cc2b97390d700ad5e908">check_elements</a>(game, i, j, &amp;count))</div>
-<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   88</span>    }</div>
-<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validation_8c.html#a1073d549b0939de094d6a73dca62e241">validate_counts</a>(game, count))</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   91</span>    ft_printf(<span class="stringliteral">&quot;Map validation successful:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   92</span>    ft_printf(<span class="stringliteral">&quot;- Size: %dx%d\n&quot;</span>, game-&gt;map_width, game-&gt;map_height);</div>
-<div class="line"><span class="lineno">   93</span>    ft_printf(<span class="stringliteral">&quot;- Collectibles: %d\n&quot;</span>, count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>);</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   95</span>}</div>
-<div class="ttc" id="amap__validation_8c_html_a1073d549b0939de094d6a73dca62e241"><div class="ttname"><a href="map__validation_8c.html#a1073d549b0939de094d6a73dca62e241">validate_counts</a></div><div class="ttdeci">static int validate_counts(t_game *game, t_counts count)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00056">map_validation.c:56</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a18ca22ee5526cc2b97390d700ad5e908"><div class="ttname"><a href="map__validation_8c.html#a18ca22ee5526cc2b97390d700ad5e908">check_elements</a></div><div class="ttdeci">static int check_elements(t_game *game, int i, int j, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00032">map_validation.c:32</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a7edc20170d1a50acb334e8fb16b47e9c"><div class="ttname"><a href="map__validation_8c.html#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a></div><div class="ttdeci">static int check_map_borders(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00020">map_validation.c:20</a></div></div>
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00123">123</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>{</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_typedef" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    count = (<a class="code hl_typedef" href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>){0, 0, 0};</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#ab0f3d0903ec435a5cc5caee34bfc58ff">check_map_borders</a>(game))</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#ad51f0ff88843223e47b6e2571305c576">check_map_content</a>(game, &amp;count))</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#a7ddd9917a2157d58123a5ef270052206">validate_counts</a>(game, count))</div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validation_8c.html#acacd4bdc1b71dcfde8067d9c32a7ba3e">validate_path</a>(game))</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  136</span>    ft_printf(<span class="stringliteral">&quot;Map validation successful:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span>    ft_printf(<span class="stringliteral">&quot;- Size: %dx%d\n&quot;</span>, game-&gt;map_width, game-&gt;map_height);</div>
+<div class="line"><span class="lineno">  138</span>    ft_printf(<span class="stringliteral">&quot;- Collectibles: %d\n&quot;</span>, count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>);</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">  140</span>}</div>
+<div class="ttc" id="amap__validation_8c_html_acacd4bdc1b71dcfde8067d9c32a7ba3e"><div class="ttname"><a href="map__validation_8c.html#acacd4bdc1b71dcfde8067d9c32a7ba3e">validate_path</a></div><div class="ttdeci">static int validate_path(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00055">map_validation.c:55</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_a7ddd9917a2157d58123a5ef270052206"><div class="ttname"><a href="map__validations__utils_8c.html#a7ddd9917a2157d58123a5ef270052206">validate_counts</a></div><div class="ttdeci">int validate_counts(t_game *game, t_counts count)</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00077">map_validations_utils.c:77</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_ab0f3d0903ec435a5cc5caee34bfc58ff"><div class="ttname"><a href="map__validations__utils_8c.html#ab0f3d0903ec435a5cc5caee34bfc58ff">check_map_borders</a></div><div class="ttdeci">int check_map_borders(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00020">map_validations_utils.c:20</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_ad51f0ff88843223e47b6e2571305c576"><div class="ttname"><a href="map__validations__utils_8c.html#ad51f0ff88843223e47b6e2571305c576">check_map_content</a></div><div class="ttdeci">int check_map_content(t_game *game, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00057">map_validations_utils.c:57</a></div></div>
 <div class="ttc" id="aso__long_8h_html_a6ea7ef360a45d222d0ad36b64bebe0a6"><div class="ttname"><a href="#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a></div><div class="ttdeci">struct s_counts t_counts</div></div>
-<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00113">so_long.h:113</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00032">check_elements()</a>, <a class="el" href="map__validation_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, and <a class="el" href="map__validation_8c_source.html#l00056">validate_counts()</a>.</p>
+<p class="reference">References <a class="el" href="map__validations__utils_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="map__validations__utils_8c_source.html#l00057">check_map_content()</a>, <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="map__validations__utils_8c_source.html#l00077">validate_counts()</a>, and <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

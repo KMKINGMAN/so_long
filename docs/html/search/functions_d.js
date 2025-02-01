@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scale_5fimage_0',['scale_image',['../assets_8c.html#a4d12bcc48a801053179242221986c3b1',1,'scale_image(void *mlx, void *original, int width, int height, int n_size):&#160;assets.c'],['../so__long_8h.html#af3f4576edde002220a2b8cec2f58a694',1,'scale_image(void *mlx, void *original, int width, int height, int new_size):&#160;assets.c']]]
+  ['scale_5fimage_0',['scale_image',['../image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff',1,'scale_image(void *mlx, void *original, int width, int height):&#160;image_operations.c'],['../so__long_8h.html#a9d445bdc504f460b0e12b55a802bbeff',1,'scale_image(void *mlx, void *original, int width, int height):&#160;image_operations.c']]]
 ];

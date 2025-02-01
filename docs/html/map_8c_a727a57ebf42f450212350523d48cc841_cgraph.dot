@@ -6,16 +6,18 @@ digraph "read_map"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [id="Node000001",label="read_map",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Reads and parses the game map from a file."];
+  Node1 [id="Node000001",label="read_map",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="allocate_map",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#abf448dce0d9e0c0355ce13ff0d82ca23",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="get_next_line",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$get__next__line__bonus_8h.html#a78d68a5f50a6eec0380ce25b4a1bd5b7",tooltip=" "];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="clean_newline",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#a79d8891e7be1c35539089d9e8c942abf",tooltip=" "];
-  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="free_map",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49",tooltip="Frees the allocated map memory."];
-  Node1 -> Node3 [id="edge5_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node6 [id="edge6_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="validate_width",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#aad3ffa129c7b155e2ccdc77b7d2afcb8",tooltip=" "];
+  Node4 [id="Node000004",label="reading_map",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#a462bf94d03bcf3d052b298c537753f4b",tooltip=" "];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="clean_newline",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#a79d8891e7be1c35539089d9e8c942abf",tooltip=" "];
+  Node4 -> Node6 [id="edge5_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="free_map",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map__validation_8c.html#aaa1d4a33ad086b322bb39d264f8a9a49",tooltip="Frees the allocated map memory."];
+  Node4 -> Node3 [id="edge6_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node7 [id="edge7_Node000004_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="validate_width",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$map_8c.html#aad3ffa129c7b155e2ccdc77b7d2afcb8",tooltip=" "];
 }

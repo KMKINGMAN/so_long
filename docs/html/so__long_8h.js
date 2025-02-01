@@ -11,7 +11,11 @@ var so__long_8h =
     [ "t_pos", "so__long_8h.html#a5b813d7bf8fa09a2fa8983ebebcfe961", null ],
     [ "t_win", "so__long_8h.html#af506fdcdfac771b1e3d0412cd409539f", null ],
     [ "animate", "so__long_8h.html#a8b41ee619faf9a9da9790a60cfbb3ce0", null ],
+    [ "check_elements", "so__long_8h.html#ab57416e9adb3b7e53faaea9a658f3991", null ],
+    [ "check_map_borders", "so__long_8h.html#ab0f3d0903ec435a5cc5caee34bfc58ff", null ],
+    [ "check_map_content", "so__long_8h.html#ad51f0ff88843223e47b6e2571305c576", null ],
     [ "cleanup_game", "so__long_8h.html#a6b166a434f4f8cc202d9c3feaf33af7a", null ],
+    [ "cleanup_scaled_images", "so__long_8h.html#a87fd54b2926142613d5f2ee67a6b69b0", null ],
     [ "close_window", "so__long_8h.html#a11e0b73c01ab79529c5862a102b1b2d5", null ],
     [ "expose_hook", "so__long_8h.html#aa493c139c258ad4352b0c57df45ceb92", null ],
     [ "flip_sprites", "so__long_8h.html#a8cf28a6c73d94e73ab26233c3175bea4", null ],
@@ -22,6 +26,7 @@ var so__long_8h =
     [ "init_collectibles", "so__long_8h.html#ad060f77fadab05b39ee1b4e4a3677ef9", null ],
     [ "init_floor_types", "so__long_8h.html#a2b7c4d2399f29ac12a27feb1ddf2b130", null ],
     [ "init_game", "so__long_8h.html#a07af3347aa3856589df3f78056ef1cd1", null ],
+    [ "init_game_window", "so__long_8h.html#a2b5f5ea698ac0b148d9327d0290dc115", null ],
     [ "init_player_position", "so__long_8h.html#adfdb37c7089768a2590ff97818f5d41d", null ],
     [ "key_hook", "so__long_8h.html#a57186e90338fdf78b81242e92e563823", null ],
     [ "load_assets", "so__long_8h.html#a3d86fc8628f8566faa7b64a654c72222", null ],
@@ -30,6 +35,7 @@ var so__long_8h =
     [ "put_img_to_img", "so__long_8h.html#aad3ee8259cd6724ed31aa0c125c4121c", null ],
     [ "read_map", "so__long_8h.html#a727a57ebf42f450212350523d48cc841", null ],
     [ "render_frame", "so__long_8h.html#a1993af9d3ef98ee243dc29090916d5d0", null ],
-    [ "scale_image", "so__long_8h.html#af3f4576edde002220a2b8cec2f58a694", null ],
+    [ "scale_image", "so__long_8h.html#a9d445bdc504f460b0e12b55a802bbeff", null ],
+    [ "validate_counts", "so__long_8h.html#a7ddd9917a2157d58123a5ef270052206", null ],
     [ "validate_map", "so__long_8h.html#a560a42b860dc2abf0cb8dbb2ea25693a", null ]
 ];

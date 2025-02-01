@@ -125,15 +125,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a2b7c4d2399f29ac12a27feb1ddf2b130" id="r_a2b7c4d2399f29ac12a27feb1ddf2b130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:a2b7c4d2399f29ac12a27feb1ddf2b130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes random floor tile variations.  <br /></td></tr>
 <tr class="separator:a2b7c4d2399f29ac12a27feb1ddf2b130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07af3347aa3856589df3f78056ef1cd1" id="r_a07af3347aa3856589df3f78056ef1cd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07af3347aa3856589df3f78056ef1cd1">init_game</a> (<a class="el" href="structt__game.html">t_game</a> *game, char *map_path)</td></tr>
-<tr class="memdesc:a07af3347aa3856589df3f78056ef1cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main game initialization function.  <br /></td></tr>
-<tr class="separator:a07af3347aa3856589df3f78056ef1cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1850989b7637f891d0fbc5f27ae9b22" id="r_af1850989b7637f891d0fbc5f27ae9b22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
-<tr class="separator:af1850989b7637f891d0fbc5f27ae9b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e79af1da4495ae17ade030b1bd1ceb" id="r_ad9e79af1da4495ae17ade030b1bd1ceb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
-<tr class="separator:ad9e79af1da4495ae17ade030b1bd1ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144dd69d560b7542ee30156c40f03bfa" id="r_a144dd69d560b7542ee30156c40f03bfa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a> (<a class="el" href="structt__game.html">t_game</a> *game, char *map_path)</td></tr>
-<tr class="separator:a144dd69d560b7542ee30156c40f03bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdb37c7089768a2590ff97818f5d41d" id="r_adfdb37c7089768a2590ff97818f5d41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:adfdb37c7089768a2590ff97818f5d41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates and sets the player's starting position.  <br /></td></tr>
 <tr class="separator:adfdb37c7089768a2590ff97818f5d41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +157,8 @@ Functions</h2></td></tr>
 <li>Locates exit position ('E' in map)</li>
 <li>Initializes completion tracking </li>
 </ul>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2init_main_8c-example.html#a11">/home/mkurkar/CoreProjects/so_long/srcs/init_main.c</a>.</dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00086">86</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   87</span>{</div>
@@ -193,7 +186,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  109</span>    game-&gt;can_exit = 0;</div>
 <div class="line"><span class="lineno">  110</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -248,255 +241,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   43</span>    }</div>
 <div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="init_8c_a2b7c4d2399f29ac12a27feb1ddf2b130_icgraph.png" border="0" usemap="#ainit_8c_a2b7c4d2399f29ac12a27feb1ddf2b130_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="a07af3347aa3856589df3f78056ef1cd1" name="a07af3347aa3856589df3f78056ef1cd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07af3347aa3856589df3f78056ef1cd1">&#9670;&#160;</a></span>init_game()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void init_game </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>map_path</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Main game initialization function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to game structure </td></tr>
-    <tr><td class="paramname">map_path</td><td>Path to the map file</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Initialization sequence:</p><ol type="1">
-<li>Reset game state</li>
-<li>Initialize MLX</li>
-<li>Load map</li>
-<li>Create window</li>
-<li>Load assets</li>
-<li>Initialize player and collectibles</li>
-<li>Set up event hooks </li>
-</ol>
-
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00172">172</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  173</span>{</div>
-<div class="line"><span class="lineno">  174</span>    <a class="code hl_function" href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a>(game);</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a>(game, map_path);</div>
-<div class="line"><span class="lineno">  176</span>    <a class="code hl_function" href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a>(game);</div>
-<div class="line"><span class="lineno">  177</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
-<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
-<div class="line"><span class="lineno">  180</span>    <a class="code hl_function" href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
-<div class="line"><span class="lineno">  181</span>    <a class="code hl_function" href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
-<div class="line"><span class="lineno">  182</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
-<div class="line"><span class="lineno">  183</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
-<div class="line"><span class="lineno">  184</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
-<div class="line"><span class="lineno">  185</span>}</div>
-<div class="ttc" id="aassets_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="assets_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00210">assets.c:210</a></div></div>
-<div class="ttc" id="aassets_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="assets_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="assets_8c_source.html#l00161">assets.c:161</a></div></div>
-<div class="ttc" id="ainit_8c_html_a144dd69d560b7542ee30156c40f03bfa"><div class="ttname"><a href="#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a></div><div class="ttdeci">static void init_mlx_and_map(t_game *game, char *map_path)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00139">init.c:139</a></div></div>
-<div class="ttc" id="ainit_8c_html_ad060f77fadab05b39ee1b4e4a3677ef9"><div class="ttname"><a href="#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a></div><div class="ttdeci">void init_collectibles(t_game *game)</div><div class="ttdoc">Initializes collectible items and exit.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00086">init.c:86</a></div></div>
-<div class="ttc" id="ainit_8c_html_ad9e79af1da4495ae17ade030b1bd1ceb"><div class="ttname"><a href="#ad9e79af1da4495ae17ade030b1bd1ceb">init_game_window</a></div><div class="ttdeci">static void init_game_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00112">init.c:112</a></div></div>
-<div class="ttc" id="ainit_8c_html_adfdb37c7089768a2590ff97818f5d41d"><div class="ttname"><a href="#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a></div><div class="ttdeci">void init_player_position(t_game *game)</div><div class="ttdoc">Locates and sets the player&#39;s starting position.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00054">init.c:54</a></div></div>
-<div class="ttc" id="ainit_8c_html_af1850989b7637f891d0fbc5f27ae9b22"><div class="ttname"><a href="#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a></div><div class="ttdeci">static void init_game_vars(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00128">init.c:128</a></div></div>
-<div class="ttc" id="aplayer_8c_html_a57186e90338fdf78b81242e92e563823"><div class="ttname"><a href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a></div><div class="ttdeci">int key_hook(int keycode, t_game *game)</div><div class="ttdoc">Handles keyboard input events.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00102">player.c:102</a></div></div>
-<div class="ttc" id="arender_8c_html_a253c61fb2aec7f0382a023ae4a8e116b"><div class="ttname"><a href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a></div><div class="ttdeci">void init_buffer(t_game *game)</div><div class="ttdoc">Initializes the rendering buffer.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00077">render.c:77</a></div></div>
-<div class="ttc" id="arender_8c_html_a8b41ee619faf9a9da9790a60cfbb3ce0"><div class="ttname"><a href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a></div><div class="ttdeci">int animate(t_game *game)</div><div class="ttdoc">Handles game animation frames and state updates.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00100">render.c:100</a></div></div>
-<div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00238">render.c:238</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00238">expose_hook()</a>, <a class="el" href="assets_8c_source.html#l00161">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00077">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00086">init_collectibles()</a>, <a class="el" href="init_8c_source.html#l00128">init_game_vars()</a>, <a class="el" href="init_8c_source.html#l00112">init_game_window()</a>, <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00054">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00102">key_hook()</a>, and <a class="el" href="assets_8c_source.html#l00210">load_assets()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_a07af3347aa3856589df3f78056ef1cd1_cgraph.png" border="0" usemap="#ainit_8c_a07af3347aa3856589df3f78056ef1cd1_cgraph" alt=""/></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_a07af3347aa3856589df3f78056ef1cd1_icgraph.png" border="0" usemap="#ainit_8c_a07af3347aa3856589df3f78056ef1cd1_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="af1850989b7637f891d0fbc5f27ae9b22" name="af1850989b7637f891d0fbc5f27ae9b22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1850989b7637f891d0fbc5f27ae9b22">&#9670;&#160;</a></span>init_game_vars()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void init_game_vars </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00128">128</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  129</span>{</div>
-<div class="line"><span class="lineno">  130</span>    ft_memset(game, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structt__game.html">t_game</a>));</div>
-<div class="line"><span class="lineno">  131</span>    game-&gt;frame = 0;</div>
-<div class="line"><span class="lineno">  132</span>    game-&gt;is_running = 0;</div>
-<div class="line"><span class="lineno">  133</span>    game-&gt;tile_size = 32;</div>
-<div class="line"><span class="lineno">  134</span>    game-&gt;facing_right = 1;</div>
-<div class="line"><span class="lineno">  135</span>    game-&gt;moves_count = 0;</div>
-<div class="line"><span class="lineno">  136</span>    game-&gt;run_counter = 0;</div>
-<div class="line"><span class="lineno">  137</span>}</div>
-<div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_af1850989b7637f891d0fbc5f27ae9b22_icgraph.png" border="0" usemap="#ainit_8c_af1850989b7637f891d0fbc5f27ae9b22_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="ad9e79af1da4495ae17ade030b1bd1ceb" name="ad9e79af1da4495ae17ade030b1bd1ceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9e79af1da4495ae17ade030b1bd1ceb">&#9670;&#160;</a></span>init_game_window()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void init_game_window </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00112">112</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  113</span>{</div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordtype">int</span> win_width;</div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordtype">int</span> win_height;</div>
-<div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>    win_width = game-&gt;map_width * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  118</span>    win_height = game-&gt;map_height * game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">  119</span>    game-&gt;win = mlx_new_window(game-&gt;mlx, win_width, win_height, <span class="stringliteral">&quot;so_long&quot;</span>);</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (!game-&gt;win)</div>
-<div class="line"><span class="lineno">  121</span>    {</div>
-<div class="line"><span class="lineno">  122</span>        <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game); <span class="comment">// Add cleanup before error</span></div>
-<div class="line"><span class="lineno">  123</span>        ft_printf(<span class="stringliteral">&quot;Error: Failed to create window\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  124</span>        exit(1);</div>
-<div class="line"><span class="lineno">  125</span>    }</div>
-<div class="line"><span class="lineno">  126</span>}</div>
-<div class="ttc" id="autils_8c_html_a6b166a434f4f8cc202d9c3feaf33af7a"><div class="ttname"><a href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a></div><div class="ttdeci">void cleanup_game(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00165">utils.c:165</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="utils_8c_source.html#l00165">cleanup_game()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_ad9e79af1da4495ae17ade030b1bd1ceb_cgraph.png" border="0" usemap="#ainit_8c_ad9e79af1da4495ae17ade030b1bd1ceb_cgraph" alt=""/></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_ad9e79af1da4495ae17ade030b1bd1ceb_icgraph.png" border="0" usemap="#ainit_8c_ad9e79af1da4495ae17ade030b1bd1ceb_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="a144dd69d560b7542ee30156c40f03bfa" name="a144dd69d560b7542ee30156c40f03bfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a144dd69d560b7542ee30156c40f03bfa">&#9670;&#160;</a></span>init_mlx_and_map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void init_mlx_and_map </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>map_path</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00139">139</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  140</span>{</div>
-<div class="line"><span class="lineno">  141</span>    ft_printf(<span class="stringliteral">&quot;Initializing MLX...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  142</span>    game-&gt;mlx = mlx_init();</div>
-<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">if</span> (!game-&gt;mlx)</div>
-<div class="line"><span class="lineno">  144</span>    {</div>
-<div class="line"><span class="lineno">  145</span>        <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
-<div class="line"><span class="lineno">  146</span>        ft_printf(<span class="stringliteral">&quot;Error: MLX initialization failed\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  147</span>        exit(1);</div>
-<div class="line"><span class="lineno">  148</span>    }</div>
-<div class="line"><span class="lineno">  149</span>    ft_printf(<span class="stringliteral">&quot;Reading map: %s\n&quot;</span>, map_path);</div>
-<div class="line"><span class="lineno">  150</span>    game-&gt;map = <a class="code hl_function" href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a>(map_path, &amp;game-&gt;map_width, &amp;game-&gt;map_height);</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">if</span> (!game-&gt;map || !<a class="code hl_function" href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a>(game))</div>
-<div class="line"><span class="lineno">  152</span>    {</div>
-<div class="line"><span class="lineno">  153</span>        ft_printf(<span class="stringliteral">&quot;Error: Invalid map: %s\n&quot;</span>, map_path);</div>
-<div class="line"><span class="lineno">  154</span>        <a class="code hl_function" href="utils_8c.html#a6b166a434f4f8cc202d9c3feaf33af7a">cleanup_game</a>(game);</div>
-<div class="line"><span class="lineno">  155</span>        exit(1);</div>
-<div class="line"><span class="lineno">  156</span>    }</div>
-<div class="line"><span class="lineno">  157</span>}</div>
-<div class="ttc" id="amap_8c_html_a727a57ebf42f450212350523d48cc841"><div class="ttname"><a href="map_8c.html#a727a57ebf42f450212350523d48cc841">read_map</a></div><div class="ttdeci">char ** read_map(char *file, int *width, int *height)</div><div class="ttdoc">Reads and parses the game map from a file.</div><div class="ttdef"><b>Definition</b> <a href="map_8c_source.html#l00068">map.c:68</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a560a42b860dc2abf0cb8dbb2ea25693a"><div class="ttname"><a href="map__validation_8c.html#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a></div><div class="ttdeci">int validate_map(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00068">map_validation.c:68</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="utils_8c_source.html#l00165">cleanup_game()</a>, <a class="el" href="map_8c_source.html#l00068">read_map()</a>, and <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_a144dd69d560b7542ee30156c40f03bfa_cgraph.png" border="0" usemap="#ainit_8c_a144dd69d560b7542ee30156c40f03bfa_cgraph" alt=""/></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="init_8c_a144dd69d560b7542ee30156c40f03bfa_icgraph.png" border="0" usemap="#ainit_8c_a144dd69d560b7542ee30156c40f03bfa_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -524,6 +273,8 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <p>Scans the map for 'P' character and sets player_x and player_y coordinates accordingly. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2init_main_8c-example.html#a10">/home/mkurkar/CoreProjects/so_long/srcs/init_main.c</a>.</dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="init_8c_source.html#l00054">54</a> of file <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
@@ -548,7 +299,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   74</span>    }</div>
 <div class="line"><span class="lineno">   75</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00172">init_game()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

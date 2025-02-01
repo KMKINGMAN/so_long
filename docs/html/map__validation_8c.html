@@ -119,22 +119,21 @@ Include dependency graph for map_validation.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a18ca22ee5526cc2b97390d700ad5e908" id="r_a18ca22ee5526cc2b97390d700ad5e908"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18ca22ee5526cc2b97390d700ad5e908">check_elements</a> (<a class="el" href="structt__game.html">t_game</a> *game, int i, int j, <a class="el" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *count)</td></tr>
-<tr class="separator:a18ca22ee5526cc2b97390d700ad5e908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7edc20170d1a50acb334e8fb16b47e9c" id="r_a7edc20170d1a50acb334e8fb16b47e9c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
-<tr class="memdesc:a7edc20170d1a50acb334e8fb16b47e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple map validation check for basic requirements.  <br /></td></tr>
-<tr class="separator:a7edc20170d1a50acb334e8fb16b47e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cac6e90d5fb0fe051764382f864ff03" id="r_a4cac6e90d5fb0fe051764382f864ff03"><td class="memItemLeft" align="right" valign="top">static char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cac6e90d5fb0fe051764382f864ff03">copy_map</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:a4cac6e90d5fb0fe051764382f864ff03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee15b6bbe0b71cceee7501816c3feeb" id="r_afee15b6bbe0b71cceee7501816c3feeb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a> (char **map_copy, int x, int y, <a class="el" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> *count)</td></tr>
+<tr class="separator:afee15b6bbe0b71cceee7501816c3feeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa1d4a33ad086b322bb39d264f8a9a49" id="r_aaa1d4a33ad086b322bb39d264f8a9a49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a> (char **map, int height)</td></tr>
 <tr class="memdesc:aaa1d4a33ad086b322bb39d264f8a9a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the allocated map memory.  <br /></td></tr>
 <tr class="separator:aaa1d4a33ad086b322bb39d264f8a9a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1073d549b0939de094d6a73dca62e241" id="r_a1073d549b0939de094d6a73dca62e241"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1073d549b0939de094d6a73dca62e241">validate_counts</a> (<a class="el" href="structt__game.html">t_game</a> *game, <a class="el" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a> count)</td></tr>
-<tr class="separator:a1073d549b0939de094d6a73dca62e241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a560a42b860dc2abf0cb8dbb2ea25693a" id="r_a560a42b860dc2abf0cb8dbb2ea25693a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a560a42b860dc2abf0cb8dbb2ea25693a">validate_map</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="separator:a560a42b860dc2abf0cb8dbb2ea25693a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acacd4bdc1b71dcfde8067d9c32a7ba3e" id="r_acacd4bdc1b71dcfde8067d9c32a7ba3e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acacd4bdc1b71dcfde8067d9c32a7ba3e">validate_path</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
+<tr class="separator:acacd4bdc1b71dcfde8067d9c32a7ba3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a18ca22ee5526cc2b97390d700ad5e908" name="a18ca22ee5526cc2b97390d700ad5e908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18ca22ee5526cc2b97390d700ad5e908">&#9670;&#160;</a></span>check_elements()</h2>
+<a id="a4cac6e90d5fb0fe051764382f864ff03" name="a4cac6e90d5fb0fe051764382f864ff03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cac6e90d5fb0fe051764382f864ff03">&#9670;&#160;</a></span>copy_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,19 +142,84 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int check_elements </td>
+          <td class="memname">static char ** copy_map </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2map_validation_8c-example.html#a3">/home/mkurkar/CoreProjects/so_long/srcs/map_validation.c</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00032">32</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">char</span>    **map_copy;</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordtype">int</span>     i;</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    map_copy = (<span class="keywordtype">char</span> **)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span> *) * (game-&gt;map_height + 1));</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!map_copy)</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   40</span>    i = 0;</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">while</span> (i &lt; game-&gt;map_height)</div>
+<div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        map_copy[i] = ft_strdup(game-&gt;map[i]);</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">if</span> (!map_copy[i])</div>
+<div class="line"><span class="lineno">   45</span>        {</div>
+<div class="line"><span class="lineno">   46</span>            <a class="code hl_function" href="#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(map_copy, i);</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">return</span> (NULL);</div>
+<div class="line"><span class="lineno">   48</span>        }</div>
+<div class="line"><span class="lineno">   49</span>        i++;</div>
+<div class="line"><span class="lineno">   50</span>    }</div>
+<div class="line"><span class="lineno">   51</span>    map_copy[i] = NULL;</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> (map_copy);</div>
+<div class="line"><span class="lineno">   53</span>}</div>
+<div class="ttc" id="amap__validation_8c_html_aaa1d4a33ad086b322bb39d264f8a9a49"><div class="ttname"><a href="#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a></div><div class="ttdeci">void free_map(char **map, int height)</div><div class="ttdoc">Frees the allocated map memory.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00147">map_validation.c:147</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00147">free_map()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__validation_8c_a4cac6e90d5fb0fe051764382f864ff03_cgraph.png" border="0" usemap="#amap__validation_8c_a4cac6e90d5fb0fe051764382f864ff03_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__validation_8c_a4cac6e90d5fb0fe051764382f864ff03_icgraph.png" border="0" usemap="#amap__validation_8c_a4cac6e90d5fb0fe051764382f864ff03_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="afee15b6bbe0b71cceee7501816c3feeb" name="afee15b6bbe0b71cceee7501816c3feeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee15b6bbe0b71cceee7501816c3feeb">&#9670;&#160;</a></span>flood_fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void flood_fill </td>
+          <td>(</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>map_copy</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -169,94 +233,41 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00032">32</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">char</span>    c;</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    c = game-&gt;map[i][j];</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;P&#39;</span>)</div>
-<div class="line"><span class="lineno">   38</span>    {</div>
-<div class="line"><span class="lineno">   39</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#a19da059e32416f33cffafd56a6086352">player</a>++;</div>
-<div class="line"><span class="lineno">   40</span>        game-&gt;player_x = j;</div>
-<div class="line"><span class="lineno">   41</span>        game-&gt;player_y = i;</div>
-<div class="line"><span class="lineno">   42</span>    }</div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;E&#39;</span>)</div>
-<div class="line"><span class="lineno">   44</span>    {</div>
-<div class="line"><span class="lineno">   45</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a>++;</div>
-<div class="line"><span class="lineno">   46</span>        game-&gt;exit_x = j;</div>
-<div class="line"><span class="lineno">   47</span>        game-&gt;exit_y = i;</div>
-<div class="line"><span class="lineno">   48</span>    }</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;C&#39;</span>)</div>
-<div class="line"><span class="lineno">   50</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>++;</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c != <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c != <span class="charliteral">&#39;1&#39;</span>)</div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Invalid character in map\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   54</span>}</div>
-<div class="ttc" id="astructs__counts_html_a19da059e32416f33cffafd56a6086352"><div class="ttname"><a href="structs__counts.html#a19da059e32416f33cffafd56a6086352">s_counts::player</a></div><div class="ttdeci">int player</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00111">so_long.h:111</a></div></div>
-<div class="ttc" id="astructs__counts_html_a64375c414a47e64ab0349e284a5db7d3"><div class="ttname"><a href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">s_counts::exit</a></div><div class="ttdeci">int exit</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00112">so_long.h:112</a></div></div>
-<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00113">so_long.h:113</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00112">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00111">s_counts::player</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="map__validation_8c_a18ca22ee5526cc2b97390d700ad5e908_icgraph.png" border="0" usemap="#amap__validation_8c_a18ca22ee5526cc2b97390d700ad5e908_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="a7edc20170d1a50acb334e8fb16b47e9c" name="a7edc20170d1a50acb334e8fb16b47e9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7edc20170d1a50acb334e8fb16b47e9c">&#9670;&#160;</a></span>check_map_borders()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int check_map_borders </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Simple map validation check for basic requirements. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to game structure </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2map_validation_8c-example.html#a0">/home/mkurkar/CoreProjects/so_long/srcs/map_validation.c</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int 1 if valid, 0 if invalid </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00020">20</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">int</span> j;</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (game-&gt;map_height &lt; 3 || game-&gt;map_width &lt; 3)</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map too small\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">for</span> (j = 0; j &lt; game-&gt;map_width; j++)</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">if</span> (game-&gt;map[0][j] != <span class="charliteral">&#39;1&#39;</span> || game-&gt;map[game-&gt;map_height - 1][j] != <span class="charliteral">&#39;1&#39;</span>)</div>
-<div class="line"><span class="lineno">   28</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not surrounded by walls\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> (1);</div>
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00015">15</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span> (x &lt; 0 || y &lt; 0 || !map_copy[y] || !map_copy[y][x])</div>
+<div class="line"><span class="lineno">   18</span>        return ;</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (map_copy[y][x] == <span class="charliteral">&#39;1&#39;</span> || map_copy[y][x] == <span class="charliteral">&#39;F&#39;</span>)</div>
+<div class="line"><span class="lineno">   20</span>        return ;</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">if</span> (map_copy[y][x] == <span class="charliteral">&#39;C&#39;</span>)</div>
+<div class="line"><span class="lineno">   22</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>--;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (map_copy[y][x] == <span class="charliteral">&#39;E&#39;</span>)</div>
+<div class="line"><span class="lineno">   24</span>        count-&gt;<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a> = 1;</div>
+<div class="line"><span class="lineno">   25</span>    map_copy[y][x] = <span class="charliteral">&#39;F&#39;</span>;</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a>(map_copy, x + 1, y, count);</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a>(map_copy, x - 1, y, count);</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_function" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a>(map_copy, x, y + 1, count);</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a>(map_copy, x, y - 1, count);</div>
 <div class="line"><span class="lineno">   30</span>}</div>
+<div class="ttc" id="amap__validation_8c_html_afee15b6bbe0b71cceee7501816c3feeb"><div class="ttname"><a href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a></div><div class="ttdeci">static void flood_fill(char **map_copy, int x, int y, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00015">map_validation.c:15</a></div></div>
+<div class="ttc" id="astructs__counts_html_a64375c414a47e64ab0349e284a5db7d3"><div class="ttname"><a href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">s_counts::exit</a></div><div class="ttdeci">int exit</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00121">so_long.h:121</a></div></div>
+<div class="ttc" id="astructs__counts_html_ac0f2ab5a72883c4d30aebe395cdd2abd"><div class="ttname"><a href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">s_counts::collect</a></div><div class="ttdeci">int collect</div><div class="ttdef"><b>Definition</b> <a href="so__long_8h_source.html#l00122">so_long.h:122</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00121">s_counts::exit</a>, and <a class="el" href="map__validation_8c_source.html#l00015">flood_fill()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00015">flood_fill()</a>, and <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__validation_8c_afee15b6bbe0b71cceee7501816c3feeb_cgraph.png" border="0" usemap="#amap__validation_8c_afee15b6bbe0b71cceee7501816c3feeb_cgraph" alt=""/></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="map__validation_8c_a7edc20170d1a50acb334e8fb16b47e9c_icgraph.png" border="0" usemap="#amap__validation_8c_a7edc20170d1a50acb334e8fb16b47e9c_icgraph" alt=""/></div>
+<div class="center"><img src="map__validation_8c_afee15b6bbe0b71cceee7501816c3feeb_icgraph.png" border="0" usemap="#amap__validation_8c_afee15b6bbe0b71cceee7501816c3feeb_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -288,71 +299,29 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2map_validation_8c-example.html#a5">/home/mkurkar/CoreProjects/so_long/srcs/map_validation.c</a>.</dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00102">102</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!map)</div>
-<div class="line"><span class="lineno">  105</span>        return ;</div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; i++)</div>
-<div class="line"><span class="lineno">  107</span>        free(map[i]);</div>
-<div class="line"><span class="lineno">  108</span>    free(map);</div>
-<div class="line"><span class="lineno">  109</span>}</div>
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00147">147</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>{</div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">if</span> (!map)</div>
+<div class="line"><span class="lineno">  152</span>        return ;</div>
+<div class="line"><span class="lineno">  153</span>    i = 0;</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">while</span> (i &lt; height)</div>
+<div class="line"><span class="lineno">  155</span>    {</div>
+<div class="line"><span class="lineno">  156</span>        free(map[i]);</div>
+<div class="line"><span class="lineno">  157</span>        i++;</div>
+<div class="line"><span class="lineno">  158</span>    }</div>
+<div class="line"><span class="lineno">  159</span>    free(map);</div>
+<div class="line"><span class="lineno">  160</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="map_8c_source.html#l00068">read_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00032">copy_map()</a>, <a class="el" href="map_8c_source.html#l00058">reading_map()</a>, and <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="map__validation_8c_aaa1d4a33ad086b322bb39d264f8a9a49_icgraph.png" border="0" usemap="#amap__validation_8c_aaa1d4a33ad086b322bb39d264f8a9a49_icgraph" alt=""/></div>
-</div>
-
-</div>
-</div>
-<a id="a1073d549b0939de094d6a73dca62e241" name="a1073d549b0939de094d6a73dca62e241"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1073d549b0939de094d6a73dca62e241">&#9670;&#160;</a></span>validate_counts()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int validate_counts </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a></td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00056">56</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#a19da059e32416f33cffafd56a6086352">player</a> != 1)</div>
-<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have exactly one player\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a> != 1)</div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have exactly one exit\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a> &lt; 1)</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Must have at least one collectible\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   64</span>    game-&gt;collectibles_count = count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>;</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   66</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, <a class="el" href="so__long_8h_source.html#l00112">s_counts::exit</a>, and <a class="el" href="so__long_8h_source.html#l00111">s_counts::player</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00068">validate_map()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="map__validation_8c_a1073d549b0939de094d6a73dca62e241_icgraph.png" border="0" usemap="#amap__validation_8c_a1073d549b0939de094d6a73dca62e241_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -371,43 +340,36 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2map_validation_8c-example.html#a7">/home/mkurkar/CoreProjects/so_long/srcs/map_validation.c</a>.</dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00068">68</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">int</span>         i;</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">int</span>         j;</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>    count = (<a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>){0, 0, 0};</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a>(game))</div>
-<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   77</span>    i = -1;</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">while</span> (++i &lt; game-&gt;map_height)</div>
-<div class="line"><span class="lineno">   79</span>    {</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)ft_strlen(game-&gt;map[i]) != game-&gt;map_width)</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not rectangular\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (game-&gt;map[i][0] != <span class="charliteral">&#39;1&#39;</span> || game-&gt;map[i][game-&gt;map_width - 1] != <span class="charliteral">&#39;1&#39;</span>)</div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> (ft_printf(<span class="stringliteral">&quot;Error: Map not surrounded by walls\n&quot;</span>) &amp;&amp; 0);</div>
-<div class="line"><span class="lineno">   84</span>        j = -1;</div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">while</span> (++j &lt; game-&gt;map_width)</div>
-<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a18ca22ee5526cc2b97390d700ad5e908">check_elements</a>(game, i, j, &amp;count))</div>
-<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   88</span>    }</div>
-<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a1073d549b0939de094d6a73dca62e241">validate_counts</a>(game, count))</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   91</span>    ft_printf(<span class="stringliteral">&quot;Map validation successful:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   92</span>    ft_printf(<span class="stringliteral">&quot;- Size: %dx%d\n&quot;</span>, game-&gt;map_width, game-&gt;map_height);</div>
-<div class="line"><span class="lineno">   93</span>    ft_printf(<span class="stringliteral">&quot;- Collectibles: %d\n&quot;</span>, count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>);</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">   95</span>}</div>
-<div class="ttc" id="amap__validation_8c_html_a1073d549b0939de094d6a73dca62e241"><div class="ttname"><a href="#a1073d549b0939de094d6a73dca62e241">validate_counts</a></div><div class="ttdeci">static int validate_counts(t_game *game, t_counts count)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00056">map_validation.c:56</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a18ca22ee5526cc2b97390d700ad5e908"><div class="ttname"><a href="#a18ca22ee5526cc2b97390d700ad5e908">check_elements</a></div><div class="ttdeci">static int check_elements(t_game *game, int i, int j, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00032">map_validation.c:32</a></div></div>
-<div class="ttc" id="amap__validation_8c_html_a7edc20170d1a50acb334e8fb16b47e9c"><div class="ttname"><a href="#a7edc20170d1a50acb334e8fb16b47e9c">check_map_borders</a></div><div class="ttdeci">static int check_map_borders(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00020">map_validation.c:20</a></div></div>
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00123">123</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>{</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    count = (<a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>){0, 0, 0};</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#ab0f3d0903ec435a5cc5caee34bfc58ff">check_map_borders</a>(game))</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#ad51f0ff88843223e47b6e2571305c576">check_map_content</a>(game, &amp;count))</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="map__validations__utils_8c.html#a7ddd9917a2157d58123a5ef270052206">validate_counts</a>(game, count))</div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#acacd4bdc1b71dcfde8067d9c32a7ba3e">validate_path</a>(game))</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  136</span>    ft_printf(<span class="stringliteral">&quot;Map validation successful:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span>    ft_printf(<span class="stringliteral">&quot;- Size: %dx%d\n&quot;</span>, game-&gt;map_width, game-&gt;map_height);</div>
+<div class="line"><span class="lineno">  138</span>    ft_printf(<span class="stringliteral">&quot;- Collectibles: %d\n&quot;</span>, count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a>);</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">  140</span>}</div>
+<div class="ttc" id="amap__validation_8c_html_acacd4bdc1b71dcfde8067d9c32a7ba3e"><div class="ttname"><a href="#acacd4bdc1b71dcfde8067d9c32a7ba3e">validate_path</a></div><div class="ttdeci">static int validate_path(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00055">map_validation.c:55</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_a7ddd9917a2157d58123a5ef270052206"><div class="ttname"><a href="map__validations__utils_8c.html#a7ddd9917a2157d58123a5ef270052206">validate_counts</a></div><div class="ttdeci">int validate_counts(t_game *game, t_counts count)</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00077">map_validations_utils.c:77</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_ab0f3d0903ec435a5cc5caee34bfc58ff"><div class="ttname"><a href="map__validations__utils_8c.html#ab0f3d0903ec435a5cc5caee34bfc58ff">check_map_borders</a></div><div class="ttdeci">int check_map_borders(t_game *game)</div><div class="ttdoc">Simple map validation check for basic requirements.</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00020">map_validations_utils.c:20</a></div></div>
+<div class="ttc" id="amap__validations__utils_8c_html_ad51f0ff88843223e47b6e2571305c576"><div class="ttname"><a href="map__validations__utils_8c.html#ad51f0ff88843223e47b6e2571305c576">check_map_content</a></div><div class="ttdeci">int check_map_content(t_game *game, t_counts *count)</div><div class="ttdef"><b>Definition</b> <a href="map__validations__utils_8c_source.html#l00057">map_validations_utils.c:57</a></div></div>
 <div class="ttc" id="aso__long_8h_html_a6ea7ef360a45d222d0ad36b64bebe0a6"><div class="ttname"><a href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a></div><div class="ttdeci">struct s_counts t_counts</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="map__validation_8c_source.html#l00032">check_elements()</a>, <a class="el" href="map__validation_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="so__long_8h_source.html#l00113">s_counts::collect</a>, and <a class="el" href="map__validation_8c_source.html#l00056">validate_counts()</a>.</p>
+<p class="reference">References <a class="el" href="map__validations__utils_8c_source.html#l00020">check_map_borders()</a>, <a class="el" href="map__validations__utils_8c_source.html#l00057">check_map_content()</a>, <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="map__validations__utils_8c_source.html#l00077">validate_counts()</a>, and <a class="el" href="map__validation_8c_source.html#l00055">validate_path()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00139">init_mlx_and_map()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -417,6 +379,73 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="map__validation_8c_a560a42b860dc2abf0cb8dbb2ea25693a_icgraph.png" border="0" usemap="#amap__validation_8c_a560a42b860dc2abf0cb8dbb2ea25693a_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="acacd4bdc1b71dcfde8067d9c32a7ba3e" name="acacd4bdc1b71dcfde8067d9c32a7ba3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acacd4bdc1b71dcfde8067d9c32a7ba3e">&#9670;&#160;</a></span>validate_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int validate_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2map_validation_8c-example.html#a6">/home/mkurkar/CoreProjects/so_long/srcs/map_validation.c</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="map__validation_8c_source.html#l00055">55</a> of file <a class="el" href="map__validation_8c_source.html">map_validation.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordtype">char</span>        **map_copy;</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_typedef" href="so__long_8h.html#a6ea7ef360a45d222d0ad36b64bebe0a6">t_counts</a>    count;</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    map_copy = <a class="code hl_function" href="#a4cac6e90d5fb0fe051764382f864ff03">copy_map</a>(game);</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (!map_copy)</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   63</span>    count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a> = game-&gt;collectibles_count;</div>
+<div class="line"><span class="lineno">   64</span>    count.<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a> = 0;</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_function" href="#afee15b6bbe0b71cceee7501816c3feeb">flood_fill</a>(map_copy, game-&gt;player_x, game-&gt;player_y, &amp;count);</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_function" href="#aaa1d4a33ad086b322bb39d264f8a9a49">free_map</a>(map_copy, game-&gt;map_height);</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">if</span> (count.<a class="code hl_variable" href="structs__counts.html#ac0f2ab5a72883c4d30aebe395cdd2abd">collect</a> &gt; 0)</div>
+<div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        ft_printf(<span class="stringliteral">&quot;Error: Unable to reach all collectibles\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (!count.<a class="code hl_variable" href="structs__counts.html#a64375c414a47e64ab0349e284a5db7d3">exit</a>)</div>
+<div class="line"><span class="lineno">   73</span>    {</div>
+<div class="line"><span class="lineno">   74</span>        ft_printf(<span class="stringliteral">&quot;Error: Unable to reach the exit\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   78</span>}</div>
+<div class="ttc" id="amap__validation_8c_html_a4cac6e90d5fb0fe051764382f864ff03"><div class="ttname"><a href="#a4cac6e90d5fb0fe051764382f864ff03">copy_map</a></div><div class="ttdeci">static char ** copy_map(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="map__validation_8c_source.html#l00032">map_validation.c:32</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="so__long_8h_source.html#l00122">s_counts::collect</a>, <a class="el" href="map__validation_8c_source.html#l00032">copy_map()</a>, <a class="el" href="so__long_8h_source.html#l00121">s_counts::exit</a>, <a class="el" href="map__validation_8c_source.html#l00015">flood_fill()</a>, and <a class="el" href="map__validation_8c_source.html#l00147">free_map()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="map__validation_8c_source.html#l00123">validate_map()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__validation_8c_acacd4bdc1b71dcfde8067d9c32a7ba3e_cgraph.png" border="0" usemap="#amap__validation_8c_acacd4bdc1b71dcfde8067d9c32a7ba3e_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__validation_8c_acacd4bdc1b71dcfde8067d9c32a7ba3e_icgraph.png" border="0" usemap="#amap__validation_8c_acacd4bdc1b71dcfde8067d9c32a7ba3e_icgraph" alt=""/></div>
 </div>
 
 </div>
