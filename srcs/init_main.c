@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:17:27 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:41:36 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:39:50 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,12 +124,12 @@ void	init_game(t_game *game, char *map_path)
 {
 	init_game_vars(game);
 	init_mlx_and_map(game, map_path);
-	init_game_window(game);
 	init_buffer(game);
 	load_assets(game);
 	flip_sprites(game);
 	init_player_position(game);
 	init_collectibles(game);
+	init_game_window(game);
 	mlx_hook(game->win, 2, 1L << 0, key_hook, game);
 	mlx_hook(game->win, 12, 0, expose_hook, game);
 	mlx_loop_hook(game->mlx, animate, game);

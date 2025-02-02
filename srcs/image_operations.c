@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:36:52 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:35:52 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void	*scale_image(void *mlx, void *original, int width, int height)
 
 /**
  * @brief Creates a horizontally flipped copy of an image
- * @param mlx MLX instance pointer
+ * @param game to get MLX instance pointer
  * @param img Source image to flip
  * @return void* Pointer to the new flipped image
  *
@@ -144,26 +144,27 @@ void	*scale_image(void *mlx, void *original, int width, int height)
  * Used for creating left-facing sprites from right-facing ones.
  * Maintains transparency information.
  */
-void	*flip_image_horizontal(void *mlx, void *img)
+void	*flip_image_horizontal(t_game *game, void *img)
 {
-	int		width;
-	int		height;
 	int		params[3];
 	void	*new_img;
 	char	*data[2];
 
-	width = 32;
-	height = 32;
-	new_img = mlx_new_image(mlx, width, height);
+	new_img = mlx_new_image(game->mlx, 32, 32);
 	data[0] = mlx_get_data_addr(new_img, &params[0], &params[1], &params[2]);
 	data[1] = mlx_get_data_addr(img, &params[0], &params[1], &params[2]);
+	if(!data[0] || !data[1])
+	{
+		mlx_destroy_image(game->mlx, new_img);
+		handle_error(game, "Faild to load the image data");
+	}
 	params[0] = -1;
-	while (++params[0] < height)
+	while (++params[0] < 32)
 	{
 		params[2] = -1;
-		while (++params[2] < width)
+		while (++params[2] < 32)
 		{
-			*(unsigned int *)(data[0] + params[0] * params[1] + (width - 1
+			*(unsigned int *)(data[0] + params[0] * params[1] + (32 - 1
 						- params[2]) * 4) = *(unsigned int *)(data[1]
 					+ params[0] * params[1] + params[2] * 4);
 		}
@@ -187,9 +188,9 @@ void	flip_sprites(t_game *game)
 	i = 0;
 	while (i < 6)
 	{
-		game->player_idle_left[i] = flip_image_horizontal(game->mlx,
+		game->player_idle_left[i] = flip_image_horizontal(game,
 				game->player_idle[i]);
-		game->player_run_left[i] = flip_image_horizontal(game->mlx,
+		game->player_run_left[i] = flip_image_horizontal(game,
 				game->player_run[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:32:23 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:32:46 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/02 16:23:33 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void				init_floor_types(t_game *game);
 
 // assets.c
 void				load_assets(t_game *game);
-void				load_sprite_array(void *mlx, void **arr, char *base_path,
+void				load_sprite_array(t_game *game, void **arr, char *base_path,
 						int frames);
 void				*scale_image(void *mlx, void *original, int width,
 						int height);
