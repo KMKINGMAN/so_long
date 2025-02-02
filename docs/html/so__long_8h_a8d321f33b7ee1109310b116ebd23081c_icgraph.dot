@@ -8,5 +8,17 @@ digraph "handle_error"
   rankdir="RL";
   Node1 [id="Node000001",label="handle_error",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627",tooltip=" "];
+  Node2 [id="Node000002",label="flip_image_horizontal",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1",tooltip="Creates a horizontally flipped copy of an image."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="flip_sprites",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4",tooltip="Creates left-facing versions of all player sprites."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="init_game",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$init__main_8c.html#a07af3347aa3856589df3f78056ef1cd1",tooltip="Main game initialization function."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627",tooltip=" "];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="load_sprite_array",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$load_8c.html#a0967602b92a668ec0c45294199ee686c",tooltip="Loads a sequence of sprite frames from files."];
+  Node6 -> Node7 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="load_assets",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$load_8c.html#a3d86fc8628f8566faa7b64a654c72222",tooltip="Loads all game assets from files."];
+  Node7 -> Node4 [id="edge7_Node000007_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node5 [id="edge8_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

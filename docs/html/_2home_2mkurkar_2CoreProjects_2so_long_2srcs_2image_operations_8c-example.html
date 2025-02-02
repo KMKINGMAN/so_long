@@ -132,7 +132,7 @@ $(function(){initNavTree('_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2image_op
 <div class="line"><span class="comment">/*   By: mkurkar &lt;mkurkar@student.42amman.com&gt;      +#+  +:+       +#+        */</span></div>
 <div class="line"><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><span class="comment">/*   Created: 2025/01/25 17:17:37 by mkurkar           #+#    #+#             */</span></div>
-<div class="line"><span class="comment">/*   Updated: 2025/02/01 19:36:52 by mkurkar          ###   ########.fr       */</span></div>
+<div class="line"><span class="comment">/*   Updated: 2025/02/02 16:35:52 by mkurkar          ###   ########.fr       */</span></div>
 <div class="line"><span class="comment">/*                                                                            */</span></div>
 <div class="line"><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><span class="comment"></span> </div>
@@ -261,7 +261,7 @@ $(function(){initNavTree('_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2image_op
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * @brief Creates a horizontally flipped copy of an image</span></div>
-<div class="line"><span class="comment"> * @param mlx MLX instance pointer</span></div>
+<div class="line"><span class="comment"> * @param game to get MLX instance pointer</span></div>
 <div class="line"><span class="comment"> * @param img Source image to flip</span></div>
 <div class="line"><span class="comment"> * @return void* Pointer to the new flipped image</span></div>
 <div class="line"><span class="comment"> *</span></div>
@@ -270,26 +270,27 @@ $(function(){initNavTree('_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2image_op
 <div class="line"><span class="comment"> * Used for creating left-facing sprites from right-facing ones.</span></div>
 <div class="line"><span class="comment"> * Maintains transparency information.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span>    *<a id="a3" name="a3"></a><a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(<span class="keywordtype">void</span> *mlx, <span class="keywordtype">void</span> *img)</div>
+<div class="line"><span class="keywordtype">void</span>    *<a id="a3" name="a3"></a><a class="code hl_function" href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a>(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="structt__game.html">t_game</a> *game, <span class="keywordtype">void</span> *img)</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">int</span>     width;</div>
-<div class="line">    <span class="keywordtype">int</span>     height;</div>
 <div class="line">    <span class="keywordtype">int</span>     params[3];</div>
 <div class="line">    <span class="keywordtype">void</span>    *new_img;</div>
 <div class="line">    <span class="keywordtype">char</span>    *data[2];</div>
 <div class="line"> </div>
-<div class="line">    width = 32;</div>
-<div class="line">    height = 32;</div>
-<div class="line">    new_img = mlx_new_image(mlx, width, height);</div>
+<div class="line">    new_img = mlx_new_image(game-&gt;mlx, 32, 32);</div>
 <div class="line">    data[0] = mlx_get_data_addr(new_img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
 <div class="line">    data[1] = mlx_get_data_addr(img, &amp;params[0], &amp;params[1], &amp;params[2]);</div>
+<div class="line">    <span class="keywordflow">if</span>(!data[0] || !data[1])</div>
+<div class="line">    {</div>
+<div class="line">        mlx_destroy_image(game-&gt;mlx, new_img);</div>
+<div class="line">        <a id="a5" name="a5"></a><a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(game, <span class="stringliteral">&quot;Faild to load the image data&quot;</span>);</div>
+<div class="line">    }</div>
 <div class="line">    params[0] = -1;</div>
-<div class="line">    <span class="keywordflow">while</span> (++params[0] &lt; height)</div>
+<div class="line">    <span class="keywordflow">while</span> (++params[0] &lt; 32)</div>
 <div class="line">    {</div>
 <div class="line">        params[2] = -1;</div>
-<div class="line">        <span class="keywordflow">while</span> (++params[2] &lt; width)</div>
+<div class="line">        <span class="keywordflow">while</span> (++params[2] &lt; 32)</div>
 <div class="line">        {</div>
-<div class="line">            *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[0] + params[0] * params[1] + (width - 1</div>
+<div class="line">            *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[0] + params[0] * params[1] + (32 - 1</div>
 <div class="line">                        - params[2]) * 4) = *(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *)(data[1]</div>
 <div class="line">                    + params[0] * params[1] + params[2] * 4);</div>
 <div class="line">        }</div>
@@ -306,27 +307,28 @@ $(function(){initNavTree('_2home_2mkurkar_2CoreProjects_2so_long_2srcs_2image_op
 <div class="line"><span class="comment"> * for the player character. These are used when the player is</span></div>
 <div class="line"><span class="comment"> * moving or facing left.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span>    <a id="a4" name="a4"></a><a class="code hl_function" href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(<a id="_a5" name="_a5"></a><a class="code hl_struct" href="structt__game.html">t_game</a> *game)</div>
+<div class="line"><span class="keywordtype">void</span>    <a id="a6" name="a6"></a><a class="code hl_function" href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(<a class="code hl_struct" href="structt__game.html">t_game</a> *game)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> i;</div>
 <div class="line"> </div>
 <div class="line">    i = 0;</div>
 <div class="line">    <span class="keywordflow">while</span> (i &lt; 6)</div>
 <div class="line">    {</div>
-<div class="line">        game-&gt;player_idle_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line">        game-&gt;player_idle_left[i] = <a class="code hl_function" href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a>(game,</div>
 <div class="line">                game-&gt;player_idle[i]);</div>
-<div class="line">        game-&gt;player_run_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
+<div class="line">        game-&gt;player_run_left[i] = <a class="code hl_function" href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a>(game,</div>
 <div class="line">                game-&gt;player_run[i]);</div>
 <div class="line">        i++;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aimage__operations_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00147">image_operations.c:147</a></div></div>
-<div class="ttc" id="aimage__operations_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00183">image_operations.c:183</a></div></div>
+<div class="ttc" id="aimage__operations_8c_html_a79204bd220588adcedc715a6544c7bc1"><div class="ttname"><a href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(t_game *game, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00147">image_operations.c:147</a></div></div>
+<div class="ttc" id="aimage__operations_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00184">image_operations.c:184</a></div></div>
 <div class="ttc" id="aimage__operations_8c_html_a905c1b3d5aa8ffd661cc367b83f139fa"><div class="ttname"><a href="image__operations_8c.html#a905c1b3d5aa8ffd661cc367b83f139fa">process_scaling</a></div><div class="ttdeci">static void process_scaling(int *new_data, int *orig_data, int *p, int width)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00055">image_operations.c:55</a></div></div>
 <div class="ttc" id="aimage__operations_8c_html_a9d445bdc504f460b0e12b55a802bbeff"><div class="ttname"><a href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a></div><div class="ttdeci">void * scale_image(void *mlx, void *original, int width, int height)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00107">image_operations.c:107</a></div></div>
 <div class="ttc" id="aimage__operations_8c_html_ad0ff2a985bd862c59d908a3e41d43287"><div class="ttname"><a href="image__operations_8c.html#ad0ff2a985bd862c59d908a3e41d43287">create_scaled_image</a></div><div class="ttdeci">static void * create_scaled_image(void *mlx, int n_size)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00020">image_operations.c:20</a></div></div>
 <div class="ttc" id="aso__long_8h_html"><div class="ttname"><a href="so__long_8h.html">so_long.h</a></div><div class="ttdoc">Main header file for the so_long game.</div></div>
 <div class="ttc" id="astructt__game_html"><div class="ttname"><a href="structt__game.html">t_game</a></div><div class="ttdoc">Main game structure containing all game state and resources.</div></div>
+<div class="ttc" id="autils_8c_html_a8d321f33b7ee1109310b116ebd23081c"><div class="ttname"><a href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a></div><div class="ttdeci">void handle_error(t_game *game, const char *message)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00091">utils.c:91</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

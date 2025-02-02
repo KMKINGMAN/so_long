@@ -16,6 +16,6 @@ digraph "scale_image"
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627",tooltip=" "];
   Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="load_sprite_array",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$load_8c.html#a58894d992cdd0000d43051e417a0fe3c",tooltip="Loads a sequence of sprite frames from files."];
+  Node6 [id="Node000006",label="load_sprite_array",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$load_8c.html#a0967602b92a668ec0c45294199ee686c",tooltip="Loads a sequence of sprite frames from files."];
   Node6 -> Node3 [id="edge6_Node000006_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

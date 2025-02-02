@@ -219,9 +219,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3d86fc8628f8566faa7b64a654c72222" id="r_a3d86fc8628f8566faa7b64a654c72222"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d86fc8628f8566faa7b64a654c72222">load_assets</a> (<a class="el" href="structt__game.html">t_game</a> *game)</td></tr>
 <tr class="memdesc:a3d86fc8628f8566faa7b64a654c72222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all game assets from files.  <br /></td></tr>
 <tr class="separator:a3d86fc8628f8566faa7b64a654c72222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58894d992cdd0000d43051e417a0fe3c" id="r_a58894d992cdd0000d43051e417a0fe3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a> (void *mlx, void **arr, char *base_path, int frames)</td></tr>
-<tr class="memdesc:a58894d992cdd0000d43051e417a0fe3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a sequence of sprite frames from files.  <br /></td></tr>
-<tr class="separator:a58894d992cdd0000d43051e417a0fe3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0967602b92a668ec0c45294199ee686c" id="r_a0967602b92a668ec0c45294199ee686c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a> (<a class="el" href="structt__game.html">t_game</a> *game, void **arr, char *base_path, int frames)</td></tr>
+<tr class="memdesc:a0967602b92a668ec0c45294199ee686c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a sequence of sprite frames from files.  <br /></td></tr>
+<tr class="separator:a0967602b92a668ec0c45294199ee686c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e77f7fc1b09df20db5400adc4d8595" id="r_ae2e77f7fc1b09df20db5400adc4d8595"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2e77f7fc1b09df20db5400adc4d8595">move_player</a> (<a class="el" href="structt__game.html">t_game</a> *game, int dx, int dy)</td></tr>
 <tr class="memdesc:ae2e77f7fc1b09df20db5400adc4d8595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles player movement and collision.  <br /></td></tr>
 <tr class="separator:ae2e77f7fc1b09df20db5400adc4d8595"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -763,21 +763,21 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Creates mirrored versions of both idle and running animations for the player character. These are used when the player is moving or facing left. </p>
 
-<p class="definition">Definition at line <a class="el" href="image__operations_8c_source.html#l00183">183</a> of file <a class="el" href="image__operations_8c_source.html">image_operations.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  184</span>{</div>
-<div class="line"><span class="lineno">  185</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  186</span> </div>
-<div class="line"><span class="lineno">  187</span>    i = 0;</div>
-<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
-<div class="line"><span class="lineno">  189</span>    {</div>
-<div class="line"><span class="lineno">  190</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  191</span>                game-&gt;player_idle[i]);</div>
-<div class="line"><span class="lineno">  192</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a>(game-&gt;mlx,</div>
-<div class="line"><span class="lineno">  193</span>                game-&gt;player_run[i]);</div>
-<div class="line"><span class="lineno">  194</span>        i++;</div>
-<div class="line"><span class="lineno">  195</span>    }</div>
-<div class="line"><span class="lineno">  196</span>}</div>
-<div class="ttc" id="aimage__operations_8c_html_a09fb6afe0fda05a92973184866b1a611"><div class="ttname"><a href="image__operations_8c.html#a09fb6afe0fda05a92973184866b1a611">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(void *mlx, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00147">image_operations.c:147</a></div></div>
+<p class="definition">Definition at line <a class="el" href="image__operations_8c_source.html#l00184">184</a> of file <a class="el" href="image__operations_8c_source.html">image_operations.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  185</span>{</div>
+<div class="line"><span class="lineno">  186</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  187</span> </div>
+<div class="line"><span class="lineno">  188</span>    i = 0;</div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">while</span> (i &lt; 6)</div>
+<div class="line"><span class="lineno">  190</span>    {</div>
+<div class="line"><span class="lineno">  191</span>        game-&gt;player_idle_left[i] = <a class="code hl_function" href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a>(game,</div>
+<div class="line"><span class="lineno">  192</span>                game-&gt;player_idle[i]);</div>
+<div class="line"><span class="lineno">  193</span>        game-&gt;player_run_left[i] = <a class="code hl_function" href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a>(game,</div>
+<div class="line"><span class="lineno">  194</span>                game-&gt;player_run[i]);</div>
+<div class="line"><span class="lineno">  195</span>        i++;</div>
+<div class="line"><span class="lineno">  196</span>    }</div>
+<div class="line"><span class="lineno">  197</span>}</div>
+<div class="ttc" id="aimage__operations_8c_html_a79204bd220588adcedc715a6544c7bc1"><div class="ttname"><a href="image__operations_8c.html#a79204bd220588adcedc715a6544c7bc1">flip_image_horizontal</a></div><div class="ttdeci">void * flip_image_horizontal(t_game *game, void *img)</div><div class="ttdoc">Creates a horizontally flipped copy of an image.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00147">image_operations.c:147</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="image__operations_8c_source.html#l00147">flip_image_horizontal()</a>.</p>
 
@@ -963,7 +963,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="utils_8c_source.html#l00073">cleanup_game()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="image__operations_8c_source.html#l00147">flip_image_horizontal()</a>, <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>, and <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1131,7 +1131,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   43</span>    }</div>
 <div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00082">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1181,29 +1181,29 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">  124</span>{</div>
 <div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="init__main_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a>(game);</div>
 <div class="line"><span class="lineno">  126</span>    <a class="code hl_function" href="init__main_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a>(game, map_path);</div>
-<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="init__main_8c.html#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a>(game);</div>
-<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
-<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
-<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
-<div class="line"><span class="lineno">  131</span>    <a class="code hl_function" href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
-<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a>(game);</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a>(game);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a>(game);</div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a>(game);</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_function" href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a>(game);</div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="init__main_8c.html#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a>(game);</div>
 <div class="line"><span class="lineno">  133</span>    mlx_hook(game-&gt;win, 2, 1L &lt;&lt; 0, <a class="code hl_function" href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a>, game);</div>
 <div class="line"><span class="lineno">  134</span>    mlx_hook(game-&gt;win, 12, 0, <a class="code hl_function" href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a>, game);</div>
 <div class="line"><span class="lineno">  135</span>    mlx_loop_hook(game-&gt;mlx, <a class="code hl_function" href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a>, game);</div>
 <div class="line"><span class="lineno">  136</span>}</div>
-<div class="ttc" id="aimage__operations_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00183">image_operations.c:183</a></div></div>
+<div class="ttc" id="aimage__operations_8c_html_a8cf28a6c73d94e73ab26233c3175bea4"><div class="ttname"><a href="image__operations_8c.html#a8cf28a6c73d94e73ab26233c3175bea4">flip_sprites</a></div><div class="ttdeci">void flip_sprites(t_game *game)</div><div class="ttdoc">Creates left-facing versions of all player sprites.</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00184">image_operations.c:184</a></div></div>
 <div class="ttc" id="ainit_8c_html_ad060f77fadab05b39ee1b4e4a3677ef9"><div class="ttname"><a href="init_8c.html#ad060f77fadab05b39ee1b4e4a3677ef9">init_collectibles</a></div><div class="ttdeci">void init_collectibles(t_game *game)</div><div class="ttdoc">Initializes collectible items and exit.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00086">init.c:86</a></div></div>
 <div class="ttc" id="ainit_8c_html_adfdb37c7089768a2590ff97818f5d41d"><div class="ttname"><a href="init_8c.html#adfdb37c7089768a2590ff97818f5d41d">init_player_position</a></div><div class="ttdeci">void init_player_position(t_game *game)</div><div class="ttdoc">Locates and sets the player&#39;s starting position.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00054">init.c:54</a></div></div>
 <div class="ttc" id="ainit__main_8c_html_a144dd69d560b7542ee30156c40f03bfa"><div class="ttname"><a href="init__main_8c.html#a144dd69d560b7542ee30156c40f03bfa">init_mlx_and_map</a></div><div class="ttdeci">static void init_mlx_and_map(t_game *game, char *map_path)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00089">init_main.c:89</a></div></div>
 <div class="ttc" id="ainit__main_8c_html_a2b5f5ea698ac0b148d9327d0290dc115"><div class="ttname"><a href="init__main_8c.html#a2b5f5ea698ac0b148d9327d0290dc115">init_game_window</a></div><div class="ttdeci">void init_game_window(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00052">init_main.c:52</a></div></div>
 <div class="ttc" id="ainit__main_8c_html_af1850989b7637f891d0fbc5f27ae9b22"><div class="ttname"><a href="init__main_8c.html#af1850989b7637f891d0fbc5f27ae9b22">init_game_vars</a></div><div class="ttdeci">static void init_game_vars(t_game *game)</div><div class="ttdef"><b>Definition</b> <a href="init__main_8c_source.html#l00015">init_main.c:15</a></div></div>
-<div class="ttc" id="aload_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00088">load.c:88</a></div></div>
+<div class="ttc" id="aload_8c_html_a3d86fc8628f8566faa7b64a654c72222"><div class="ttname"><a href="load_8c.html#a3d86fc8628f8566faa7b64a654c72222">load_assets</a></div><div class="ttdeci">void load_assets(t_game *game)</div><div class="ttdoc">Loads all game assets from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00082">load.c:82</a></div></div>
 <div class="ttc" id="aplayer_8c_html_a57186e90338fdf78b81242e92e563823"><div class="ttname"><a href="player_8c.html#a57186e90338fdf78b81242e92e563823">key_hook</a></div><div class="ttdeci">int key_hook(int keycode, t_game *game)</div><div class="ttdoc">Handles keyboard input events.</div><div class="ttdef"><b>Definition</b> <a href="player_8c_source.html#l00102">player.c:102</a></div></div>
 <div class="ttc" id="arender_8c_html_a253c61fb2aec7f0382a023ae4a8e116b"><div class="ttname"><a href="render_8c.html#a253c61fb2aec7f0382a023ae4a8e116b">init_buffer</a></div><div class="ttdeci">void init_buffer(t_game *game)</div><div class="ttdoc">Initializes the rendering buffer.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00077">render.c:77</a></div></div>
 <div class="ttc" id="arender_8c_html_a8b41ee619faf9a9da9790a60cfbb3ce0"><div class="ttname"><a href="render_8c.html#a8b41ee619faf9a9da9790a60cfbb3ce0">animate</a></div><div class="ttdeci">int animate(t_game *game)</div><div class="ttdoc">Handles game animation frames and state updates.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00100">render.c:100</a></div></div>
 <div class="ttc" id="arender_8c_html_aa493c139c258ad4352b0c57df45ceb92"><div class="ttname"><a href="render_8c.html#aa493c139c258ad4352b0c57df45ceb92">expose_hook</a></div><div class="ttdeci">int expose_hook(t_game *game)</div><div class="ttdoc">Handles window expose events.</div><div class="ttdef"><b>Definition</b> <a href="render_8c_source.html#l00136">render.c:136</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00136">expose_hook()</a>, <a class="el" href="image__operations_8c_source.html#l00183">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00077">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00086">init_collectibles()</a>, <a class="el" href="init__main_8c_source.html#l00015">init_game_vars()</a>, <a class="el" href="init__main_8c_source.html#l00052">init_game_window()</a>, <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00054">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00102">key_hook()</a>, and <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
+<p class="reference">References <a class="el" href="render_8c_source.html#l00100">animate()</a>, <a class="el" href="render_8c_source.html#l00136">expose_hook()</a>, <a class="el" href="image__operations_8c_source.html#l00184">flip_sprites()</a>, <a class="el" href="render_8c_source.html#l00077">init_buffer()</a>, <a class="el" href="init_8c_source.html#l00086">init_collectibles()</a>, <a class="el" href="init__main_8c_source.html#l00015">init_game_vars()</a>, <a class="el" href="init__main_8c_source.html#l00052">init_game_window()</a>, <a class="el" href="init__main_8c_source.html#l00089">init_mlx_and_map()</a>, <a class="el" href="init_8c_source.html#l00054">init_player_position()</a>, <a class="el" href="player_8c_source.html#l00102">key_hook()</a>, and <a class="el" href="load_8c_source.html#l00082">load_assets()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00027">main()</a>.</p>
 <div class="dynheader">
@@ -1423,28 +1423,28 @@ Here is the caller graph for this function:</div>
 <li>Exit texture All textures are scaled to match tile_size (32x32) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="load_8c_source.html#l00088">88</a> of file <a class="el" href="load_8c_source.html">load.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
-<div class="line"><span class="lineno">   90</span>    game-&gt;tile_size = 32;</div>
-<div class="line"><span class="lineno">   91</span>    game-&gt;img_width = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">   92</span>    game-&gt;img_height = game-&gt;tile_size;</div>
-<div class="line"><span class="lineno">   93</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
-<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_idle, <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>,</div>
-<div class="line"><span class="lineno">   96</span>        6);</div>
-<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;player_run, <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>,</div>
-<div class="line"><span class="lineno">   98</span>        6);</div>
-<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a>(game-&gt;mlx, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
-<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  101</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
-<div class="line"><span class="lineno">  102</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
-<div class="line"><span class="lineno">  103</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  104</span>}</div>
+<p class="definition">Definition at line <a class="el" href="load_8c_source.html#l00082">82</a> of file <a class="el" href="load_8c_source.html">load.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
+<div class="line"><span class="lineno">   84</span>    game-&gt;tile_size = 32;</div>
+<div class="line"><span class="lineno">   85</span>    game-&gt;img_width = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   86</span>    game-&gt;img_height = game-&gt;tile_size;</div>
+<div class="line"><span class="lineno">   87</span>    ft_printf(<span class="stringliteral">&quot;Loading assets...\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>    <a class="code hl_function" href="load_8c.html#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a>(game, game-&gt;floor, <span class="stringliteral">&quot;./final_assets/floor&quot;</span>, 10);</div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="load_8c.html#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a>(game, game-&gt;player_idle, <span class="stringliteral">&quot;./final_assets/idle_knigh&quot;</span>,</div>
+<div class="line"><span class="lineno">   90</span>        6);</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_function" href="load_8c.html#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a>(game, game-&gt;player_run, <span class="stringliteral">&quot;./final_assets/run_knight&quot;</span>,</div>
+<div class="line"><span class="lineno">   92</span>        6);</div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_function" href="load_8c.html#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a>(game, game-&gt;collect, <span class="stringliteral">&quot;./final_assets/chest&quot;</span>, 8);</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;wall, <span class="stringliteral">&quot;./final_assets/wall/f1.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a>(game, &amp;game-&gt;exit, <span class="stringliteral">&quot;./final_assets/exit.xpm&quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>    <a class="code hl_function" href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a>(game);</div>
+<div class="line"><span class="lineno">   97</span>    ft_printf(<span class="stringliteral">&quot;All assets loaded successfully!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>}</div>
 <div class="ttc" id="ainit_8c_html_a2b7c4d2399f29ac12a27feb1ddf2b130"><div class="ttname"><a href="init_8c.html#a2b7c4d2399f29ac12a27feb1ddf2b130">init_floor_types</a></div><div class="ttdeci">void init_floor_types(t_game *game)</div><div class="ttdoc">Initializes random floor tile variations.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00024">init.c:24</a></div></div>
-<div class="ttc" id="aload_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00055">load.c:55</a></div></div>
-<div class="ttc" id="aload_8c_html_a58894d992cdd0000d43051e417a0fe3c"><div class="ttname"><a href="load_8c.html#a58894d992cdd0000d43051e417a0fe3c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(void *mlx, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00026">load.c:26</a></div></div>
+<div class="ttc" id="aload_8c_html_a0967602b92a668ec0c45294199ee686c"><div class="ttname"><a href="load_8c.html#a0967602b92a668ec0c45294199ee686c">load_sprite_array</a></div><div class="ttdeci">void load_sprite_array(t_game *game, void **arr, char *base_path, int frames)</div><div class="ttdoc">Loads a sequence of sprite frames from files.</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00026">load.c:26</a></div></div>
+<div class="ttc" id="aload_8c_html_a3fa9816506162fcc96a9de1904c6e1de"><div class="ttname"><a href="load_8c.html#a3fa9816506162fcc96a9de1904c6e1de">load_single_texture</a></div><div class="ttdeci">static void load_single_texture(t_game *game, void **dest, char *path)</div><div class="ttdef"><b>Definition</b> <a href="load_8c_source.html#l00049">load.c:49</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="load_8c_source.html#l00055">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
+<p class="reference">References <a class="el" href="init_8c_source.html#l00024">init_floor_types()</a>, <a class="el" href="load_8c_source.html#l00049">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="init__main_8c_source.html#l00123">init_game()</a>.</p>
 <div class="dynheader">
@@ -1460,8 +1460,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a58894d992cdd0000d43051e417a0fe3c" name="a58894d992cdd0000d43051e417a0fe3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58894d992cdd0000d43051e417a0fe3c">&#9670;&#160;</a></span>load_sprite_array()</h2>
+<a id="a0967602b92a668ec0c45294199ee686c" name="a0967602b92a668ec0c45294199ee686c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0967602b92a668ec0c45294199ee686c">&#9670;&#160;</a></span>load_sprite_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1469,7 +1469,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void load_sprite_array </td>
           <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>mlx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structt__game.html">t_game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1513,37 +1513,32 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   35</span>    <span class="keywordflow">while</span> (i &lt; frames)</div>
 <div class="line"><span class="lineno">   36</span>    {</div>
 <div class="line"><span class="lineno">   37</span>        <a class="code hl_function" href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a>(path, <span class="keyword">sizeof</span>(path), <span class="stringliteral">&quot;%s/f%d.xpm&quot;</span>, base_path, i);</div>
-<div class="line"><span class="lineno">   38</span>        orig_img = mlx_xpm_file_to_image(mlx, path, &amp;params[0], &amp;params[1]);</div>
+<div class="line"><span class="lineno">   38</span>        orig_img = mlx_xpm_file_to_image(game-&gt;mlx, path, &amp;params[0], &amp;params[1]);</div>
 <div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span> (!orig_img)</div>
-<div class="line"><span class="lineno">   40</span>        {</div>
-<div class="line"><span class="lineno">   41</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to load %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">   42</span>            exit(1);</div>
-<div class="line"><span class="lineno">   43</span>        }</div>
-<div class="line"><span class="lineno">   44</span>        scaled_img = <a class="code hl_function" href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a>(mlx, orig_img, params[0], params[1]);</div>
-<div class="line"><span class="lineno">   45</span>        mlx_destroy_image(mlx, orig_img);</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
-<div class="line"><span class="lineno">   47</span>        {</div>
-<div class="line"><span class="lineno">   48</span>            ft_printf(<span class="stringliteral">&quot;Error: Failed to scale image %s\n&quot;</span>, path);</div>
-<div class="line"><span class="lineno">   49</span>            exit(1);</div>
-<div class="line"><span class="lineno">   50</span>        }</div>
-<div class="line"><span class="lineno">   51</span>        arr[i++] = scaled_img;</div>
-<div class="line"><span class="lineno">   52</span>    }</div>
-<div class="line"><span class="lineno">   53</span>}</div>
+<div class="line"><span class="lineno">   40</span>            <a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(game, <span class="stringliteral">&quot;Failed to load sprite&quot;</span>);</div>
+<div class="line"><span class="lineno">   41</span>        scaled_img = <a class="code hl_function" href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a>(game-&gt;mlx, orig_img, params[0], params[1]);</div>
+<div class="line"><span class="lineno">   42</span>        mlx_destroy_image(game-&gt;mlx, orig_img);</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">if</span> (!scaled_img)</div>
+<div class="line"><span class="lineno">   44</span>            <a class="code hl_function" href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a>(game, <span class="stringliteral">&quot;Failed to scale image&quot;</span>);</div>
+<div class="line"><span class="lineno">   45</span>        arr[i++] = scaled_img;</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span>}</div>
 <div class="ttc" id="aft__snprintf_8c_html_a68db9cc02f54dad4f0b1e09874383ff1"><div class="ttname"><a href="ft__snprintf_8c.html#a68db9cc02f54dad4f0b1e09874383ff1">ft_snprintf</a></div><div class="ttdeci">int ft_snprintf(char *str, size_t size, const char *format,...)</div><div class="ttdoc">Custom implementation of snprintf for integer and string conversion.</div><div class="ttdef"><b>Definition</b> <a href="ft__snprintf_8c_source.html#l00058">ft_snprintf.c:58</a></div></div>
 <div class="ttc" id="aimage__operations_8c_html_a9d445bdc504f460b0e12b55a802bbeff"><div class="ttname"><a href="image__operations_8c.html#a9d445bdc504f460b0e12b55a802bbeff">scale_image</a></div><div class="ttdeci">void * scale_image(void *mlx, void *original, int width, int height)</div><div class="ttdef"><b>Definition</b> <a href="image__operations_8c_source.html#l00107">image_operations.c:107</a></div></div>
+<div class="ttc" id="autils_8c_html_a8d321f33b7ee1109310b116ebd23081c"><div class="ttname"><a href="utils_8c.html#a8d321f33b7ee1109310b116ebd23081c">handle_error</a></div><div class="ttdeci">void handle_error(t_game *game, const char *message)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00091">utils.c:91</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00058">ft_snprintf()</a>, and <a class="el" href="image__operations_8c_source.html#l00107">scale_image()</a>.</p>
+<p class="reference">References <a class="el" href="ft__snprintf_8c_source.html#l00058">ft_snprintf()</a>, <a class="el" href="utils_8c_source.html#l00091">handle_error()</a>, and <a class="el" href="image__operations_8c_source.html#l00107">scale_image()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00088">load_assets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00082">load_assets()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="so__long_8h_a58894d992cdd0000d43051e417a0fe3c_cgraph.png" border="0" usemap="#aso__long_8h_a58894d992cdd0000d43051e417a0fe3c_cgraph" alt=""/></div>
+<div class="center"><img src="so__long_8h_a0967602b92a668ec0c45294199ee686c_cgraph.png" border="0" usemap="#aso__long_8h_a0967602b92a668ec0c45294199ee686c_cgraph" alt=""/></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="so__long_8h_a58894d992cdd0000d43051e417a0fe3c_icgraph.png" border="0" usemap="#aso__long_8h_a58894d992cdd0000d43051e417a0fe3c_icgraph" alt=""/></div>
+<div class="center"><img src="so__long_8h_a0967602b92a668ec0c45294199ee686c_icgraph.png" border="0" usemap="#aso__long_8h_a0967602b92a668ec0c45294199ee686c_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -1891,7 +1886,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="image__operations_8c_source.html#l00020">create_scaled_image()</a>, and <a class="el" href="image__operations_8c_source.html#l00055">process_scaling()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00055">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="load_8c_source.html#l00049">load_single_texture()</a>, and <a class="el" href="load_8c_source.html#l00026">load_sprite_array()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

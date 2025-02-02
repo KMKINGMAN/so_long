@@ -30,7 +30,7 @@ var so__long_8h =
     [ "init_player_position", "so__long_8h.html#adfdb37c7089768a2590ff97818f5d41d", null ],
     [ "key_hook", "so__long_8h.html#a57186e90338fdf78b81242e92e563823", null ],
     [ "load_assets", "so__long_8h.html#a3d86fc8628f8566faa7b64a654c72222", null ],
-    [ "load_sprite_array", "so__long_8h.html#a58894d992cdd0000d43051e417a0fe3c", null ],
+    [ "load_sprite_array", "so__long_8h.html#a0967602b92a668ec0c45294199ee686c", null ],
     [ "move_player", "so__long_8h.html#ae2e77f7fc1b09df20db5400adc4d8595", null ],
     [ "put_img_to_img", "so__long_8h.html#aad3ee8259cd6724ed31aa0c125c4121c", null ],
     [ "read_map", "so__long_8h.html#a727a57ebf42f450212350523d48cc841", null ],
