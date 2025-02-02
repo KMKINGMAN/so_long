@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:09:38 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/02 16:27:52 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/02 19:40:19 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	load_sprite_array(t_game *game, void **arr, char *base_path, int frames)
 	while (i < frames)
 	{
 		ft_snprintf(path, sizeof(path), "%s/f%d.xpm", base_path, i);
-		orig_img = mlx_xpm_file_to_image(game->mlx, path, &params[0], &params[1]);
+		orig_img = mlx_xpm_file_to_image(game->mlx, path, &params[0] \
+					, &params[1]);
 		if (!orig_img)
 			handle_error(game, "Failed to load sprite");
 		scaled_img = scale_image(game->mlx, orig_img, params[0], params[1]);

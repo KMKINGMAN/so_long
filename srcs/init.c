@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:24:51 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/01 19:20:08 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/02 19:02:59 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,20 @@ void	init_floor_types(t_game *game)
 	int	j;
 
 	i = 0;
-	game->floor_types = (unsigned char **)malloc(sizeof(unsigned char *)
-			* game->map_height);
+	game->floor_types = malloc(sizeof(unsigned char *) * game->map_height);
+	if (!game->floor_types)
+		handle_error(game, "Memory allocation failed");
 	while (i < game->map_height)
 	{
 		j = 0;
-		game->floor_types[i] = (unsigned char *)malloc(sizeof(unsigned char)
-				* game->map_width);
+		game->floor_types[i] = malloc(sizeof(unsigned char) * game->map_width);
+		if (!game->floor_types[i])
+		{
+			while (--i >= 0)
+				free(game->floor_types[i]);
+			free(game->floor_types);
+			handle_error(game, "Memory allocation failed");
+		}
 		while (j < game->map_width)
 		{
 			game->floor_types[i][j] = (unsigned char)(rand() % 10);
