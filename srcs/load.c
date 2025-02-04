@@ -6,7 +6,7 @@
 /*   By: mkurkar <mkurkar@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:09:38 by mkurkar           #+#    #+#             */
-/*   Updated: 2025/02/04 17:42:37 by mkurkar          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:49:23 by mkurkar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ static void	load_single_texture(t_game *game, void **dest, char *path)
 	mlx_destroy_image(game->mlx, orig_img);
 	if (!*dest)
 	{
-		ft_snprintf(data, sizeof(data), "Failed to scale the texture: %s", path);
+		ft_snprintf(data, sizeof(data), \
+			"Failed to scale the texture: %s", path);
 		handle_error(game, data);
 	}
 }
